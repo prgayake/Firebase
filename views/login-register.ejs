@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Or Register</title>
+    <link rel="stylesheet" href="/style.css">
+         <link rel="preconnect" href="https://fonts.gstatic.com">
+         
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+ 
+   <section>
+    <div class="imgbox">
+      <img src="images/background4.jpg" alt="">
+    </div>
+
+    <div class="contentbox">
+      <div class="logo">
+        <img src="images/logo.jpg" alt="">
+      </div>
+      <div class="formbox">
+        <p>
+          <h2 class="headline-login"><a class="clk-login" href="#">Login</a></h2>
+        </p>
+
+        <form action="" method="POST">
+
+          <div class="inputbox">
+            <span>Email</span>
+            <input type="email" name="user_email" id="_email" class="form-control"  rnodeequired>
+          </div>
+
+          <div class="inputbox">
+            <span>Password</span>
+            <input type="password" name="user_pass" id="_pass" class="form-control" placeholder="Password" required>
+          </div>
+
+          <div class="remember">
+            <label for=""><input type="checkbox" name="" value="">Remember me</label>
+          </div>
+
+          <div class="inputbox">
+            <input type="submit" name="" value="Sign in">
+          </div>
+          <% if (locals.login_errors) { 
+            login_errors.forEach(function(error_msg){ %>
+            <div style="
+            
+            background: #f44336; 
+            color: white;
+          " role="alert"><%= error_msg %></div>
+          <% });
+          } %>
+          <div class="inputbox">
+            <p class="p1">Don't have an account?</p><a href="/register">Sign up</a>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  
+    
+</section>
+
+
+</body>
+</html>
