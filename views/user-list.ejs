@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <!-- BOOTSTRAP CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container p-5">
+        <div class="card">
+            <div class="card-body">
+                
+                    <br><br>
+                    <h2>Display Data using Node.js & MySQL</h2>
+                        <table border="1">
+                            <tr>
+                                <th>S.N</th>
+                                <th>Email</th>
+                                <th>Name of Start up</th>
+                                <th>state</th>
+                                <th>district</th>
+                                <th>city</th>
+
+
+                                
+                            </tr>
+                            
+                            <%
+
+                            var i=1;
+                            result1.forEach(function(result1){
+                            %>
+                            <tr>
+                                <td><%=i; %></td>
+                                <td><%=result1.email %></td>
+                                <td><%=result1.stratup_name %></td>
+                                <td><%=result1.state %></td>
+                                <td><%=result1.district %></td>
+                                <td><%=result1.city %></td>
+
+
+
+                               
+                            </tr>
+                            <%  i++; }) %>
+
+                                
+   
+                        </table>
+                        </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

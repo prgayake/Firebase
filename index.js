@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require("body-parser");
 const mysql =require('mysql');
 const path = require('path');
 const cookieParser =require('cookie-parser');
@@ -7,12 +8,22 @@ const bcrypt = require('bcryptjs');
 const dbConnection = require('./database');
 const { body, validationResult } = require('express-validator');
 
-const app = express();
-app.use(express.urlencoded({extended:false}));
 
+
+
+
+const app = express();
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
+
+
+
+//setting Public directory
 
 const publicDirectory = path.join(__dirname,'./public');
 app.use(express.static(publicDirectory));
+
+
 // SET OUR VIEWS AND VIEW ENGINE
 
 
@@ -32,10 +43,12 @@ app.use(cookieSession({
     maxAge:  3600 * 1000 // 1hr
 }));
 
+
+
 // DECLARING CUSTOM MIDDLEWARE
 const ifNotLoggedin = (req, res, next) => {
     if(!req.session.isLoggedIn){
-        return res.render('login-register');
+        return res.render('index');
     }
     
     next();
@@ -51,10 +64,11 @@ const ifLoggedin = (req,res,next) => {
 
 // ROOT PAGE
 app.get('/', ifNotLoggedin, (req,res,next) => {
-    dbConnection.execute("SELECT `name` FROM `users` WHERE `id`=?",[req.session.userID])
+    dbConnection.execute("SELECT `name` ,email FROM `users` WHERE `id`=?",[req.session.userID])
     .then(([rows]) => {
         res.render('home',{
-            name:rows[0].name
+            name:rows[0].name,
+            email:rows[0].email
         });
         
     });
@@ -115,8 +129,13 @@ app.post('/register', ifLoggedin,
     }
 });// END OF REGISTER PAGE
 
+
+
+
+
+
 // LOGIN PAGE
-app.post('/', ifLoggedin, [
+app.post('/login-register', ifLoggedin, [
     body('user_email').custom((value) => {
         return dbConnection.execute('SELECT `email` FROM `users` WHERE `email`=?', [value])
         .then(([rows]) => {
@@ -180,20 +199,62 @@ const db = mysql.createConnection({
 
 });
 
+
+
 app.post('/startup', function(req, res) {
     console.log('req.body');
     console.log(req.body);
-    const {user_name,stname,stdetail,people} = req.body;
-    
-    db.query('INSERT INTO startup SET ?',{name: user_name,sname:  stname,sdetail:stdetail,people:people },function(err, result)      
+     const {stratup_name,product_name,startup_web,fr_date,flexRadioDefault,comp_address,state,district,city,businesss_model,firm_type,startup_sector,
+        technology,startup_desc,other,team_size,awards,hear_about_us,flexRadioDefault1,acc_name,acc_no,bank_name,IFSC,branch} = req.body;
+
+      dbConnection.execute("SELECT email FROM `users` WHERE `id`=?",[req.session.userID])
+    .then(([rows]) => {
+        global.fetched_email;
+            fetched_email =rows[0].email
+           // console.log(fetched_email);
+        
+
+     
+    db.query('INSERT INTO personal SET ?', { email:fetched_email, stratup_name:stratup_name,product_name:product_name,startup_web:startup_web,fr_date:fr_date,flexRadioDefault:flexRadioDefault,comp_address:comp_address,state,district:state,district,city:city,businesss_model:businesss_model,firm_type:firm_type,startup_sector:startup_sector,
+        technology:technology,startup_desc:startup_desc,other:other,team_size:team_size,awards:awards,hear_about_us:hear_about_us,flexRadioDefault1:flexRadioDefault1,acc_name:acc_name,acc_no:acc_no,bank_name:bank_name,IFSC:IFSC,branch:branch},function(err, result)      
     {                                                         
   if (err)
 
      throw err;
-});
+    });
    
     });
 
+
+}); 
+
+
+
+
+app.post('/team', function(request,response) {
+    console.log('req.body');
+    console.log(request.body);
+     const {name,Designation,rw_experience,Qualification,found_name,found_designation,found_contact,found_email,found_linkedin} = request.body;
+
+    dbConnection.execute("SELECT email FROM `users` WHERE `id`=?",[request.session.userID])
+    .then(([rows]) => {
+        global.fetched_email;
+            fetched_email =rows[0].email
+           // console.log(fetched_email);
+        
+
+     
+    db.query('INSERT INTO team SET ?', {email :fetched_email,name:name,Designation:Designation,rw_experience:rw_experience,Qualification:Qualification,found_name:found_name,found_designation:found_designation,found_contact:found_contact,found_email:found_email,found_linkedin:found_linkedin},function(err, result)      
+    {                                                         
+  if (err)
+
+     throw err;
+    });
+   
+    });
+
+
+}); 
 
 
 
@@ -212,12 +273,10 @@ app.get('/logout',(req,res)=>{
 });
 
 // END OF LOGOUT
-
-
 app.use('/', (req,res) => {
     res.status(404).send('<h1>404 Page Not Found!</h1>');
 });
 
-app.listen(3020, () => console.log("Server is Running..."));
 
-//Pradyumna Gayake Has Done commit
+
+app.listen(3021, () => console.log("Server is Running..."));
