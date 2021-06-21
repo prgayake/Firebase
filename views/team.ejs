@@ -20,8 +20,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
   <style>
     fieldset {
       border: solid 1px #000;
@@ -79,7 +79,6 @@
     }
 
     #l2 {
-
       font-size: 1.3rem;
       color: #487905;
     }
@@ -93,11 +92,9 @@
       width: 50%;
       position: relative;
       left: 550px;
-
     }
 
     #l4 {
-
       margin-bottom: 20px;
       box-shadow: 5px 10px 8px 10px #888888;
       border-radius: 8px;
@@ -107,15 +104,11 @@
     }
 
     #l8 {
-
       margin-top: 20px;
       margin-bottom: 20px;
       box-shadow: 5px 10px 8px 10px #888888;
       border-radius: 8px;
       padding: 20px;
-
-
-
     }
 
     .footer-clean {
@@ -156,6 +149,12 @@
     .footer-clean .item.social {
       text-align: right;
     }
+    
+    #a2 {
+      width: 30px;
+      height: 30px;
+      margin: 5px;
+    }
 
     @media (max-width:767px) {
       .footer-clean .item {
@@ -163,6 +162,13 @@
         padding-bottom: 20px;
       }
     }
+    .info{
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color:red;
+      font-size:0.9rem;
+    }
+
 
     @media (max-width: 768px) {
       .footer-clean .item.social {
@@ -208,7 +214,6 @@
       opacity: 0.6;
     }
 
-
     .responsive {
       max-width: 100%;
       height: auto;
@@ -219,21 +224,24 @@
       font-family: Arial
     }
 
-
     #l6 {
       display: block;
       margin-left: auto;
       margin-right: auto;
-
     }
 
     #l7 {
       position: relative;
       bottom: 180px;
-
       border-radius: 5px;
       ;
     }
+    
+    #a1 {
+      width: 15px;
+      height: 15px;
+    }
+
 
     #c1 {
       border: 2px solid black;
@@ -267,12 +275,9 @@
       ;
       margin-bottom: 1rem;
       border-radius: 8px;
-
     }
 
-
     .nav-item {
-
       padding: 0 18px;
     }
 
@@ -282,12 +287,10 @@
     }
 
     .nav-link:hover {
-
       border-bottom: 4px solid #ff4584;
     }
 
     .nav-link:active {
-
       border-bottom: 4px solid #ff4584;
     }
 
@@ -310,7 +313,7 @@
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href=""><img src="logo.jpg" alt=""></a>
+    <a class="navbar-brand" href="/"><img src="images/logo.jpg" alt=""></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -341,196 +344,209 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ">
         <li class="nav-item">
-          <a class="nav-link " id="l10" href="/startup">Personal</a>
+          <a class="nav-link " id="l10" href="">Personal</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " id="l10" href="">Basic</a>
+          <a class="nav-link " id="l10" href="/startup">Basic</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" id="l10" href="">Team</a>
+          <a class="nav-link active" id="l10" href="/team">Team</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="l10" href="">IP</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="l10" href="">Business Model</a>
+          <a class="nav-link" id="l10" href="/Businessmodel">Business Model</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="l10" href="">Financials</a>
+          <a class="nav-link" id="l10" href="/finance">Financials</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="l10" href="">Uploads</a>
+          <a class="nav-link" id="l10" href="/Upload_form">Uploads</a>
         </li>
 
       </ul>
     </div>
   </nav>
 
-  <div class="section" style="padding-top:20px; padding-bottom:10px; background:#ffffff;"></div>
   <div class="container" id="c1">
-    <h6 class="display-6">Team</h6>
+    <div class="info">
+      <p> Note : Howering on <img src="info.png" class="info-icon" id="a1" align="info"> Symbol will Tell you More About the Given Field .</p>
+      <p> Note : Field with ( <span id="req1">*</span> ) Marked are the Required One .</p>
+    </div>
+    <h6 class="display-6">Founder Details</h6>
     <br>
     <!-- form start -->
-<form action="/team" method="POST" class="row g-3 needs-validation " id="basic-form">
+    <form action="/team" method="POST" class="row g-3 needs-validation " id="basic-form">
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div id="inputFormRow">
+            <div class="input-group mb-3">
+              <div class="row col-lg-12">
+                <div class=" col-md-2">
+                  <label for="inputPassword4" class="form-label">Name</label><span id="req1">*</span>
+                  <input type="text" name="found_name" class="form-control" id="inputEmail4" required>
+                </div>
+                <div class=" col-md-2">
+                  <label for="inputPassword4" class="form-label">Designation</label>
+                  <input type="text" name="found_designation" class="form-control" id="inputEmail4">
 
 
-      <div class=" col-md-3">
-
-        <label for="inputPassword4" class="form-label">Name</label><span id="req1">*</span>
-        <input type="text" name="name" class="form-control" id="inputEmail4" required>
-
-
-      </div>
-      <div class=" col-md-3">
-
-        <label for="inputPassword4"  class="form-label">Designation</label>
-        <input type="text" name="Designation" class="form-control" id="inputEmail4">
+                </div>
+                <div class=" col-md-2">
+                  <label for="inputPassword4" class="form-label">DIN Number</label>
+                  <input type="text" name="found_DIN" class="form-control" id="inputEmail4">
 
 
-      </div>
-      <div class="  col-md-3">
-        <label for="inputPassword4" class="form-label">Relevant Work Experience</label>
-        <select class="form-select" name="rw_experience" aria-label="Default select example" required>
-          <option value="" translate="" class="ng-scope" selected="selected">Select</option>
-          <option value="0-1 Year" translate="" class="ng-scope">0-1 Year</option>
-          <option value="1-5 Years" translate="" class="ng-scope">1-5 Years</option>
-          <option value="5-10 Years" translate="" class="ng-scope">5-10 Years</option>
-          <option value="10-15 Years" translate="" class="ng-scope">10-15 Years</option>
-          <option value="15-20 Years" translate="" class="ng-scope">15-20 Years</option>
-          <option value="20 Years &amp; Above" translate="" class="ng-scope">20 Years &amp;Above</option>
-        </select>
+                </div>
+                <div class=" col-md-2">
+                  <label for="inputPassword4" class="form-label">Contact</label>
+                  <input type="text" name="found_contact" class="form-control" id="inputEmail4">
 
 
-      </div>
-      <div class=" col-md-3">
-        <label for="inputPassword4" class="form-label">Qualification</label>
-        <input type="text" name="Qualification" class="form-control" id="inputEmail4">
+                </div>
+                <div class=" col-md-2">
+                  <label for="inputPassword4" class="form-label">Email-id</label>
+                  <input type="email" name="found_email" class="form-control" id="inputEmail4">
 
 
-      </div>
+                </div>
+                <div class=" col-md-2">
+                  <label for="inputPassword4" class="form-label">Linkedin Profile Url</label>
+                  <input type="url" name="found_linkedin" class="form-control" id="inputEmail4">
 
-      <div class="field_wrapper">
-        <div>
 
-          <a href="javascript:void(0);" class="add_button" title="Add field"><img src="add.png" id="a2"></a>
+                </div>
+
+
+              </div>
+
+            </div>
+            <div id="newRow"></div>
+            <button id="addRow" type="button" class="btn btn-light"><img src="add.png" id="a2"></button>
+          </div>
+
+
         </div>
-      </div>
 
 
 
-     
-      <script type="text/javascript">
-      
-        $(document).ready(function () {
-          var maxField = 10; //Input fields increment limitation
-          var addButton = $('.add_button'); //Add button selector
-          var wrapper = $('.field_wrapper'); //Input field wrapper
-          var fieldHTML = '<div><div class="row"><div class=" col-md-3 a3"><input type="text" class="form-control"  name="name"  id="inputEmail4"></div><div class=" col-md-3 a3"><input type="text" name="Designation" class="form-control" id="inputEmail4"></div><div class=" col-md-3 a3"><select name="rw_experience" class="form-select" aria-label="Default select example" required><option value="" translate="" class="ng-scope" selected="selected">Select</option><option value="0-1 Year" translate="" class="ng-scope">0-1 Year</option><option value="1-5 Years" translate="" class="ng-scope">1-5 Years</option><option value="5-10 Years" translate="" class="ng-scope">5-10 Years</option><option value="10-15 Years" translate="" class="ng-scope">10-15 Years</option><option value="10-15 Years" translate="" class="ng-scope">10-15 Years</option><option value="15-20 Years" translate="" class="ng-scope">15-20 Years</option><option value="20 Years &amp; Above" translate="" class="ng-scope">20 Years &amp;Above</option></select></div><div class=" col-md-3 a3"><input type="text" name="Qualification" class="form-control" id="inputEmail4"></div><a href="javascript:void(0);" class="remove_button"><img src="cross.jpg" id="a2"></a></div></div>'; //New input field html 
-          var x = 1; //Initial field counter is 1
 
-          //Once add button is clicked
-          $(addButton).click(function () {
-            //Check maximum number of input fields
-            if (x < maxField) {
-              x++; //Increment field counter
-              $(wrapper).append(fieldHTML); //Add field html
-            }
+        <script type="text/javascript">
+          // add row
+          $("#addRow").click(function () {
+            var html = '';
+            html += '<div id="inputFormRow">';
+            html += '<div class="input-group mb-3">';
+            html += '<br> <div class="inputFormRow"><div class="input-group mb-3"><div class="row"><div class=" col-md-2 a3"><input type="text" class="form-control" name="found_name" id="inputEmail4" required></div><div class=" col-md-2 a3"><input type="text" class="form-control" name="found_designation" id="inputEmail4" ></div><div class=" col-md-2 a3"><input type="text" class="form-control"  name="found_DIN" id="inputEmail4" required></div><div class=" col-md-2 a3"><input type="text" class="form-control" id="inputEmail4" name="found_contact"></div><div class=" col-md-2 a3"><input type="text" class="form-control" id="inputEmail4" name="found_email"></div><div class=" col-md-2 a3"><input type="text" class="form-control" id="inputEmail4" name="found_linkedin"></div></div></div>';
+            html += '<div class="input-group-append">';
+            html += '<button id="removeRow" type="button" class="btn btn-light"><img src="cross.jpg" id="a2"></button></div>';
+            html += '</div>';
+            html += '</div>';
+
+            $('#newRow').append(html);
           });
 
-          //Once remove button is clicked
-          $(wrapper).on('click', '.remove_button', function (e) {
-            e.preventDefault();
-            $(this).parent('div').remove(); //Remove field html
-            x--; //Decrement field counter
+          // remove row
+          $(document).on('click', '#removeRow', function () {
+            $(this).closest('#inputFormRow').remove();
           });
-        });
-      </script>
+        </script>
 
-      <h6 class="display-6">Founder Details</h6>
+        <h6 class="display-6" id="mar1">Team</h6>
+        <br>
 
-      <div class="row input-group control-group after-add-more">
         <div class=" col-md-2">
+
           <label for="inputPassword4" class="form-label">Name</label><span id="req1">*</span>
-          <input type="text" name="found_name" class="form-control" id="inputEmail4" required>
+          <input type="text" name="name" class="form-control" id="inputEmail4" required>
+
+
         </div>
         <div class=" col-md-2">
+
           <label for="inputPassword4" class="form-label">Designation</label>
-          <input type="text" name="found_designation" class="form-control" id="inputEmail4">
+          <input type="text" name="Designation" class="form-control" id="inputEmail4">
+
+
+        </div>
+        <div class="  col-md-2">
+          <label for="inputPassword4" class="form-label">Work Experience</label>
+          <select class="form-select" name="rw_experience" aria-label="Default select example">
+            <option value="" translate="" class="ng-scope" selected="selected">Select</option>
+            <option value="0-1 Year" translate="" class="ng-scope">0-1 Year</option>
+            <option value="1-5 Years" translate="" class="ng-scope">1-5 Years</option>
+            <option value="5-10 Years" translate="" class="ng-scope">5-10 Years</option>
+            <option value="10-15 Years" translate="" class="ng-scope">10-15 Years</option>
+            <option value="15-20 Years" translate="" class="ng-scope">15-20 Years</option>
+            <option value="20 Years &amp; Above" translate="" class="ng-scope">20 Years &amp;Above</option>
+          </select>
 
 
         </div>
         <div class=" col-md-2">
-          <label for="inputPassword4" class="form-label">Contact</label>
-          <input type="text" name="found_contact" class="form-control" id="inputEmail4">
+          <label for="inputPassword4" class="form-label">Qualification</label>
+          <input type="text" name="Qualification" class="form-control" id="inputEmail4">
 
 
         </div>
         <div class=" col-md-2">
-          <label for="inputPassword4" class="form-label">Email-id</label>
-          <input type="email" name="found_email" class="form-control" id="inputEmail4">
+          <label for="inputPassword4" class="form-label">Adhar-card Number</label>
+          <input type="text" name="Adhar_no" class="form-control" id="inputEmail4">
 
 
         </div>
-        <div class=" col-md-3">
-          <label for="inputPassword4" class="form-label">Linkedin Profile Link</label>
-          <input type="url" name="found_linkedin" class="form-control" id="inputEmail4">
+        <div class=" col-md-2">
+          <label for="inputPassword4" class="form-label">Brief About Profile</label>
+          <textarea class="form-control" name="profile" id="exampleFormControlTextarea1" rows="3"></textarea>
 
 
         </div>
 
-        <a href="#" class="add-more"><img src="add.png" id="a2" alt=""></a>
+        <div class="field_wrapper">
+          <div>
 
-      </div>
-
-      <div class="copy hiden">
-
-        <div class="row g-3 control-group input-group">
-          <div class="col-md-2 a3"><input type="text" name="found_name" class="form-control" placeholder="name" aria-label="Name">
+            <a href="javascript:void(0);" class="add_button" title="Add field"><img src="add.png" id="a2"></a>
           </div>
-          <div class="col-md-2 a3" ><input type="text" name="found_designation" class="form-control" placeholder="Designation" aria-label="Name">
-          </div>
-          <div class="col-md-2 a3"><input type="text"  name="found_contact" class="form-control" placeholder="Contact" aria-label="Contact">
-          </div>
-          <div class="col-md-2 a3"><input type="text" name="found_email" class="form-control" placeholder="email id" aria-label="Name">
-          </div>
-          <div class="col-md-3 a3"><input type="text" name="found_linkedin" class="form-control" placeholder="linkedin profile link"
-              aria-label="linkedin profile link">
-          </div>
-          <a href="#" class="remove"><img src="cross.jpg" id="a2" alt=""></a>
         </div>
 
+        <script type="text/javascript">
 
-      </div>
-
-
-      <script type="text/javascript">
-
-        $(document).ready(function () {
-
-          $(".add-more").click(function () {
-            var html = $(".copy").html();
-            $(".after-add-more").after(html);
+          $(document).ready(function () {
+            var maxField = 10; //Input fields increment limitation
+            var addButton = $('.add_button'); //Add button selector
+            var wrapper = $('.field_wrapper'); //Input field wrapper
+            var fieldHTML = '<div><div class="row"><div class=" col-md-2 a3"><input type="text" class="form-control"  name="name"  id="inputEmail4"></div><div class=" col-md-2 a3"><input type="text" name="Designation" class="form-control" id="inputEmail4"></div><div class=" col-md-2 a3"><select name="rw_experience" class="form-select" aria-label="Default select example" required><option value="" translate="" class="ng-scope" selected="selected">Select</option><option value="0-1 Year" translate="" class="ng-scope">0-1 Year</option><option value="1-5 Years" translate="" class="ng-scope">1-5 Years</option><option value="5-10 Years" translate="" class="ng-scope">5-10 Years</option><option value="10-15 Years" translate="" class="ng-scope">10-15 Years</option><option value="10-15 Years" translate="" class="ng-scope">10-15 Years</option><option value="15-20 Years" translate="" class="ng-scope">15-20 Years</option><option value="20 Years &amp; Above" translate="" class="ng-scope">20 Years &amp;Above</option></select></div><div class=" col-md-2 a3"><input type="text" name="Qualification" class="form-control" id="inputEmail4"></div><div class=" col-md-2 a3"><input type="text" class="form-control" name="Adhar_no"   id="inputEmail4"></div><div class=" col-md-2"><textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div><a href="javascript:void(0);" class="remove_button"><img src="cross.jpg" id="a2"></a></div></div>'; //New input field html 
+            var x = 1; //Initial field counter is 1
+            //Once add button is clicked
+            $(addButton).click(function () {
+              //Check maximum number of input fields
+              if (x < maxField) {
+                x++; //Increment field counter
+                $(wrapper).append(fieldHTML); //Add field html
+              }
+            });
+            //Once remove button is clicked
+            $(wrapper).on('click', '.remove_button', function (e) {
+              e.preventDefault();
+              $(this).parent('div').remove(); //Remove field html
+              x--; //Decrement field counter
+            });
           });
+        </script>
 
-          $("body").on("click", ".remove", function () {
-            $(this).parents(".control-group").remove();
-          });
+        <div class="col-md-8">
+        </div>
+        <div class="col-md-4">
 
-        });
+          <button type="submit" id="btn1" class="btn btn-primary">Submit</button>
 
-      </script>
 
-      <div class="col-md-8">
+        </div>
       </div>
-      <div class="col-md-4">
 
-        <button type="submit" id="btn1" class="btn btn-primary">Submit</button>
-
-
-      </div>
-  </div>
-
-</form>
+    </form>
   </div>
   </div>
 
@@ -619,10 +635,25 @@
   <!-- Go To Top Link -->
 
   <script>
-    $(document).ready(function () {
-      $("#basic-form").validate();
-    });
-
+    (function () {
+      'use strict'
+    
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+    
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+    
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
   </script>
 
 
