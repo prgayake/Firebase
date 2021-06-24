@@ -1,41 +1,15 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>
-<title>Firebase File Upload</title>
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1, maximum-scale=1"
-/>
-</head>
 <body>
 
+<h1>The a download attribute</h1>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+<p>Click on the image to download it:<p>
+<a href="uploads/upload_forms/prgayake" download>
+ cool
+</a>
 
-<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-storage.js"></script>
-
-
-<script>
-// Your web app's Firebase configuration
-// Set the configuration for your app
-// TODO: Replace with your app's config object
-var firebaseConfig = {
-  apiKey:  "AIzaSyDdj4nopLhQT1W5yN7xrTf2xgnLvZ_H_HM",
-  authDomain: "ecellweb-5bc04.firebaseapp.com",
-  databaseURL: "https://ecellweb-5bc04-default-rtdb.firebaseio.com",
-  storageBucket: "gs://ecellweb-5bc04.appspot.com"
-};
-firebase.initializeApp(firebaseConfig);
-
-// Get a reference to the storage service, which is used to create references in your storage bucket
-var storage = firebase.storage();
-</script>
-
-<input type="file"  id="files" name="files[]" multiple />
-<input type="text" name="Name " id="Fullname">
-<button  onclick="uploadFile()">Upload</button>
+<p><b>Note:</b> The download attribute is not supported in IE or Edge (prior version 18), or in Safari (prior version 10.1).</p>
 
 </body>
 </html>
