@@ -57,6 +57,11 @@ const multer = require('multer');
 
 
 
+  
+
+
+
+
 
          //Login page Post Request
           router.post( '/login-register', ifLoggedin, (req, res) => {
@@ -71,10 +76,18 @@ const multer = require('multer');
                             firebase.auth().signInWithEmailAndPassword(snap.val().Email, pass)
                                   req.session.isLoggedIn = true;
                                   req.session.username = snap.val().Username;
-                                  if(snap.val().Role=='E-Cell Member' ){
-                                    res.redirect('/',);
+                                  console.log(snap.val().Role)
+                                  
+
+                                firebase.auth().onAuthStateChanged(function(user) { 
+                                  if (user.emailVerified) {
+                                    if(snap.val().Role =='Incubiator' ){
+
+                                      
+
+                                    res.redirect('/personal');
                                   }else{
-                                    res.redirect('/personal',);
+                                    res.redirect('/');
 
                                     dirPath = `uploads/upload_forms/`+ snap.val().Username;
 
@@ -95,13 +108,28 @@ const multer = require('multer');
                                   }
                                   
                                   // mkdir manully
+                                       
+                                  }
+                                  else {
+                                    user.sendEmailVerification().then(function(){
+                                          console.log("email verification sent to user");
+                                        });
+                                    console.log('Email is not verified');
+                                    res.render('login-register',{message:'Please Verify Email'})
+                                  }
+                                });
+
+
+
+                                  
                                     
 
                       } 
                       else 
                       {
                             console.log("");
-                             res.render('login-register',{sucess:'Invalid username or Password'});
+                             res.render('login-register',{message:'Invalid username or Password'});
+
                              return Promise.reject('Something Wrong!');
 
                       }
@@ -148,10 +176,13 @@ const multer = require('multer');
                                   Password:password
                                 });
 
-                           firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error, userData){
+                         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error, userData){
+
 
                            });
 
+                              
+                            res.render('login-register',{message:'Account Created Successfully'})
                            console.log("data Added")
                          }
                           else{
@@ -189,7 +220,10 @@ const multer = require('multer');
                       },function(err, result)      
                         {                                                         
                           if (err)
-                                throw err;
+                              {  throw err;}
+                            else{
+                                res.redirect('/ip_form')
+                              }
                             });
 
               }); 
@@ -230,8 +264,11 @@ const multer = require('multer');
                           },function(err, result)      
                           {                                                         
                               if (err)
-
-                              throw err;
+                              {
+                              throw err;}
+                              else{
+                                res.redirect('/team')
+                              }
                               });
 
             });
@@ -254,9 +291,12 @@ const multer = require('multer');
                                 Unique_Value :req.body.Unique_Value  
                               },function(err, result)      
                                 {                                                         
-                                  if (err)
+                                  if (err){
+                                  throw err;}
+                                   else{
+                                res.redirect('/finance')
+                              }
 
-                                  throw err;
                                 });
 
             }); 
@@ -273,9 +313,11 @@ const multer = require('multer');
                                   FinancialYear: req.body.Financial_year,
                                   AuditedFn: req.body.Audited_fn
                                 },function(err, result)      
-                                  {                                                         
-                                    if (err)
-                                      throw err;
+                                  { if (err){
+                                  throw err;}
+                                   else{
+                                res.redirect('/upload_forms')
+                                   }
                                   });
 
           }); 
@@ -298,7 +340,10 @@ const multer = require('multer');
                                 },function(err, result)      
                                   {                                                         
                                     if (err)
-                                        throw err;
+                                      {  throw err;}
+                                    else{
+                                res.redirect('/Businessmodel')
+                              }
                                   });
 
               }); 
@@ -307,18 +352,25 @@ const multer = require('multer');
 	              console.log('req.body');
 	  
 	              const db = firebase.database().ref();
+
 	                      firebase.database().ref('userdetails/'+req.session.username).set({
 	                                  Linkedin: req.body.Linkedin,
 	                                  Facebook : req.body.facebook,
 	                                  Instagram :req.body.Instagram,
 	                                  Portfolio:req.body.Portfolio,
 	                                  Awards:req.body.Awards,
-	                                  skill:req.body.skills  
+	                                  skill:req.body.skills 
 	                                 
-	                                },function(err, result)      
+                                                                     
+	                                }
+                                  ,function(err, result)      
 	                                  {                                                         
-	                                    if (err)
+	                                    if (err){
 	                                        throw err;
+                                        }
+                                        else{
+                                          res.redirect('/profile')
+                                        }
 	                                  });
                                  
 
@@ -357,7 +409,7 @@ const multer = require('multer');
                     archive.directory('./uploads/upload_forms/'+req.session.username, false);
                     archive.finalize();
                    
-                    return res.json({status:'ok'})
+                   
 
               }); 
 

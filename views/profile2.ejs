@@ -349,8 +349,20 @@
                  document.getElementById('linkedin1').value =snap.val().Linkedin;
                  document.getElementById('fb').value =snap.val().Facebook;
                  document.getElementById('insta').value =snap.val().Instagram;
-                 document.getElementById('portfolio').value =snap.val().Portfolio;
+                
 
 
-            })
+            })  
+</script>
+<script type="text/javascript">
+    function myfun() {
+        // body...
+    
+Swal.fire({
+  icon: 'success',
+  title: 'Profile Updated',
+  text: 'Password and Confirm Password Does not match !',
+  footer: 'Try Again !'
+})
+}
 </script>

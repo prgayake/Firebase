@@ -34,7 +34,7 @@
 
 //pages and app configuration Ends Here!!
 
-
+   
 
 // APPLY COOKIE SESSION MIDDLEWARE starts
     app.use(cookieSession({
@@ -67,17 +67,18 @@
 // Get Routes(restricted Pages)
       app.get('/download',ifNotLoggedin,(req,res) =>{
         
-        res.download('/uploads/'+req.session.username+'.zip')
+        res.download('./uploads/'+req.session.username+'.zip')
 
       });
 
 
-
-
-
 //logout Request
 app.get('/logout',(req,res)=>{
-    //session destroy
+    firebase.auth().signOut().then(() => {
+          console.log('signOut Successfully')
+        }).catch((error) => {
+          // An error happened.
+        });
     req.session = null;
     res.redirect('index');
 });

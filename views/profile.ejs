@@ -185,10 +185,13 @@
 
 
 <div class="container emp-profile">
+
+
             <form method="post">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
+                            
                             <img id="myImageID" src="" alt=""/>
                             <div style="background-color: green;" class=" file btn btn primary">
                               <label>Change Photo
@@ -269,7 +272,7 @@
                                                 <label>Mention Brief About Portfolio</label>
                                             </div>
                                             <div class="col-md-6">
-                                                
+                                              <h6 id="portfolio"></h6>
                                             </div>
                                         </div>
                             </div>
@@ -332,7 +335,7 @@
                  document.getElementById('fb').href =snap.val().Facebook;
                  document.getElementById('insta').href =snap.val().Instagram;
                  document.getElementById('Awards').textContent =snap.val().Awards;
-                 document.getElementById('skill').textContent =snap.val().skill;
+                 document.getElementById('skill').textContent =snap.val().skill;   document.getElementById('portfolio').textContent =snap.val().Portfolio;
 
             })
 

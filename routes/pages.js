@@ -36,15 +36,24 @@ const path = require('path');
       }
 //APPLY COOKIE SESSION MIDDLEWARE  End
 
+      router.get('/home', ifNotLoggedin, (req,res,next) => 
+              {   const db = firebase.database().ref();
 
+                  const query = db.child('users').child(req.session.username).on('value',snap =>{
+                  res.render('home',{
+                  name:snap.val().Name, 
+                  email:snap.val().Email
+
+                     });
+                  }); 
+              });
+//Get Routes(restricted Pages) end
 
 router.get('/register',(req,res) =>{
     res.render('register',{message:''})
 });
 
-router.get('/home',(req,res) =>{
-    res.render('home')
-});
+
 
 
 
@@ -54,15 +63,10 @@ router.get('/index',(req,res) =>{
 });
 
 router.get('/login-register',(req,res) =>{
-    res.render('login-register',{sucess:''})
+    res.render('login-register',{message:''})
 });
 
-// Get Routes(restricted Pages)
-      router.get('/download',ifNotLoggedin,(req,res) =>{
-        
-        res.download('./uploads/'+req.session.username+'.zip')
 
-      });
 
       //Basic route
       router.get('/startup',ifNotLoggedin,(req,res) =>{
@@ -252,6 +256,7 @@ router.get('/login-register',(req,res) =>{
                     Username:snap.val().Username,
                     Role:snap.val().Role,
                     
+                    
 
 
                     })
@@ -259,18 +264,7 @@ router.get('/login-register',(req,res) =>{
           });
           });
 
-      router.get('/', ifNotLoggedin, (req,res,next) => 
-              {   const db = firebase.database().ref();
 
-                  const query = db.child('users').child(req.session.username).on('value',snap =>{
-                  res.render('home',{
-                  name:snap.val().Name, 
-                  email:snap.val().Email,
-                  sucess:''
-                     });
-                  }); 
-              });
-//Get Routes(restricted Pages) end
 
 
 

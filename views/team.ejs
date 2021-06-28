@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Team</title>
   <!-- CSS only -->
+  <link rel="stylesheet" type="text/css" href="/css/allcss.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <!-- JavaScript Bundle with Popper -->
@@ -21,291 +22,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-
-  <style>
-    fieldset {
-      border: solid 1px #000;
-      padding: 10px;
-      display: block;
-      clear: both;
-      margin: 5px 0px;
-    }
-
-    legend {
-      padding: 0px 10px;
-      background: black;
-      color: #FFF;
-    }
-
-    input.add {
-      float: right;
-    }
-
-    input.fieldname {
-      float: left;
-      clear: left;
-      display: block;
-      margin: 5px;
-    }
-
-    select.fieldtype {
-      float: left;
-      display: block;
-      margin: 5px;
-    }
-
-    input.remove {
-      float: left;
-      display: block;
-      margin: 5px;
-    }
-
-    #yourform label {
-      float: left;
-      clear: left;
-      display: block;
-      margin: 5px;
-    }
-
-    #yourform input,
-    #yourform textarea {
-      float: left;
-      display: block;
-      margin: 5px;
-    }
-
-    #l1 {
-      margin-left: 30px;
-    }
-
-    #l2 {
-      font-size: 1.3rem;
-      color: #487905;
-    }
-
-    #l2:hover {
-      text-decoration: underline;
-      cursor: pointer;
-    }
-
-    .hyperlink {
-      width: 50%;
-      position: relative;
-      left: 550px;
-    }
-
-    #l4 {
-      margin-bottom: 20px;
-      box-shadow: 5px 10px 8px 10px #888888;
-      border-radius: 8px;
-      padding: 20px;
-      ;
-      margin: 5px;
-    }
-
-    #l8 {
-      margin-top: 20px;
-      margin-bottom: 20px;
-      box-shadow: 5px 10px 8px 10px #888888;
-      border-radius: 8px;
-      padding: 20px;
-    }
-
-    .footer-clean {
-      padding: 50px 0;
-      background-color: #fff;
-      color: #4b4c4d;
-    }
-
-    .l9 {
-      font-family: 'Ubuntu', sans-serif;
-    }
-
-    .footer-clean h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    .footer-clean ul {
-      padding: 0;
-      list-style: none;
-      line-height: 1.6;
-      font-size: 14px;
-      margin-bottom: 0;
-    }
-
-    .footer-clean ul a {
-      color: inherit;
-      text-decoration: none;
-      opacity: 0.8;
-    }
-
-    .footer-clean ul a:hover {
-      opacity: 1;
-    }
-
-    .footer-clean .item.social {
-      text-align: right;
-    }
-    
-    #a2 {
-      width: 30px;
-      height: 30px;
-      margin: 5px;
-    }
-
-    @media (max-width:767px) {
-      .footer-clean .item {
-        text-align: center;
-        padding-bottom: 20px;
-      }
-    }
-    .info{
-      margin-top: 20px;
-      margin-bottom: 20px;
-      color:red;
-      font-size:0.9rem;
-    }
-
-
-    @media (max-width: 768px) {
-      .footer-clean .item.social {
-        text-align: center;
-      }
-    }
-
-    .footer-clean .item.social>a {
-      font-size: 24px;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      display: inline-block;
-      text-align: center;
-      border-radius: 50%;
-      border: 1px solid #ccc;
-      margin-left: 10px;
-      margin-top: 22px;
-      color: inherit;
-      opacity: 0.75;
-    }
-
-    .footer-clean .item.social>a:hover {
-      opacity: 0.9;
-    }
-
-    @media (max-width:991px) {
-      .footer-clean .item.social>a {
-        margin-top: 40px;
-      }
-    }
-
-    @media (max-width:767px) {
-      .footer-clean .item.social>a {
-        margin-top: 10px;
-      }
-    }
-
-    .footer-clean .copyright {
-      margin-top: 14px;
-      margin-bottom: 0;
-      font-size: 13px;
-      opacity: 0.6;
-    }
-
-    .responsive {
-      max-width: 100%;
-      height: auto;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial
-    }
-
-    #l6 {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    #l7 {
-      position: relative;
-      bottom: 180px;
-      border-radius: 5px;
-      ;
-    }
-    
-    #a1 {
-      width: 15px;
-      height: 15px;
-    }
-
-
-    #c1 {
-      border: 2px solid black;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 5px 10px 8px 10px #ece9e9;
-    }
-
-    #btn1 {
-      margin: 4px;
-    }
-
-    #a2 {
-      width: 30px;
-      height: 30px;
-      margin: 5px;
-    }
-
-    #req1 {
-      color: red;
-      font-size: larger;
-    }
-
-    .container-fluid {
-      padding: 1% 5%;
-    }
-
-    .navbar {
-      padding: 0 1rem 0 1rem;
-      margin-top: 10px;
-      ;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-    }
-
-    .nav-item {
-      padding: 0 18px;
-    }
-
-    .nav-link {
-      font-size: 1.2rem;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .nav-link:hover {
-      border-bottom: 4px solid #ff4584;
-    }
-
-    .nav-link:active {
-      border-bottom: 4px solid #ff4584;
-    }
-
-    #l10 {
-      margin-left: 50px;
-    }
-
-    .l12 {
-      margin-top: 20px;
-    }
-
-    .a3 {
-      margin-top: 10px;
-    }
-  </style>
+  <script src="https://kit.fontawesome.com/5aa628abff.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -313,8 +30,8 @@
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/"><img src="images/logo.jpg" alt=""></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+     <a class="navbar-brand" href="/home"><img src="images/logo.jpg" alt=""></a>
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -591,29 +308,22 @@
             </ul>
           </div>
           <div class="col-lg-3 item social">
-            <div class="socials">
-              <a target="_blank" href="https://www.facebook.com/MITAOEOfficial/">
-                <img src="face.png" width="50" height="50">
-              </a>
-              <a target="_blank" href="https://www.youtube.com/channel/UCL4DWs9R4irwWUTFg8BYsOQ">
-                <img src="you.png" width="50" height="50">
-              </a>
-              <a target="_blank" href="https://twitter.com/MITAOE">
-                <img src="twi.png" width="50" height="50">
-              </a>
-              <a target="_blank" href="https://www.instagram.com/mitacademyofengineering/" width="50" height="50">
-              </a>
-              <a target="_blank" href="https://www.linkedin.com/company/mit-academy-of-engineering/">
-                <img src="in.png" width="50" height="40">
-              </a>
+           <div class="socials">
+                             
+                            <a href="https://www.facebook.com/MITAOEOfficial/" id="fb" class="icon-button twitter"  target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i><span></span></a>
+
+                               <a href="https://www.youtube.com/channel/UCL4DWs9R4irwWUTFg8BYsOQ" id="fb" class="icon-button twitter"  target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i><span></span></a>
+                             
+                          <a href="https://www.linkedin.com/company/mit-academy-of-engineering/" id="linkedin1" class="icon-button facebook"  target="_blank"><i class="fab fa-linkedin"></i><span></span></a>
+
+                            <a href="https://www.instagram.com/mitacademyofengineering/" id="insta" class="icon-button google-plus"  target="_blank"><i class="fab fa-instagram"></i><span></span></a>
+
+                          
+              
+                          </div>
+                  
 
 
-
-              <!-- End Copyright -->
-
-
-
-            </div>
             <p class="copyright">Company Name © 2018</p>
           </div>
 
