@@ -1,8 +1,132 @@
-<h1>file upload </h1>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
 
-<form action="/upload" method="POST" enctype="multipart/form-data">
-	<input type="file" name="avtar">
-	<input type="text" name="Name">
-	<button>submit</button>
-	
-</form>
+
+<table class="table" id="tbl1" >
+ 
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+    </tr>
+  </thead>
+
+
+
+
+
+  <tbody>
+    <% data.forEach(function(data){%>
+
+    <tr>
+      <td><%=data.val().Name%></td>
+      <td><%=data.val().Email%></td>
+      <td><%=data.val().Mobile%></td>
+    </tr>
+    <% })  %>
+  </tbody>
+</table>
+
+
+<table class="table" id="tbl2" >
+ 
+  <thead>
+    <tr>
+      <th scope="col">AuditedFn</th>
+      <th scope="col">FinancialYear</th>
+      <th scope="col">MaxTurnover</th>
+      <th scope="col">TotalFund</th>
+      <th scope="col">currentFunding</th>
+
+      
+
+    </tr>
+  </thead>
+
+
+
+
+
+  <tbody>
+    <% result.forEach(function(result){%>
+
+    <tr>
+      <th scope="col"><%=result.val().AuditedFn%></th>
+      <th scope="col"><%=result.val().FinancialYear%></th>
+      <th scope="col"><%=result.val().MaxTurnover%></th>
+      <th scope="col"><%=result.val().TotalFund%></th>
+      <th scope="col"><%=result.val().currentFunding%></th>
+    </tr>
+    <% })  %>
+  </tbody>
+</table>
+
+
+<button onclick="tablesToExcel(['tbl1','tbl2'], ['personal','Finance'], 'export.xls', 'Excel')" class="btn btn-success">Export to Excel</button>
+
+<script type="text/javascript">
+        var tablesToExcel = (function() 
+      {
+          var uri = 'data:application/vnd.ms-excel;base64,'
+          , tmplWorkbookXML = '<?xml version="1.0"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">'
+            + '<DocumentProperties xmlns="urn:schemas-microsoft-com:office:office"><Author>Axel Richter</Author><Created>{created}</Created></DocumentProperties>'
+            + '<Styles>'
+            + '<Style ss:ID="Currency"><NumberFormat ss:Format="Currency"></NumberFormat></Style>'
+            + '<Style ss:ID="Date"><NumberFormat ss:Format="Medium Date"></NumberFormat></Style>'
+            + '</Styles>' 
+            + '{worksheets}</Workbook>'
+          , tmplWorksheetXML = '<Worksheet ss:Name="{nameWS}"><Table>{rows}</Table></Worksheet>'
+          , tmplCellXML = '<Cell{attributeStyleID}{attributeFormula}><Data ss:Type="{nameType}">{data}</Data></Cell>'
+          , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+          , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+        return function(tables, wsnames, wbname, appname)
+        {
+          var ctx       = "";
+          var workbookXML   = "";
+          var worksheetsXML   = "";
+          var rowsXML     = "";
+
+        for (var i = 0; i < tables.length; i++)
+        {
+            if (!tables[i].nodeType) tables[i] = document.getElementById(tables[i]);
+            for (var j = 0; j < tables[i].rows.length; j++)
+            {
+                    rowsXML += '<Row>'
+              for (var k = 0; k < tables[i].rows[j].cells.length; k++)
+              {
+                var dataType = tables[i].rows[j].cells[k].getAttribute("data-type");
+                var dataStyle = tables[i].rows[j].cells[k].getAttribute("data-style");
+                var dataValue = tables[i].rows[j].cells[k].getAttribute("data-value");
+                dataValue = (dataValue)?dataValue:tables[i].rows[j].cells[k].innerHTML;
+                var dataFormula = tables[i].rows[j].cells[k].getAttribute("data-formula");
+                dataFormula = (dataFormula)?dataFormula:(appname=='Calc' && dataType=='DateTime')?dataValue:null;
+                ctx = {  attributeStyleID: (dataStyle=='Currency' || dataStyle=='Date')?' ss:StyleID="'+dataStyle+'"':''
+                , nameType: (dataType=='Number' || dataType=='DateTime' || dataType=='Boolean' || dataType=='Error')?dataType:'String'
+                , data: (dataFormula)?'':dataValue
+                , attributeFormula: (dataFormula)?' ss:Formula="'+dataFormula+'"':''
+                      };
+                    rowsXML += format(tmplCellXML, ctx);
+              }
+                    rowsXML += '</Row>'
+              }
+              ctx = {rows: rowsXML, nameWS: wsnames[i] || 'Sheet' + i};
+              worksheetsXML += format(tmplWorksheetXML, ctx);
+              rowsXML = "";
+          }
+
+          ctx = {created: (new Date()).getTime(), worksheets: worksheetsXML};
+          workbookXML = format(tmplWorkbookXML, ctx);
+          console.log(workbookXML);
+          var link = document.createElement("A");
+          link.href = uri + base64(workbookXML);
+          link.download = wbname || 'Workbook.xls';
+          link.target = '_blank';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          }
+      })();
+</script>

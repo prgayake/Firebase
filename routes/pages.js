@@ -36,6 +36,18 @@ const path = require('path');
       }
 //APPLY COOKIE SESSION MIDDLEWARE  End
 
+
+    router.get('/',ifNotLoggedin,(req,res) =>{
+        res.redirect('/home')
+    });
+
+    router.get('/forgetpass',(req,res) =>{
+    res.render('forgetpass')
+    });
+
+
+
+
       router.get('/home', ifNotLoggedin, (req,res,next) => 
               {   const db = firebase.database().ref();
 
@@ -53,6 +65,18 @@ router.get('/register',(req,res) =>{
     res.render('register',{message:''})
 });
 
+router.get('/upload',(req,res,next) =>{
+        const db = firebase.database().ref();
+        db.child('finance').on('value',function(snap){
+        db.child('users').orderByChild('Email').on('value',function(snapshot){
+            data =snapshot;
+            result =snap
+              res.render('upload',{data:data,result:result})
+        });
+
+});
+
+});
 
 
 
@@ -266,11 +290,16 @@ router.get('/login-register',(req,res) =>{
 
 
 
+        router.get('/admin_incubatee',(req, res)=>{
+            var children = firebase.database().ref('users').orderByChild('Role').equalTo('Incubiator').once("value", (snapshot) => {
+                const count = snapshot.numChildren();
+                console.log(count);
 
+   
+            res.render('./admin/admin_incubatee',{count:count});
+        })
 
-
-
-
+ })
 
 
 

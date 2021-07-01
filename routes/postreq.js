@@ -71,39 +71,38 @@ const multer = require('multer');
                 const db = firebase.database().ref();
                 const query = db.child('users').child(username).get().then((snap) => {
               
-                    if (snap.exists() && snap.val().Password == req.body.user_pass) 
+                    if (snap.val().Username==username) 
                       {
-                            firebase.auth().signInWithEmailAndPassword(snap.val().Email, pass)
+                            firebase.auth().signInWithEmailAndPassword(snap.val().Email, pass).then(() => {
+
                                   req.session.isLoggedIn = true;
                                   req.session.username = snap.val().Username;
                                   console.log(snap.val().Role)
                                   
 
-                                firebase.auth().onAuthStateChanged(function(user) { 
-                                  if (user.emailVerified) {
+                          
+                                 
+                            }).then(function (usr) {
+                                                      
+                                              
+
+                                                    }).catch(function (err) {
+                                                             console.log("");
+                                                 res.render('login-register',{message:'Invalid username or Password'});
+
+                                                      });
+                                                  }
+
+                                   if (snap.emailVerified) {
                                     if(snap.val().Role =='Incubiator' ){
 
-                                      
 
                                     res.redirect('/personal');
+
                                   }else{
                                     res.redirect('/');
 
-                                    dirPath = `uploads/upload_forms/`+ snap.val().Username;
-
-                                    fs.access(dirPath,(err)=>{
-                                      if (err){
-                                        // Create directory if directory does not exist.
-                                        fs.mkdir(dirPath, {recursive:true}, (err)=>{
-                                          if (err) console.log(`Error creating directory: ${err}`)
-                                          else{ 
-
-
-                                            console.log('Directory created successfully.')}
-                                        })
-                                      }
-                                      // Directory now exists.
-                                    })
+                            
                                 //end
                                   }
                                   
@@ -117,26 +116,22 @@ const multer = require('multer');
                                     console.log('Email is not verified');
                                     res.render('login-register',{message:'Please Verify Email'})
                                   }
-                                });
+                              
+
+
+                                  }).catch((error) => {
+                                    console.error(error);
+                                  });
+
 
 
 
                                   
                                     
 
-                      } 
-                      else 
-                      {
-                            console.log("");
-                             res.render('login-register',{message:'Invalid username or Password'});
-
-                             return Promise.reject('Something Wrong!');
-
-                      }
-                      }).catch((error) => {
-                        console.error(error);
-                      });
-
+                    
+                     
+                     
                  
             });
 
@@ -414,7 +409,37 @@ const multer = require('multer');
               }); 
 
 
+//forget Password
+              router.post('/forgetpass', (req,res,next) => {
+            
+                var emailres = req.body.emailreset;
 
+                if(emailres !="")
+                {
+                  firebase.auth().sendPasswordResetEmail(emailres)
+                  .then(() => {
+                    console.log("email sent")
+
+                  })
+                  .catch((error) => {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // ..
+                 
+
+                     console.log(errorCode);
+                     console.log(errorMessage);
+
+                    console.log("Message :" + errorMessage)
+
+
+                  });
+                }
+                else
+                {
+                  console.log("Please type email")
+                }
+              });
 
 
 
