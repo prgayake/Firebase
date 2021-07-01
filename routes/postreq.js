@@ -80,44 +80,50 @@ const multer = require('multer');
                                   console.log(snap.val().Role)
                                   
 
-                          
-                                 
-                            }).then(function (usr) {
-                                                      
-                                              
+                                 firebase.auth().onAuthStateChanged(function(user) {
+                                  if(req.session.isLoggedIn==true){
+                                                  if (user.emailVerified) {
+                                                    if(snap.val().Role =='Incubiator' ){
 
-                                                    }).catch(function (err) {
-                                                             console.log("");
-                                                 res.render('login-register',{message:'Invalid username or Password'});
+                                                      dirPath = `./uploads/upload_forms/`+ snap.val().Username;
 
-                                                      });
+                                                    fs.access(dirPath,(err)=>{
+                                                      if (err){
+                                                        // Create directory if directory does not exist.
+                                                        fs.mkdir(dirPath, {recursive:true}, (err)=>{
+                                                          if (err) console.log(`Error creating directory: ${err}`)
+                                                          else{ 
+
+
+                                                            console.log('Directory created successfully.')}
+                                                        })
+                                                      }
+                                                      // Directory now exists.
+                                                    })  
+
+                                                    res.redirect('/personal');
+
+                                                  }else{
+                                                    res.redirect('/');
+
+                                            
+                                                //end
                                                   }
-
-                                   if (snap.emailVerified) {
-                                    if(snap.val().Role =='Incubiator' ){
-
-
-                                    res.redirect('/personal');
-
-                                  }else{
-                                    res.redirect('/');
-
-                            
-                                //end
-                                  }
-                                  
-                                  // mkdir manully
-                                       
-                                  }
-                                  else {
-                                    user.sendEmailVerification().then(function(){
-                                          console.log("email verification sent to user");
-                                        });
-                                    console.log('Email is not verified');
-                                    res.render('login-register',{message:'Please Verify Email'})
-                                  }
-                              
-
+                                                  
+                                                  // mkdir manully
+                                                       
+                                                  }
+                                                  else {
+                                                    user.sendEmailVerification().then(function(){
+                                                          console.log("email verification sent to user");
+                                                        });
+                                                    console.log('Email is not verified');
+                                                    res.render('login-register',{message:'Please Verify Email'})
+                                                  }
+                                              }
+                                            })
+                               });
+                                                  } 
 
                                   }).catch((error) => {
                                     console.error(error);
