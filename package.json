@@ -1,29 +1,26 @@
 {
-  "name": "nodejs_login",
+  "name": "production",
   "version": "1.0.0",
-  "description": "Node JS Login And Registration System",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
-  "author": "w3jar.com",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "@firebase/storage": "^0.5.4",
     "archiver": "^5.3.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "cookie-session": "^1.4.0",
     "dotenv": "^10.0.0",
-    "ejs": "^2.7.4",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
-    "express-validator": "^6.11.1",
-    "firebase": "^8.6.7",
-    "firebase-admin": "^9.9.0",
+    "express-validator": "^6.12.0",
+    "firebase": "^8.7.0",
     "multer": "^1.4.2",
-    "nodemon": "^2.0.7",
-    "sweetalert2": "^11.0.17"
+    "nodemon": "^2.0.9"
   }
 }

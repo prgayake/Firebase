@@ -65,9 +65,9 @@
 
 
 // Get Routes(restricted Pages)
-      app.get('/download',ifNotLoggedin,(req,res) =>{
+      app.get('/download',(req,res) =>{
         
-        res.download('./uploads/'+req.session.username+'.zip')
+        res.download('./uploads/IncubateeDocs.zip')
 
       });
 

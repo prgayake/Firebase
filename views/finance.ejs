@@ -34,7 +34,7 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <a class="navbar-brand" href="/home"><img src="images/logo.jpg" alt=""></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,8 +45,18 @@
         <li class="nav-item">
           <a class="nav-link" href="">About Us</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/profile">Profile</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%=  Username%>
+          </a>
+         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+            <li><a class="dropdown-item" href="/viewpersonal">View Application</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+           
+          </ul>
+           
+          </ul>
         </li>
       </ul>
     </div>
@@ -58,7 +68,7 @@
 
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -93,7 +103,7 @@
 
 
   <!--        start of form           -->
-  <div class="section" style="padding-top:20px; padding-bottom:10px; background:#ffffff;"></div>
+  
 
   <div class="container" id="c1">
     <div class="info">
@@ -103,7 +113,7 @@
       <h6 class="display-6">Financials</h6>
     <br>
 
-    <form action="/finance" method="POST"  class="row g-3 needs-validation novalidate" id="basic-form">
+    <form action="/finance"  method="POST" enctype="multipart/form-data" class="row g-3 needs-validation" id="basic-form">
 
       <div class="col-md-6">
         <label for="fUniquenessFactor" class="form-label">Maximum Turnover of Any of the Previous Three Financial Years</label><span id="req1">*</span>
@@ -158,7 +168,7 @@
        
         <div class=" col-md-4">
           <label for="inputPassword4" class="form-label">Upload Proof(Audited statement from CA)</label>
-          <input class="form-control" type="file" id="formFile" >
+          <input class="form-control" name="media"  type="file" id="formFile" >
 
 
         </div>
@@ -177,7 +187,7 @@
           var maxField = 10; //Input fields increment limitation
           var addButton = $('.add_button'); //Add button selector
           var wrapper = $('.field_wrapper'); //Input field wrapper
-          var fieldHTML = '<div><div class="row"><div class=" col-md-4 a3"><input type="text" name="Financial_year" class="form-control" id="inputEmail4"></div><div class=" col-md-4 a3"><input type="text" name="Audited_fn" class="form-control" id="inputEmail4"></div><div class=" col-md-4 a3"><input class="form-control" type="file" id="formFile" ></div><a href="javascript:void(0);" class="remove_button"><img src="cross.jpg" id="a2"></a></div></div>'; //New input field html 
+          var fieldHTML = '<div><div class="row"><div class=" col-md-4 a3"><input type="text" name="Financial_year" class="form-control" id="inputEmail4" placeholder="Financial Year"></div><div class=" col-md-4 a3"><input type="text" name="Audited_fn" class="form-control" id="inputEmail4"  placeholder="Audited_financial number "></div><div class=" col-md-4 a3"><input name="media"  class="form-control" type="file" id="formFile" ></div><a href="javascript:void(0);" class="remove_button"><img src="cross.jpg" id="a2"></a></div></div>'; //New input field html 
           var x = 1; //Initial field counter is 1
           //Once add button is clicked
           $(addButton).click(function () {
@@ -195,8 +205,8 @@
           });
         });
       </script>
- <div class="col-md-8"></div>
- <div class="col-md-4">
+ <div class="col-md-5"></div>
+ <div class="col-md-7">
 
           <button type="submit" id="btn1" class="btn btn-primary">Submit</button>
 
@@ -219,7 +229,7 @@
     <footer class="l9">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-sm-4 col-md-3 item">
+          <div class="col-sm-4 col-md-2 item">
             <h3>Explore</h3>
             <ul>
               <li><a href="https://mitaoe.ac.in/opportunities.php">CAREERS </a></li>
@@ -229,17 +239,20 @@
               <li><a href="https://mitaoe.ac.in/blog.php">BLOG</a></li>
             </ul>
           </div>
-          <div class="col-sm-4 col-md-3 item">
+          <div class="col-sm-4 col-md-2 item">
             <h3>IMP Links</h3>
             <ul>
               <li><a href="https://mitaoe.ac.in/mitaoe-nirf.php">NIRF</a></li>
               <li><a href="https://mitaoe.ac.in/mandatory-disclosure.php">MANDATORY DISCLOSURE</a></li>
+
+
+
               <li><a href="https://mitaoe.ac.in/mitaoe-downloads.php">DOWNLOADS</a></li>
               <li><a href="https://mitaoe.ac.in/">READ MORE</a></li>
             </ul>
           </div>
 
-          <div class="col-sm-4 col-md-3 item">
+          <div class="col-sm-4 col-md-2 item">
             <h3>IMP Links</h3>
             <ul>
               <li><a href="https://mitaoe.ac.in/mitaoe-quality-assurance.php">IQAC</a></li>
@@ -251,28 +264,37 @@
               <li><a href="https://mitaoe.ac.in/mitaoe-committees.php">GRIEVANCE REDRESSAL</a></li>
             </ul>
           </div>
+          <div class="col-lg-4 item social">
 
-          <div class="col-lg-3 item social">
-              <div class="socials">
-                             
-                            <a href="https://www.facebook.com/MITAOEOfficial/" id="fb" class="icon-button twitter"  target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i><span></span></a>
+            <div class="socials">
 
-                               <a href="https://www.youtube.com/channel/UCL4DWs9R4irwWUTFg8BYsOQ" id="fb" class="icon-button twitter"  target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i><span></span></a>
-                             
-                          <a href="https://www.linkedin.com/company/mit-academy-of-engineering/" id="linkedin1" class="icon-button facebook"  target="_blank"><i class="fab fa-linkedin"></i><span></span></a>
+              <a href="https://www.facebook.com/MITAOEOfficial/" id="fb" class="icon-button twitter" target="_blank"><i
+                  class="fab fa-facebook" aria-hidden="true"></i><span></span></a>
 
-                            <a href="https://www.instagram.com/mitacademyofengineering/" id="insta" class="icon-button google-plus"  target="_blank"><i class="fab fa-instagram"></i><span></span></a>
+              <a href="https://www.youtube.com/channel/UCL4DWs9R4irwWUTFg8BYsOQ" id="fb" class="icon-button twitter"
+                target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i><span></span></a>
 
-                          
-              
-                          </div>
-                      <p class="copyright">Company Name © 2018</p>
-                  </div> 
+              <a href="https://www.linkedin.com/company/mit-academy-of-engineering/" id="linkedin1"
+                class="icon-button facebook" target="_blank"><i class="fab fa-linkedin"></i><span></span></a>
+
+              <a href="https://www.instagram.com/mitacademyofengineering/" id="insta" class="icon-button google-plus"
+                target="_blank"><i class="fab fa-instagram"></i><span></span></a>
+
+
 
             </div>
+
+
+
+            <p class="copyright">@ 2020 MIT Academy of Engineering</p>
           </div>
+
+        </div>
+      </div>
     </footer>
   </div>
+
+
 
 
   <!-- End Footer -->

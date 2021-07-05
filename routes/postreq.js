@@ -3,8 +3,8 @@ const firebase = require('firebase');
 const cookieParser =require('cookie-parser');
 const cookieSession = require('cookie-session');
 const router = express.Router();
-    const archiver =  require('archiver');
-
+const archiver =  require('archiver');
+var d = new Date();
 const multer = require('multer');
     const fs = require('fs')
 
@@ -21,6 +21,16 @@ const multer = require('multer');
       appId:process.env.APPID
     };
 
+      //upload forms 
+      const storage =multer.diskStorage({
+                  destination: (req,file,cb)=>{
+                    cb(null,'uploads/upload_forms/'+req.session.username);
+                  },
+                  filename:(req,file,cb) =>{
+                    cb(null,file.originalname)
+                  }
+
+                })
         
     firebase.initializeApp(firebaseConfig);
     let database = firebase.database();
@@ -80,53 +90,48 @@ const multer = require('multer');
                                   console.log(snap.val().Role)
                                   
 
-                                 firebase.auth().onAuthStateChanged(function(user) {
-                                  if(req.session.isLoggedIn==true){
-                                                  if (user.emailVerified) {
-                                                    if(snap.val().Role =='Incubiator' ){
+                                  
+                                          if(snap.val().Role =='Incubiator' ){
+                                            
+                                            dirPath = `./uploads/upload_forms/`+ snap.val().Username;
 
-                                                      dirPath = `./uploads/upload_forms/`+ snap.val().Username;
-
-                                                    fs.access(dirPath,(err)=>{
-                                                      if (err){
-                                                        // Create directory if directory does not exist.
-                                                        fs.mkdir(dirPath, {recursive:true}, (err)=>{
-                                                          if (err) console.log(`Error creating directory: ${err}`)
-                                                          else{ 
+                                                fs.access(dirPath,(err)=>{
+                                                  if (err){
+                                                    // Create directory if directory does not exist.
+                                                    fs.mkdir(dirPath, {recursive:true}, (err)=>{
+                                                      if (err) console.log(`Error creating directory: ${err}`)
+                                                      else{ 
 
 
-                                                            console.log('Directory created successfully.')}
-                                                        })
-                                                      }
-                                                      // Directory now exists.
-                                                    })  
-
-                                                    res.redirect('/personal');
-
-                                                  }else{
-                                                    res.redirect('/');
+                                                        console.log('Directory created successfully.')}
+                                                    })
+                                                  }
+                                                  // Directory now exists.
+                                                })  
 
                                             
-                                                //end
-                                                  }
-                                                  
-                                                  // mkdir manully
-                                                       
-                                                  }
-                                                  else {
-                                                    user.sendEmailVerification().then(function(){
-                                                          console.log("email verification sent to user");
-                                                        });
-                                                    console.log('Email is not verified');
-                                                    res.render('login-register',{message:'Please Verify Email'})
-                                                  }
-                                              }
-                                            })
-                               });
+                                          res.redirect('/personal');
+
+
+                                        }else{
+                                          res.redirect('/');
+                                        }
+                                        
+                                      
+                                 
+                              
+                            }).then(function (usr) {
+                                                      }).catch(function (err) {
+                                                             console.log("");
+                                                 res.render('login-register',{message:'Invalid username or Password'});
+
+                                                      });
                                                   } 
 
                                   }).catch((error) => {
-                                    console.error(error);
+                                       console.log("");
+                                                 res.render('login-register',{message:'Invalid username or Password'});
+
                                   });
 
 
@@ -174,7 +179,7 @@ const multer = require('multer');
                                   Username:username,
                                   Mobile: phone, 
                                   Role: role,
-                                  Password:password
+                                  Date:d.getFullYear()
                                 });
 
                          firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error, userData){
@@ -204,8 +209,9 @@ const multer = require('multer');
                 console.log(req.body);
               
                 const db = firebase.database().ref();
-
+                      db.child('users').child(req.session.username).on('value', function(snap) {
                     firebase.database().ref('Team/'+req.session.username).set({
+                        Name: snap.val().Name,
                         NamesOfMembers:req.body.name,
                         Designation: req.body.Designation,
                        Adhar_No: req.body.Adhar_no,
@@ -218,7 +224,8 @@ const multer = require('multer');
                         founderContact:req.body.found_contact,
                         founderEmail:req.body.found_email,
                         founderLinkedin:req.body.found_linkedin
-                      },function(err, result)      
+                      
+                  },function(err, result)      
                         {                                                         
                           if (err)
                               {  throw err;}
@@ -228,9 +235,10 @@ const multer = require('multer');
                             });
 
               }); 
+        })
          //-------------------------------------------------Basics-------Inserting Details---------------
-
-          router.post('/startup', function(req,res) {
+           const upload =multer({storage});
+          router.post('/startup',upload.array('media'), function(req,res) {
               console.log('req.body');
               console.log(req.body);
                 const db = firebase.database().ref();
@@ -302,7 +310,7 @@ const multer = require('multer');
 
             }); 
 
-				 router.post('/finance', function(req,res) {
+				 router.post('/finance', upload.array('media'), function(req,res) {
                 console.log('req.body');
                 console.log(req.body);
                 
@@ -317,7 +325,7 @@ const multer = require('multer');
                                   { if (err){
                                   throw err;}
                                    else{
-                                res.redirect('/upload_forms')
+                                res.redirect('/upload_form')
                                    }
                                   });
 
@@ -325,13 +333,13 @@ const multer = require('multer');
 
 
 			          // IP Form Post Request
-          
-        router.post('/ip_form', function(req,res) {
+   
+        router.post('/ip_form',upload.array('media'), function(req,res) {
               console.log('req.body');
               console.log(req.body);
               
                 const db = firebase.database().ref();
-                      firebase.database().ref('IpFrom/'+req.session.username).set({
+                      firebase.database().ref('IpForm/'+req.session.username).set({
                                         
                                   Product_name:req.body.Product_name,
                                   IP_Description:req.body.IP_Description,
@@ -377,22 +385,36 @@ const multer = require('multer');
 
               }); 
 
-			//upload forms 
-			const storage =multer.diskStorage({
-                  destination: (req,file,cb)=>{
-                    cb(null,'uploads/upload_forms/'+req.session.username);
-                  },
-                  filename:(req,file,cb) =>{
-                    cb(null,file.originalname)
-                  }
 
-                })
               
 
-                const upload =multer({storage});
+      
                 router.post('/Upload_form', upload.array('media'),function(req,res) {  
 
-                    var output = fs.createWriteStream('./uploads/'+req.session.username+'.zip');
+
+                const db = firebase.database().ref();
+
+                        firebase.database().ref('UploadDocDeatils/'+req.session.username).set({
+                                          
+                                          PancardNo:req.body.PanNo,
+                                          UdyogAdhar : req.body.UdyogAdhar,
+                                          companyGSTIN : req.body.companyGSTIN,
+                                          CompanyRegID : req.body.CompanyRegID
+                                   
+                                                                     
+                                  }
+                                  ,function(err, result)      
+                                    {                                                         
+                                      if (err){
+                                          throw err;
+                                        }
+                                        else{
+                                          res.redirect('/home')
+                                        }
+                                      }); 
+
+
+                    var output = fs.createWriteStream('./uploads/IncubateeDocs.zip');
                     var archive = archiver('zip');
 
                     output.on('close', function () {
@@ -407,7 +429,7 @@ const multer = require('multer');
                    var temp= archive.pipe(output);
 
                     // append files from a sub-directory, putting its contents at the root of archive
-                    archive.directory('./uploads/upload_forms/'+req.session.username, false);
+                    archive.directory('./uploads/upload_forms/', false);
                     archive.finalize();
                    
                    

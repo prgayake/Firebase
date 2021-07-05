@@ -41,6 +41,10 @@
       font-size: 28px;
 
     }
+    label{
+      font-size: 1.5rem;
+
+    }
   </style>
 
 </head>
@@ -48,7 +52,7 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <a class="navbar-brand" href="/home"><img src="images/logo.jpg" alt=""></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,8 +63,16 @@
         <li class="nav-item">
           <a class="nav-link" href="">About Us</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/profile">Profile</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%=  Username%>
+          </a>
+         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+            <li><a class="dropdown-item" href="/viewpersonal">View Application</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+           
+          </ul>
         </li>
       </ul>
     </div>
@@ -72,7 +84,7 @@
 
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -107,8 +119,7 @@
 
 
   <!--        start of form           -->
-  <div class="section" style="padding-top:20px; padding-bottom:10px; background:#ffffff;"></div>
-
+ 
   <div class="container" id="c1">
     <h6 class="display-6">Personal Details</h6>
     <br><br>
@@ -119,7 +130,7 @@
              </div>
       <div class="col-md-6">
         <label style="color: #A04000;">Email </label>
-        <label style="color: #7D3C98; " for="inputPassword4" class="form-label">: <%= email%></label><span id="req1">
+        <label style="color: #7D3C98; " for="inputPassword4" class="form-label">: <%= email%></label>
       </div>
       <div class="col-md-6">
         <label style="color: #A04000;">Mobile No. </label>
@@ -128,10 +139,10 @@
       </div>
       <div class="col-md-6">
         <label style="color: #A04000;">Role: </label>
-        <label style="color: #7D3C98; " for="inputAddress2" class="form-label"><%=  Role%></label><span id="req1">      </div>
+        <label style="color: #7D3C98; " for="inputAddress2" class="form-label"><%=  Role%></label>    </div>
              <div class="col-md-6">
-        <label style="color: #A04000;">UserName: </label>
-        <label style="color: #7D3C98; " for="inputAddress2" class="form-label"><%=  Username%></label><span id="req1">      </div>
+        <label style="color: #A04000;">Username: </label>
+        <label style="color: #7D3C98; " for="inputAddress2" class="form-label"><%=  Username%></label>   </div>
 
   </div>
   
@@ -147,7 +158,7 @@
 </div>
   <!--                    end of form                      -->
   <br><br>
-  <hr>
+
 
 
 
@@ -158,7 +169,7 @@
     <footer class="l9">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-sm-4 col-md-3 item">
+          <div class="col-sm-4 col-md-2 item">
             <h3>Explore</h3>
             <ul>
               <li><a href="https://mitaoe.ac.in/opportunities.php">CAREERS </a></li>
@@ -168,7 +179,7 @@
               <li><a href="https://mitaoe.ac.in/blog.php">BLOG</a></li>
             </ul>
           </div>
-          <div class="col-sm-4 col-md-3 item">
+          <div class="col-sm-4 col-md-2 item">
             <h3>IMP Links</h3>
             <ul>
               <li><a href="https://mitaoe.ac.in/mitaoe-nirf.php">NIRF</a></li>
@@ -178,7 +189,7 @@
             </ul>
           </div>
 
-          <div class="col-sm-4 col-md-3 item">
+          <div class="col-sm-4 col-md-2 item">
             <h3>IMP Links</h3>
             <ul>
               <li><a href="https://mitaoe.ac.in/mitaoe-quality-assurance.php">IQAC</a></li>
@@ -191,7 +202,7 @@
             </ul>
           </div>
 
-          <div class="col-lg-3 item social">
+          <div class="col-lg-4 item social">
            
                              <div class="socials">
                             <a href="https://www.facebook.com/MITAOEOfficial/" id="fb" class="icon-button twitter"  target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i><span></span></a>
@@ -205,7 +216,8 @@
                           
               
                           </div>
-                      <p class="copyright">Company Name © 2018</p>
+                          <p class="copyright">@ 2020 MIT Academy of Engineering</p>
+
                   </div>
             </div>
           </div>

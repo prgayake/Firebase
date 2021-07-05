@@ -8,9 +8,12 @@
   <title>Document</title>
   <!-- CSS only -->
   <link rel="stylesheet" type="text/css" href="/css/allcss.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
@@ -20,7 +23,8 @@
 
   <!--     link for icons      -->
 
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 
 
@@ -29,19 +33,27 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-   <a class="navbar-brand" href="/home"><img src="images/logo.jpg" alt=""></a>
-     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="/home"><img src="images/logo.jpg" alt=""></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <a class="nav-link" href="">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Profile</a>
-        </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%=Username%>
+            </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+            <li><a class="dropdown-item" href="/viewpersonal">View Application</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+           
+          </ul>
+          </li>
       </ul>
     </div>
   </nav>
@@ -52,8 +64,9 @@
 
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -86,93 +99,101 @@
 
 
   <!--        start of form           -->
- 
+
 
   <div class="container" id="c1">
     <div class="info">
-      <p> Note : Howering on <img src="info.png" class="info-icon" id="a1" align="info"> Symbol will Tell you More About the Given Field .</p>
+      <p> Note : Howering on <img src="info.png" class="info-icon" id="a1" align="info"> Symbol will Tell you More About
+        the Given Field .</p>
       <p> Note : Field with ( <span id="req1">*</span> ) Marked are the Required One .</p>
     </div>
     <h6 class="display-6">Business Model</h6>
     <br>
 
-   <form action="/Businessmodel" method="POST" class="row g-3 needs-validation novalidate">
+    <form action="/Businessmodel" method="POST" class="row g-3 needs-validation novalidate">
 
       <div class="col-md-6">
         <label for="inputStage" class="form-label">Start-up Current Stage</label><span id="req1">*</span>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Select relevent stage currently applicable."><img src="images/info.png" class="info-icon" id="a1" align="info"> </a>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Select relevent stage currently applicable."><img
+            src="images/info.png" class="info-icon" id="a1" align="info"> </a>
 
         <select class="form-select" name="stp_curr_stage" aria-label="Default select example" required>
           <option value="">--select the option--</option>
-          <option label="Idation" value="number:1">Idation</option>
-          <option label="Scaling Up" value="number:2">Scaling Up</option>
-          <option label="Mature" value="number:3">Mature</option>
+          <option label="Idation" value="Idation">Idation</option>
+          <option label="Scaling Up" value="Scaling Up">Scaling Up</option>
+          <option label="Mature" value="Mature">Mature</option>
         </select>
       </div>
 
       <div class="col-md-6">
-        <label for="fUniquenessFactor" class="form-label">Uniqueness Factor / Uniqueness Features</label><span id="req1">*</span>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Select uniqueness features of your product/service that differentiate you from others."><img src="images/info.png" class="info-icon" id="a1" align="info"> </a>
+        <label for="fUniquenessFactor" class="form-label">Uniqueness Factor / Uniqueness Features</label><span
+          id="req1">*</span>
+        <a data-bs-toggle="tooltip" data-bs-placement="top"
+          title="Select uniqueness features of your product/service that differentiate you from others."><img
+            src="images/info.png" class="info-icon" id="a1" align="info"> </a>
         <input type="text" name="uniqueness_factor" class="form-control" id="inputUniquenessFactor" required>
 
       </div>
 
       <div class="col-md-6">
         <label for="fKeyPartners" class="form-label">Key Partners / Resources</label>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Mention your key partners"><img src="images/info.png" class="info-icon" id="a1" align="info"> </a>
-        <textarea class="form-control" name="key_partners" id="exampleFormControlTextarea1" rows="2"
-        ></textarea>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Mention your key partners"><img src="images/info.png"
+            class="info-icon" id="a1" align="info"> </a>
+        <textarea class="form-control" name="key_partners" id="exampleFormControlTextarea1" rows="2"></textarea>
 
       </div>
 
       <div class="col-md-6">
         <label for="fCostStructure" class="form-label">Cost Structure</label>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Describe the overall costing of your product/service."><img src="images/info.png" class="info-icon" id="a1" align="info"> </a>
-        <textarea class="form-control" name="cost_structure" id="exampleFormControlTextarea1" rows="2"
-        ></textarea>
+        <a data-bs-toggle="tooltip" data-bs-placement="top"
+          title="Describe the overall costing of your product/service."><img src="images/info.png" class="info-icon"
+            id="a1" align="info"> </a>
+        <textarea class="form-control" name="cost_structure" id="exampleFormControlTextarea1" rows="2"></textarea>
 
 
       </div>
 
       <div class="col-md-6">
         <label for="fRevenueInflow" class="form-label">Revenue Inflow</label>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Mention the revenue figures against your business."><img src="images/info.png" class="info-icon" id="a1" align="info"> </a>
-        <textarea class="form-control" name="Revenue_inflow" id="exampleFormControlTextarea1" rows="2"
-        ></textarea>
+        <a data-bs-toggle="tooltip" data-bs-placement="top"
+          title="Mention the revenue figures against your business."><img src="images/info.png" class="info-icon"
+            id="a1" align="info"> </a>
+        <textarea class="form-control" name="Revenue_inflow" id="exampleFormControlTextarea1" rows="2"></textarea>
 
       </div>
       <div class="col-md-6">
         <label for="fRevenueInflow" class="form-label">Customer Segment</label>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Target Customers."><img src="images/info.png" class="info-icon" id="a1" align="info"> </a>
-        <textarea class="form-control" name="Customer_Segment" id="exampleFormControlTextarea1" rows="2"
-        ></textarea>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Target Customers."><img src="images/info.png"
+            class="info-icon" id="a1" align="info"> </a>
+        <textarea class="form-control" name="Customer_Segment" id="exampleFormControlTextarea1" rows="2"></textarea>
 
       </div>
       <div class="col-md-6">
         <label for="fRevenueInflow" class="form-label">Key Matrix</label>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Key Activities you Measure."><img src="images/info.png" class="info-icon" id="a1" align="info"> </a>
-        <textarea class="form-control" name="Key_Matrix" id="exampleFormControlTextarea1" rows="2"
-        ></textarea>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Key Activities you Measure."><img
+            src="images/info.png" class="info-icon" id="a1" align="info"> </a>
+        <textarea class="form-control" name="Key_Matrix" id="exampleFormControlTextarea1" rows="2"></textarea>
 
       </div>
       <div class="col-md-6">
         <label for="fRevenueInflow" class="form-label">Channels</label>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Path to Customers."><img src="images/info.png" class="info-icon" id="a1" align="info"> </a>
-        <textarea class="form-control" name="Channels" id="exampleFormControlTextarea1" rows="2"
-        ></textarea>
+        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Path to Customers."><img src="images/info.png"
+            class="info-icon" id="a1" align="info"> </a>
+        <textarea class="form-control" name="Channels" id="exampleFormControlTextarea1" rows="2"></textarea>
 
 
       </div>
       <div class="col-md-6">
         <label for="fRevenueInflow" class="form-label">Unique Value</label>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Single Clear Compelling message that states why you are Different and Worth Paying Attention."><img src="images/info.png" class="info-icon" id="a1" align="info"> </a>
-        <textarea class="form-control" name="Unique_Value" id="exampleFormControlTextarea1" rows="2"
-        ></textarea>
+        <a data-bs-toggle="tooltip" data-bs-placement="top"
+          title="Single Clear Compelling message that states why you are Different and Worth Paying Attention."><img
+            src="images/info.png" class="info-icon" id="a1" align="info"> </a>
+        <textarea class="form-control" name="Unique_Value" id="exampleFormControlTextarea1" rows="2"></textarea>
 
       </div>
-      
-      <div class="col-md-8"></div>
-      <div class="col-md-4">
+
+      <div class="col-md-7"></div>
+      <div class="col-md-5">
 
         <button type="submit" id="btn1" class="btn btn-primary">Submit</button>
 
@@ -185,7 +206,7 @@
 
   <!--                    end of form                      -->
   <br><br>
-  <hr>
+
 
 
 
@@ -196,7 +217,7 @@
     <footer class="l9">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-sm-4 col-md-3 item">
+          <div class="col-sm-4 col-md-2 item">
             <h3>Explore</h3>
             <ul>
               <li><a href="https://mitaoe.ac.in/opportunities.php">CAREERS </a></li>
@@ -206,7 +227,7 @@
               <li><a href="https://mitaoe.ac.in/blog.php">BLOG</a></li>
             </ul>
           </div>
-          <div class="col-sm-4 col-md-3 item">
+          <div class="col-sm-4 col-md-2 item">
             <h3>IMP Links</h3>
             <ul>
               <li><a href="https://mitaoe.ac.in/mitaoe-nirf.php">NIRF</a></li>
@@ -219,7 +240,7 @@
             </ul>
           </div>
 
-          <div class="col-sm-4 col-md-3 item">
+          <div class="col-sm-4 col-md-2 item">
             <h3>IMP Links</h3>
             <ul>
               <li><a href="https://mitaoe.ac.in/mitaoe-quality-assurance.php">IQAC</a></li>
@@ -231,30 +252,36 @@
               <li><a href="https://mitaoe.ac.in/mitaoe-committees.php">GRIEVANCE REDRESSAL</a></li>
             </ul>
           </div>
+          <div class="col-lg-4 item social">
 
-          <div class="col-lg-3 item social">
             <div class="socials">
-                             
-                            <a href="https://www.facebook.com/MITAOEOfficial/" id="fb" class="icon-button twitter"  target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i><span></span></a>
 
-                               <a href="https://www.youtube.com/channel/UCL4DWs9R4irwWUTFg8BYsOQ" id="fb" class="icon-button twitter"  target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i><span></span></a>
-                             
-                          <a href="https://www.linkedin.com/company/mit-academy-of-engineering/" id="linkedin1" class="icon-button facebook"  target="_blank"><i class="fab fa-linkedin"></i><span></span></a>
+              <a href="https://www.facebook.com/MITAOEOfficial/" id="fb" class="icon-button twitter" target="_blank"><i
+                  class="fab fa-facebook" aria-hidden="true"></i><span></span></a>
 
-                            <a href="https://www.instagram.com/mitacademyofengineering/" id="insta" class="icon-button google-plus"  target="_blank"><i class="fab fa-instagram"></i><span></span></a>
+              <a href="https://www.youtube.com/channel/UCL4DWs9R4irwWUTFg8BYsOQ" id="fb" class="icon-button twitter"
+                target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i><span></span></a>
 
-                          
-              
-                          </div>
-                  
+              <a href="https://www.linkedin.com/company/mit-academy-of-engineering/" id="linkedin1"
+                class="icon-button facebook" target="_blank"><i class="fab fa-linkedin"></i><span></span></a>
+
+              <a href="https://www.instagram.com/mitacademyofengineering/" id="insta" class="icon-button google-plus"
+                target="_blank"><i class="fab fa-instagram"></i><span></span></a>
 
 
-            <p class="copyright">Company Name © 2018</p>
-          </div>
+
             </div>
+
+
+
+            <p class="copyright">@ 2020 MIT Academy of Engineering</p>
           </div>
+
+        </div>
+      </div>
     </footer>
   </div>
+
 
 
   <!-- End Footer -->
@@ -264,27 +291,27 @@
   <!-- Go To Top Link -->
 
 
-<script>
-  (function () {
-    'use strict'
-  
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-  
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-  
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })()
-</script>
+  <script>
+    (function () {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+  </script>
 
 
 </body>
