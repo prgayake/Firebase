@@ -25,6 +25,27 @@ const ifLoggedin = (req, res, next) => {
     }
     next();
 }
+
+ function requireLogin (req, res, next) {
+    const db = firebase.database().ref();
+    db.child('Admin').once('value', function(snap) {
+
+    if (req.session.username ==snap.val().Username) {
+      next();
+    }else if (!req.session.isLoggedIn) {
+        res.redirect('/login-register')
+    }
+    else {  
+     res.statusCode = 401;
+        res.send('<strong>Unauthorized Request Please click here <a href="/home" title=""><button> Home</button></a></strong>');      
+
+    }
+    });
+  };
+
+
+
+
 //APPLY COOKIE SESSION MIDDLEWARE  End
 router.get('/', ifNotLoggedin, (req, res) => {
     res.redirect('/home')
@@ -287,7 +308,7 @@ router.get('/profile', ifNotLoggedin, (req, res) => {
     });
 });
 
-router.get('/admin_incubatee', (req, res) => {
+router.get('/admin_incubatee',requireLogin ,(req, res) => {
     const db = firebase.database().ref();
     db.child('finance').on('value', function(snap1) {
         db.child('Basic').on('value', function(snap2) {
@@ -313,7 +334,7 @@ router.get('/admin_incubatee', (req, res) => {
     })
 })
 
-router.get('/admin_ecell', (req, res) => {
+router.get('/admin_ecell',requireLogin, (req, res) => {
     const db = firebase.database().ref();
     db.child('finance').on('value', function(snap) {
         db.child('users').orderByChild('Email').on('value', function(snapshot) {
@@ -327,7 +348,7 @@ router.get('/admin_ecell', (req, res) => {
     });
 })
 
-router.get('/admin',(req, res)=>{
+router.get('/admin',requireLogin,(req, res)=>{
   var children = firebase.database().ref('users').orderByChild('Role').equalTo('Incubiator').once("value", (snapshot) => {
       const count = snapshot.numChildren();
       console.log("count" + count);
