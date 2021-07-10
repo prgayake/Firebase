@@ -58,19 +58,93 @@
         if(req.session.isLoggedIn){
              console.log(req.session.isLoggedIn) 
               return res.redirect('/home');
-          }
+          }                                                                                                                                                                                                                                                                                                                                                         
           next();
       }
+
+      function preparezipforall(req,res,next){
+
+        var output = fs.createWriteStream('./uploads/IncubateeDocs.zip');
+        var archive = archiver('zip');
+
+        output.on('close', function() {
+            console.log(archive.pointer() + ' total bytes');
+            console.log('archiver has been finalized and the output file descriptor has closed.');
+             next();
+        });
+
+        archive.on('error', function(err) {
+            throw err;
+        });
+
+        var temp = archive.pipe(output);
+
+        // append files from a sub-directory, putting its contents at the root of archive
+        archive.directory('./uploads/upload_forms/', false);
+        archive.finalize();
+
+        
+
+      }
+
+
+
+      function Preparezipforeach(req,res,next) {
+              var output1 = fs.createWriteStream('./uploads/upload_forms/'+req.session.username+'.zip');
+        var archive1 = archiver('zip');
+
+        output1.on('close', function() {
+            console.log(archive1.pointer() + ' total bytes');
+            console.log('archiver has been finalized and the output file descriptor has closed.');
+            next();
+        });
+
+        archive1.on('error', function(err) {
+            throw err;
+        });
+
+        var temp = archive1.pipe(output1);
+
+        // append files from a sub-directory, putting its contents at the root of archive
+        archive1.directory('./uploads/upload_forms/'+req.session.username, false);
+        archive1.finalize();
+        
+        
+      }
+
+function deletezip(path){
+        
+    fs.unlink(path, function (err) {
+    if (err) throw err;
+    // if no error, file has been deleted successfully
+    console.log('File deleted!');
+});
+      }
+      
+      
 //APPLY COOKIE SESSION MIDDLEWARE  End
 
 
 // Get Routes(restricted Pages)
-      app.get('/download',(req,res) =>{
+      app.get('/download',preparezipforall,(req,res) =>{
         
-        res.download('./uploads/IncubateeDocs.zip')
+        res.download('./uploads/IncubateeDocs.zip',function(error){
+            if(error)
+            {
+                console.log(error);
+            }
+            else{
+                deletezip('./uploads/IncubateeDocs.zip')
+            }
+
+    })
+           
 
       });
 
+
+
+             
 
 
 
@@ -87,5 +161,3 @@ app.get('/logout',(req,res)=>{
 });
 
 app.listen(3020, () => console.log("Server is Running...3020"));
-
-

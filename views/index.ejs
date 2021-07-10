@@ -2,883 +2,300 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-          <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
-
-    <!--     link for icons      -->
-    <script defer src="/your-path-to-fontawesome/js/all.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
-    <style>
-        body {
-            background-image: linear-gradient(to bottom left, rgb(5, 70, 131), rgb(212, 241, 255));
-            font-family: 'Poppins', sans-serif;
-        }
-
-        #l1 {
-            margin-left: 30px;
-        }
-
-        #l2 {
-
-            font-size: 1.3rem;
-            color: #487905;
-        }
-
-        #l2:hover {
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        .hyperlink {
-            width: 50%;
-            position: relative;
-            left: 550px;
-
-        }
-
-        #l4 {
-
-            margin-bottom: 20px;
-            box-shadow: 5px 10px 8px 10px #888888;
-            border-radius: 8px;
-            padding: 20px;
-            ;
-            margin: 5px;
-        }
-
-
-        #l8 {
-
-            margin-top: 20px;
-            margin-bottom: 20px;
-            /* box-shadow: 5px 10px 8px 10px #888888; */
-            border-radius: 8px;
-            padding: 20px;
-
-
-
-        }
-
-        #l8:hover {
-            margin-top: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            padding: 20px;
-
-        }
-
-        .footer-clean {
-            padding: 50px 0;
-            background-image: linear-gradient(to bottom left, rgb(0, 1, 2), rgb(1, 70, 105));
-            color: #4b4c4d;
-        }
-
-        .l9 {
-            font-family: 'Ubuntu', sans-serif;
-            font-weight: bold;
-
-        }
-
-        .footer-clean h3 {
-            margin-top: 0;
-            margin-bottom: 12px;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .footer-clean ul {
-            padding: 0;
-            list-style: none;
-            line-height: 1.6;
-            font-size: 14px;
-            margin-bottom: 0;
-        }
-
-        .footer-clean ul a {
-            color: inherit;
-            text-decoration: none;
-            opacity: 0.8;
-        }
-
-        .footer-clean ul a:hover {
-            opacity: 1;
-        }
-
-        .footer-clean .item.social {
-            text-align: right;
-        }
-
-        @media (max-width:767px) {
-            .footer-clean .item {
-                text-align: center;
-                padding-bottom: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .footer-clean .item.social {
-                text-align: center;
-            }
-        }
-
-        .footer-clean .item.social>a {
-            font-size: 24px;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            display: inline-block;
-            text-align: center;
-            border-radius: 50%;
-            border: 1px solid #ccc;
-            margin-left: 10px;
-            margin-top: 22px;
-            color: inherit;
-            opacity: 0.75;
-        }
-
-        .footer-clean .item.social>a:hover {
-            opacity: 0.9;
-        }
-
-        @media (max-width:991px) {
-            .footer-clean .item.social>a {
-                margin-top: 40px;
-            }
-        }
-
-        @media (max-width:767px) {
-            .footer-clean .item.social>a {
-                margin-top: 10px;
-            }
-        }
-
-        .footer-clean .copyright {
-            margin-top: 14px;
-            margin-bottom: 0;
-            font-size: 13px;
-            opacity: 0.6;
-        }
-
-
-        .responsive {
-            max-width: 100%;
-            height: auto;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial
-        }
-
-        .l15 {
-            color: white;
-            font-weight: bold;
-        }
-
-        .topnav {
-            overflow: hidden;
-            background-color: #333;
-            box-shadow: 5px 10px 8px 10px #888888;
-            border-radius: 8px;
-
-
-        }
-
-        .topnav a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 26px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-
-        .topnav .icon {
-            display: none;
-        }
-
-        .dropdown {
-            float: left;
-            overflow: hidden;
-        }
-
-        .dropdown .dropbtn {
-            font-size: 17px;
-            border: none;
-            outline: none;
-            color: white;
-            padding: 14px 16px;
-            background-color: inherit;
-            font-family: inherit;
-            margin: 0;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            float: none;
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-
-        .topnav a:hover,
-        .dropdown:hover .dropbtn {
-            background-color: #555;
-            color: white;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        @media screen and (max-width: 600px) {
-
-            .topnav a:not(:first-child),
-            .dropdown .dropbtn {
-                display: none;
-            }
-
-            .topnav a.icon {
-                float: right;
-                display: block;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .topnav.responsive {
-                position: relative;
-            }
-
-            .topnav.responsive .icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-
-            .topnav.responsive a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-
-            .topnav.responsive .dropdown {
-                float: none;
-            }
-
-            .topnav.responsive .dropdown-content {
-                position: relative;
-            }
-
-            .topnav.responsive .dropdown .dropbtn {
-                display: block;
-                width: 100%;
-                text-align: left;
-            }
-        }
-
-        #l6 {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-
-        }
-
-        #l7 {
-            position: relative;
-            bottom: 180px;
-
-            border-radius: 5px;
-            ;
-        }
-
-        /* navbar css */
-        .navbar {
-            padding: 0 1rem 0 1rem;
-          
-            background-image: linear-gradient(to bottom left, rgb(0, 1, 2), rgb(1, 70, 105));
-            
-        }
-
-        .navbar:hover {
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            
-        }
-
-        .nav-item {
-
-            padding: 0 18px;
-            color: white;
-        }
-
-        .nav-link {
-            font-size: 1.2rem;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .nav-link:hover {
-
-            border-bottom: 4px solid #f8f2f4;
-        }
-
-        .nav-link:active {
-
-            border-bottom: 4px solid #f8f2f4;
-        }
-
-
-        .icons {
-            margin: 1px 5px 1px 5px;
-            color: #607d8b;
-        }
-
-        .icons:hover {
-            color: #ff4c68;
-        }
-
-        h1 {
-            text-transform: uppercase;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #fff;
-            margin: 50px 0;
-        }
-
-
-
-
-        .counters {
-            width: 100%;
-            display: block;
-        }
-
-        @media (min-width:768px) {
-            .counters {
-                display: flex;
-                justify-content: space-between;
-            }
-        }
-
-        .item {
-            display: flex;
-            flex-direction: column;
-            padding: 2rem 2rem;
-            color: #fff;
-        }
-
-        .item i {
-            font-size: 2rem;
-        }
-
-        .counter {
-            margin-top: 10px;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-
-        .counter__text {
-            font-size: 1.1rem;
-        }
-    </style>
+     <!-- Favicons -->
+  <link rel="icon" type="image/png" href="images/logo.jpg"/>
+<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+
+  
+     <!-- Favicons -->
+  <link rel="icon" type="image/png" href="images/logo.jpg"/>
+<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+
+  <title>Ecell Portal</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/aos.css">
+  <link rel="stylesheet" href="/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="/css/templatemo-digital-trend.css">
+  <link rel="stylesheet" type="text/css" href="/css/allcss.css">
+ 
+  <!-- JavaScript Bundle with Popper -->
+ 
+  
+  <!--     link for icons      -->
+  <script defer src="/your-path-to-fontawesome/js/all.js"></script>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <script src="https://kit.fontawesome.com/5aa628abff.js" crossorigin="anonymous"></script>
+
+  <style>
+    #pic {
+      width: 400px;
+      height: 300px;
+    }
+  </style>
 
 </head>
 
 <body>
 
-    <!-- Navbar starts  -- >
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link " aria-current="page" href="#">Login</a>
-            <a class="nav-link " aria-current="page" href="#">Sign Up</a>
+  <!-- MENU BAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo.jpg" alt="">
+
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="#nmov" class="nav-link smoothScroll">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="/register" class="nav-link smoothScroll">Sign up</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/login-register" class="nav-link contact">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero hero-bg d-flex justify-content-center align-items-center">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-center align-items-center">
+          <div class="hero-text">
+
+            <h1 class="text-white" data-aos="fade-up">We are ready for your startup ideas</h1>
+
+            <a href="contact.html" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">Join Us
+              Now</a>
+
+            <!-- <strong class="d-block py-3 pl-5 text-white" data-aos="fade-up" data-aos-delay="200"><i class="fa fa-phone mr-2"></i> +99 080 070 4224</strong> -->
+
+
+
+
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12">
+          <div class="hero-image" data-aos="fade-up" data-aos-delay="300">
+
+            <img src="images/home.png" class="img-fluid" alt="working girl">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="nmov" class="about section-padding pb-0" id="about">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-7 mx-auto col-md-10 col-12">
+          <div class="about-info">
+
+            <h2  class="mb-4" data-aos="fade-up"><strong>About Us</strong></h2>
+
+            <p class="mb-0" data-aos="fade-up">We provide mentoring, Networking & handholding support to students/
+              alumni/ others for real venture/startups in sector agnostic industries. Till date entrepreneurship
+              education has been provided for
+              1500+ students & 7 faculty has been trained as entrepreneurship educators. The EDF also plans to offer a
+              minor specialization for UG students in Innovation, Entrepreneurship & Startups.
+              <br><br>
+              <a href="https://mitaoe.ac.in/Entrepreneurial-Development-Foundation/about.php" class="mybutton">Know
+                More</a>
+            </p>
+            <br><br><br>
+
+            <h2 class="mb-4" data-aos="fade-up"><strong>Milestones</strong></h2>
+
+            <ul>
+
+              <li class="mb-0 list" data-aos="fade-up">Band B Rank 26-50th' in the Self Finance Private Institute
+                Category, in the ARIIA rankings.</li>
+              <li class="mb-0 list" data-aos="fade-up">Recognition of the Institute as Host Institute (HI) / to
+                setup/establish Business lncubator (BI) for implementation of the scheme namely 'Support for
+                Entrepreneurial and Managerial Development
+                of MSMEs through lncubator.'</li>
+              <li class="mb-0 list" data-aos="fade-up">Winners of National Entrepreneurship Challenge(NEC), IIT Bombay.
+              </li>
+              <li class="mb-0 list" data-aos="fade-up">Winners of the best startup club award by Wadhwani Foundation,
+                2019.</li>
+              <li class="mb-0 list" data-aos="fade-up">11 Startup teams from MITAOE have won ''Certified Potential Real
+                Venture" by global jury.</li>
+              <li class="mb-0 list" data-aos="fade-up">4-Star performance in year 2019-20 at Institute Innovation
+                Council (IIC) an Initiative of MHRD-GOI, etc.</li>
+              <br>
+            </ul>
+            <p class="mb-0" data-aos="fade-up">
+              <a href="https://mitaoe.ac.in/Entrepreneurial-Development-Foundation/about.php" class="mybutton">Know
+                More</a>
+            </p>
+
+          </div>
+
+          <div class="about-image" data-aos="fade-up" data-aos-delay="200">
+
+            <img src="images/office.png" class="img-fluid" alt="office">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PROJECT -->
+  <section class="project section-padding" id="project">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-lg-12 col-12">
+
+          <h2 class="mb-5 text-center" data-aos="fade-up">
+
+            <strong>Our Pride Startups</strong>
+          </h2>
+
+          <div class="owl-carousel owl-theme" id="project-slide">
+            <div class="item project-wrapper" data-aos="fade-up" data-aos-delay="100">
+              <img src="images/p.png" class="img-fluid" id="pic" alt="project image">
+              <br>
+
+            </div>
+
+            <div class="item project-wrapper" id="pc1" data-aos="fade-up">
+              <img src="images/HAB.jpg" class="img-fluid" id="pic" alt="project image">
+
+
+            </div>
+
+            <div class="item project-wrapper" id="pc1" data-aos="fade-up">
+              <img src="images/Inventnote.jpg" class="img-fluid" id="pic" alt="project image">
+
+
+            </div>
+
+            <div class="item project-wrapper" id="pc1" data-aos="fade-up">
+              <img src="images/Kosity.jpg" class="img-fluid" id="pic" alt="project image">
+
+
+            </div>
+
+            <div class="item project-wrapper" id="pc1" data-aos="fade-up">
+              <img src="images/Hunar.jpg" class="img-fluid" id="pic" alt="project image">
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+  </section>
+
+
+  <br>
+
+
+
+  
+
+
+  <div class="footer-clean">
+    <footer class="l9">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-4 col-md-2 item">
+            <h3>Explore</h3>
+            <ul>
+              <li><a href="https://mitaoe.ac.in/opportunities.php">CAREERS </a></li>
+              <li><a href="https://alumni.mitaoe.ac.in/" target="_blank">ALUMNI</a></li>
+              <li><a href="https://mitaoe.ac.in/contact-us.php">CONTACT</a></li>
+              <li><a href="https://mitaoe.ac.in/blog.php">BLOG</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-2 item">
+            <h3>IMP Links</h3>
+            <ul>
+              <li><a href="https://mitaoe.ac.in/mitaoe-nirf.php">NIRF</a></li>
+              <li><a href="https://mitaoe.ac.in/mandatory-disclosure.php">MANDATORY DISCLOSURE</a></li>
+              <li><a href="https://mitaoe.ac.in/mitaoe-downloads.php">DOWNLOADS</a></li>
+              <li><a href="https://mitaoe.ac.in/">READ MORE</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-2 item">
+            <h3>IMP Links</h3>
+            <ul>
+              <li><a href="https://mitaoe.ac.in/mitaoe-quality-assurance.php">IQAC</a></li>
+              <li><a href="https://mitaoe.ac.in/mitaoe-statutory-compliance.php">STATUTORY COMPLIANCE</a></li>
+              <li><a href="https://mitaoe.ac.in/mitaoe-committees.php">GRIEVANCE REDRESSAL</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 item social">
+            <div class="socials">
+              <a href="https://www.facebook.com/MITAOEOfficial/" id="fb" class="icon-button twitter" target="_blank"><i
+                  class="fab fa-facebook" aria-hidden="true"></i><span></span></a>
+              <a href="https://www.youtube.com/channel/UCL4DWs9R4irwWUTFg8BYsOQ" id="fb" class="icon-button twitter"
+                target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i><span></span></a>
+              <a href="https://www.linkedin.com/company/mit-academy-of-engineering/" id="linkedin1"
+                class="icon-button facebook" target="_blank"><i class="fab fa-linkedin"></i><span></span></a>
+              <a href="https://www.instagram.com/mitacademyofengineering/" id="insta" class="icon-button google-plus"
+                target="_blank"><i class="fab fa-instagram"></i><span></span></a>
+            </div>
+             <p id="copyright" class="copyright"></p>
+                 <script>
+                      var d = new Date()
+                      var D = d.getFullYear()
+            document.getElementById("copyright").innerHTML =' &copy' +D+' MIT Academy of Engineering';
+            </script>
           </div>
         </div>
       </div>
-    </nav> -->
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
-        <a class="navbar-brand" href=""><img src="images/logo.jpg" alt=""></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="home.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login-register">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">Sign Up</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-
-    <section class="pt-5 pb-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <h3 class="mb-3">MITAOE</h3>
-                </div>
-                <div class="col-6 text-right">
-                    <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
-                        data-slide="prev">
-                        <i class="fa fa-arrow-left"></i>
-                    </a>
-                    <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
-                        <i class="fa fa-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="col-12">
-                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="row">
-
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="c5.jpg">
-                                            <div class="card-body">
-                                                <h6 class="card-title">TED-X</h6>
-
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="c2.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">CAMPUS</h4>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="c3.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">ECELL</h4>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="row">
-
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="c2.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">CAMPUS</h4>
-
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="campus5.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Go-Green</h4>
-
-
-
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="c5.jpg">
-                                            <div class="card-body">
-                                                <h5 class="card-title">TED-X</h5>
-                                                <p class="card-text"></p>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <link rel="stylesheet" type="text/css"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-    <script type="text/javascript"
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
-
-
-
-    <!-- Navbar -->
-
-    <!-- <img src="ecelllogo.png" id="l6" width="50%"  alt="" > -->
-
-
-
-    <div data-aos="zoom-in-up" class="container" id="l8">
-
-        <div class="row">
-
-            <!-- Start Left Side -->
-            <div class="col-md-12">
-
-                <!-- Start Big Heading -->
-                <div class="big-title">
-                    <h3> ABOUT US </h3>
-                </div>
-
-                <!-- End Big Heading -->
-
-                <!-- Some Text -->
-                <h6 style="text-align:justify;" class="l9">
-                    We provide mentoring, Networking & handholding support to students/ alumni/ others for real
-                    venture/startups in sector agnostic industries. Till date entrepreneurship education has been
-                    provided for 1500+ students & 7 faculty has been
-                    trained as entrepreneurship educators. The EDF also plans to offer a minor specialization for UG
-                    students in Innovation, Entrepreneurship & Startups. </h6>
-
-                <!-- Divider -->
-                <div class="hr1" style="margin-bottom:14px;"></div>
-
-                <!-- Divider -->
-                <div class="hr1" style="margin-bottom:18px;"></div>
-
-                <!-- Button -->
-                <a href="https://mitaoe.ac.in/Entrepreneurial-Development-Foundation/about.php"
-                    class="btn btn-outline-primary">READ MORE</a>
-            </div>
-            <!-- End Left Side -->
-
-            <!-- Vimeo Iframe -->
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-<br><br><br>
-    </div>
-    <div class="container" data-aos="zoom-in-up" id="l8">
-
-        <div class="row">
-
-            <!-- Start Left Side -->
-            <div class="col-md-12">
-
-                <!-- Start Big Heading -->
-                <div class="big-title">
-                    <h3>MILESTONES</h3>
-                </div>
-
-                <!-- End Big Heading -->
-
-                <!-- Some Text -->
-                <ul style="list-style: disc;" class="l9">
-                    <li>Band B Rank 26-50th' in the Self Finance Private Institute Category, in the ARIIA rankings,
-                    </li>
-                    <li>Recognition of the Institute as Host Institute (HI) / to setup/establish Business lncubator (BI)
-                        for implementation of the scheme namely 'Support for Entrepreneurial and Managerial Development
-                        of MSMEs through lncubator.' </li>
-                    <li>Winners of National Entrepreneurship Challenge(NEC), IIT Bombay,</li>
-                    <li>Winners of the best startup club award by Wadhwani Foundation, 2019, </li>
-
-
-                    <li>11 Startup teams from MITAOE have won ''Certified Potential Real Venture" by global jury.</li>
-
-                    <li>4-Star performance in year 2019-20 at Institute Innovation Council (IIC) an Initiative of
-                        MHRD-GOI, etc.</li>
-                </ul>
-
-
-
-                <!-- Button -->
-                <a href="https://mitaoe.ac.in/Entrepreneurial-Development-Foundation/milestones.php"
-                    class="btn btn-outline-primary">READ MORE</a>
-            </div>
-            <div class="hr1" style="margin-bottom:14px;"></div>
-
-            <!-- Divider -->
-            <div class="hr1" style="margin-bottom:18px;"></div>
-
-            <!-- Button -->
-
-            <!-- End Left Side -->
-
-            <!-- Vimeo Iframe -->
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-    </div>
-    <div class="container" id="l8">
-
-        <div class="row">
-
-            <!-- Start Left Side -->
-            <div class="col-md-12">
-
-                <!-- Start Big Heading -->
-                <div class="big-title">
-                    <h1>How Much You Loved Us</h1>
-                </div>
-
-                <!-- End Big Heading -->
-
-                <!-- Some Text -->
-
-                <div  data-aos="fade-up"
-     data-aos-duration="3000" class="counters">
-                    <div class="item">
-
-                        <span class="counter" data-target="1200"></span>
-                        <h4 class="counter__text">Incubatee</h4>
-                    </div>
-                    <div class="item">
-
-                        <span class="counter" data-aos="fade-up" data-target="13000"></span>
-                        <span class="counter__text">Members</span>
-                    </div>
-                    <div class="item">
-
-                        <span class="counter" data-target="10002"></span>
-                        <span class="counter__text">Successfull Startup</span>
-                    </div>
-                </div>
-
-                <!-- Divider -->
-                <div class="hr1" style="margin-bottom:14px;"></div>
-
-                <!-- Divider -->
-                <div class="hr1" style="margin-bottom:18px;"></div>
-
-                <!-- Button -->
-
-            </div>
-            <!-- End Left Side -->
-
-            <!-- Vimeo Iframe -->
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- End Subscribe & Social Links Widget -->
-
-    <!-- Start Copyright -->
-    <div class="footer-clean">
-        <footer class="l9">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-sm-4 col-md-3 item l15">
-                        <h3>Explore</h3>
-                        <ul>
-                            <li><a href="https://mitaoe.ac.in/opportunities.php">CAREERS </a></li>
-                            <li><a href="https://alumni.mitaoe.ac.in/" target="_blank">ALUMNI</a></li>
-                            <li><a href="https://mitaoe.ac.in/contact-us.php">CONTACT</a></li>
-
-                            <li><a href="https://mitaoe.ac.in/blog.php">BLOG</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 col-md-3 item l15">
-                        <h3>IMP Links</h3>
-                        <ul>
-                            <li><a href="https://mitaoe.ac.in/mitaoe-nirf.php">NIRF</a></li>
-                            <li><a href="https://mitaoe.ac.in/mandatory-disclosure.php">MANDATORY DISCLOSURE</a></li>
-
-
-
-                            <li><a href="https://mitaoe.ac.in/mitaoe-downloads.php">DOWNLOADS</a></li>
-                            <li><a href="https://mitaoe.ac.in/">READ MORE</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-sm-4 col-md-3 item l15">
-                        <h3>IMP Links</h3>
-                        <ul>
-                            <li><a href="https://mitaoe.ac.in/mitaoe-quality-assurance.php">IQAC</a></li>
-
-
-                            <li><a href="https://mitaoe.ac.in/mitaoe-statutory-compliance.php">STATUTORY COMPLIANCE</a>
-                            </li>
-
-
-                            <li><a href="https://mitaoe.ac.in/mitaoe-committees.php">GRIEVANCE REDRESSAL</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 item social">
-                        <div class="socials">
-                            <a target="_blank" href="https://www.facebook.com/MITAOEOfficial/">
-                                <!-- <img src="face.png" width="50" height="50"> -->
-                                <i class="fab fa-facebook fa-3x icons"></i>
-                            </a>
-                            <a target="_blank" href="https://www.youtube.com/channel/UCL4DWs9R4irwWUTFg8BYsOQ">
-                                <!-- <img src="you.png" width="50" height="50"> -->
-                                <i class="fab fa-youtube fa-3x icons"></i>
-                            </a>
-                            <a target="_blank" href="https://twitter.com/MITAOE">
-                                <!-- <img src="twi.png" width="50" height="50"> -->
-                                <i class="fab fa-twitter fa-3x icons"></i>
-                            </a>
-                            <a target="_blank" href="https://www.instagram.com/mitacademyofengineering/" width="50"
-                                height="50">
-                                <i class="fab fa-instagram fa-3x icons"></i>
-                            </a>
-                            <a target="_blank" href="https://www.linkedin.com/company/mit-academy-of-engineering/">
-                                <!-- <img src="in.png" width="50" height="40"> -->
-                                <i class="fab fa-linkedin-in fa-3x icons"></i>
-                            </a>
-
-
-
-                            <!-- End Copyright -->
-
-
-
-                            <!-- </div>
-                      <p class="copyright">Company Name © 2018</p>
-                  </div> -->
-
-                        </div>
-                    </div>
-        </footer>
-    </div>
-    <script>
-        const counters = document.querySelectorAll(".counter");
-
-        counters.forEach(counter => {
-            counter.innerText = '0'
-            const target = +counter.getAttribute('data-target');
-            const interval = target / 100;
-
-            const updateCounter = () => {
-                const value = +counter.innerText;
-                if (value < target) {
-                    counter.innerText = Math.ceil(value + interval);
-
-                    setTimeout(() => {
-                        updateCounter()
-                    }, 20);
-                }
-            }
-
-            updateCounter();
-
-        });
-
-    </script>
-
-
-
     </footer>
+  </div>
 
 
-
-    <!-- End Footer -->
-    </div>
-    <!-- End Container -->
-
-    <!-- Go To Top Link -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-
-
+  <!-- SCRIPTS -->
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/aos.js"></script>
+  <script src="/js/owl.carousel.min.js"></script>
+  <script src="/js/smoothscroll.js"></script>
+  <script src="/js/custom.js"></script>
 
 </body>
 

@@ -5,7 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+       <!-- Favicons -->
+  <link rel="icon" type="image/png" href="images/logo.jpg"/>
+<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <title>Personal Details</title>
   <!-- CSS only -->
     <link rel="stylesheet" type="text/css" href="/css/viewform.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -188,7 +191,12 @@
                   </div> -->
 
             </div>
-            <p class="copyright">@ 2020 MIT Academy of Engineering</p>
+             <p id="copyright" class="copyright"></p>
+                 <script>
+                      var d = new Date()
+                      var D = d.getFullYear()
+            document.getElementById("copyright").innerHTML =' &copy' +D+' MIT Academy of Engineering';
+            </script>
           </div>
     </footer>
   </div>

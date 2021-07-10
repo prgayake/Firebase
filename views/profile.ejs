@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+     <!-- Favicons -->
+  <link rel="icon" type="image/png" href="images/logo.jpg"/>
+<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+
+    <title><%=Name%>'s Profile </title>
     <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -204,8 +209,8 @@
                                     <h5>
                                         <%=Name%>
                                     </h5>
-                                    <h6>
-                                        Web Developer and Designer
+                                    <h6 id="portfolio1">
+                                    
                                     </h6>
                                     <p class="proile-rating"></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -335,7 +340,9 @@
                  document.getElementById('fb').href =snap.val().Facebook;
                  document.getElementById('insta').href =snap.val().Instagram;
                  document.getElementById('Awards').textContent =snap.val().Awards;
-                 document.getElementById('skill').textContent =snap.val().skill;   document.getElementById('portfolio').textContent =snap.val().Portfolio;
+                 document.getElementById('skill').textContent =snap.val().skill;   
+                 document.getElementById('portfolio').textContent =snap.val().Portfolio;
+                 document.getElementById('portfolio1').textContent =snap.val().Portfolio;
 
             })
 
