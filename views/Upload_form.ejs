@@ -204,8 +204,31 @@
         <div class="col-md-5"></div>
         <div class="col-md-7">
 
-          <button onclick="myfun()" type="submit" id="btn1" class="btn btn-primary">Submit</button>
+         <h5  class="btn btn-primary" id="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Submit
+        </h5>
 
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cancel Application !</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <h6>Are You sure about Submit Application ? </h6>
+                <p style="color: green;">changes will be saved after Submit form</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                <a href="/viewpersonal"><button class="btn btn-danger">Confirm</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
 
         </div>
       </div>
@@ -242,21 +265,6 @@
   <!--                    end of form                      -->
   <br><br>
   <hr>
-
-<script type="text/javascript">
-  function myfun(){
-    Swal.fire({
-    title: 'Are you sure?',
-  text: "You won't be able to revert this!",
-  icon: 'warning',
-   showDenyButton: true,
-  showCancelButton: true,
-  confirmButtonText: '<a href="/viewbasic" >View Basic</a>',
-  denyButtonText: '<a href="/" >Home</a>'
-})
-   
-  }
-</script>
 
 
   <!-- End Subscribe & Social Links Widget -->
@@ -355,3 +363,15 @@
 </body>
 
 </html>
+
+
+<script type="text/javascript">
+  var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})
+</script>
+
+

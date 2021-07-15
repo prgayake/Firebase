@@ -379,7 +379,7 @@ router.post('/profile2', function(req, res) {
 
 
 router.post('/Upload_form', upload.array('media'), function(req, res) {
-
+    console.log(req.body)
 
     const db = firebase.database().ref();
     db.child('users').child(req.session.username).on('value', function(snap) {
@@ -395,7 +395,7 @@ router.post('/Upload_form', upload.array('media'), function(req, res) {
             if (err) {
                 throw err;
             } else {
-                res.redirect('/home')
+                res.redirect('/viewpersonal')
             }
         });
 
