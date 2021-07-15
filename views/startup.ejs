@@ -1,34 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-     <!-- Favicons -->
-  <link rel="icon" type="image/png" href="images/logo.jpg"/>
-<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
-  <title>Basic -Incubatee</title>
-  <!-- CSS only -->
-  <link rel="stylesheet" type="text/css" href="/css/allcss.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-  <script src="https://kit.fontawesome.com/5aa628abff.js" crossorigin="anonymous"></script>
-
-</head>
+ <%- include('./Assets/header'); %>
 
 <body>
 
@@ -128,7 +101,7 @@
         <label for="inputAddress" class="form-label">Website</label>
         <a data-bs-toggle="tooltip" data-bs-placement="top" title="URL of your website if applicable"><img
             src="info.png" class="info-icon" id="a1" align="info"> </a>
-        <input type="text" name="startup_web" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        <input type="text" name="startup_web" class="form-control" id="inputAddress" placeholder="Url of Website">
       </div>
       <div class="col-md-6">
         <label for="inputAddress2" class="form-label">Firm Registration Date</label><span id="req1">*</span>
@@ -227,7 +200,7 @@
         <label for="inputEmail4" class="form-label">City</label><span id="req1">*</span>
         <a data-bs-toggle="tooltip" data-bs-placement="top" title="City where business is established"><img
             src="info.png" class="info-icon" id="a1" align="info"> </a>
-        <input type="text" name="city" class="form-control" id="inputEmail4">
+        <input type="text" name="city" class="form-control" id="inputEmail4" required>
       </div>
 
       <div class="col-md-4">
@@ -235,7 +208,7 @@
 
         <select class="form-select" name="businesss_model" aria-label="Default select example" required>
           <option value="">Open this select menu</option>
-          </option>
+         
           <option label="B2B" value="B2B">B2B</option>
           <option label="B2C" value="B2C">B2C</option>
           <option label="B2G" value="B2G">B2G</option>
@@ -246,7 +219,7 @@
         <label for="inputEmail4" class="form-label">Firm Type</label><span id="req1">*</span>
 
         <select class="form-select" name="firm_type" aria-label="Default select example" required>
-          <option selected>Open this select menu</option>
+          <option value=" ">Open this select menu</option>
           <option label="Registered Partnership Firm" value="Registered Partnership Firm">Registered Partnership Firm
           </option>
           <option label="Limited Liability Partnership" value="Limited Liability Partnership">Limited Liability
@@ -259,7 +232,7 @@
         <label for="inputEmail4" class="form-label">Registration Number</label><span id="req1">*</span>
         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Company / Firm Registration Number"><img
             src="info.png" class="info-icon" id="a1" align="info"> </a>
-        <input type="text" name="Registration_no" class="form-control" id="inputEmail4">
+        <input type="text" name="Registration_no" class="form-control" id="inputEmail4" required>
       </div>
 
       <div class="col-md-6">
@@ -308,8 +281,7 @@
         <label for="formFile" class="form-label">Upload your General Pitch Deck</label><span id="req1">*</span><a
           href="https://community.nasscom.in/wp-content/uploads/2019/12/Mr-Ratan-Tata-Startup-Pitch-Deck-Template.pdf"
           target="_blank">View Example</a>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top"><img src="info.png" class="info-icon"
-            id="a1" align="info"> </a>
+        
         <input class="form-control" name="media"  type="file" id="formFile" required>
 
       </div>
@@ -323,14 +295,14 @@
       </div>
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Team Size</label><span id="req1">*</span>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Total no od individual working in your business"><img
+        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Total no of individual working in your business"><img
             src="info.png" class="info-icon" id="a1" align="info"> </a>
         <input type="number" name="team_size" class="form-control" id="inputEmail4" required>
       </div>
       <div class="col-md-6">
 
         <label for="formFile" class="form-label">Explainer Video</label>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top"><img src="info.png" class="info-icon"
+        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Short Video Explaination of your Startup if available"><img src="info.png" class="info-icon"
             id="a1" align="info"> </a>
         <input class="form-control" name="media"  type="file" id="formFile">
 
@@ -377,7 +349,7 @@
           });
         </script>
 
-        <div class="col-md-6">
+        <div class="col-md-8">
           <br>
           <label for="inputEmail4" class="form-label">How did you hear about us?</label><span id="req1">*</span>
           <a data-bs-toggle="tooltip" data-bs-placement="top"
@@ -410,9 +382,6 @@
 
           <br>
           <label for="inputAddress2" class="form-label">Have you ever been an Incubatee?</label><span id="req1">*</span>
-          <a data-bs-toggle="tooltip" data-bs-placement="top"
-            title="Please Input Organization Name as Mentioned in Registration Certificate"><img src="info.png"
-              class="info-icon" id="a1" align="info"> </a>
           <label for="chkYes">
             <input type="radio" id="chkYes" value="Yes" name="Incubate" onclick="ShowHideDiv()" />
             Yes
@@ -426,7 +395,7 @@
         <div class="col-md-12 " id="dvtext" style="display: none">
 
           <label for="fIpDescription" class="form-label">Please mention the name of the Incubator: [Max 255
-            characters]</label><span id="req1">*</span>
+            characters]</label>
           <textarea class="form-control" name="Incubator_name" id="exampleFormControlTextarea1" rows="2"
             ></textarea>
         </div>
@@ -448,33 +417,33 @@
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Name of Account Holder</label>
 
-          <input type="text" name="acc_name" class="form-control" id="inputEmail4" required>
+          <input type="text" name="acc_name" class="form-control" id="inputEmail4" >
         </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Account Number</label>
 
-          <input type="text" name="acc_no" class="form-control" id="inputEmail4" required>
+          <input type="text" name="acc_no" class="form-control" id="inputEmail4" >
         </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Name of Bank</label>
 
-          <input type="text" name="bank_name" class="form-control" id="inputEmail4" required>
+          <input type="text" name="bank_name" class="form-control" id="inputEmail4" >
         </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">IFSC Code</label>
 
-          <input type="text" name="IFSC" class="form-control" id="inputEmail4" required>
+          <input type="text" name="IFSC" class="form-control" id="inputEmail4" >
         </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Branch Name</label>
 
-          <input type="text" name="branch" class="form-control" id="inputEmail4" required>
+          <input type="text" name="branch" class="form-control" id="inputEmail4" >
         </div>
         <div class="col-md-6">
 
           <label for="formFile" class="form-label">Upload a Cancelled Cheque</label>
 
-          <input class="form-control" name="media"  type="file" id="formFile" required>
+          <input class="form-control" name="media"  type="file" id="formFile" >
 
         </div>
         <div class="col-md-5">
@@ -612,6 +581,28 @@
       });
     });
   </script>
+  <script>
+    (function () {
+      'use strict'
+    
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+    
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+    
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+  </script>
+
 
 
 </body>

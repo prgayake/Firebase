@@ -31,7 +31,9 @@
     app.use(cookieParser());
     app.use('/',require('./routes/pages'));
     app.use('/',require('./routes/postreq'));
+    app.use('/',require('./routes/viewpages.js'));
 
+ 
 //pages and app configuration Ends Here!!
 
    
@@ -86,7 +88,7 @@
         
 
       }
-
+            
 
 
       function Preparezipforeach(req,res,next) {
@@ -142,11 +144,20 @@ function deletezip(path){
 
       });
 
+      app.get('/cancelapplication',(req,res)=>{
+        firebase.database().ref('IpForm').child(req.session.username).remove();
+        firebase.database().ref('Team').child(req.session.username).remove();
+        firebase.database().ref('Basic').child(req.session.username).remove();
+        firebase.database().ref('Businessmodel').child(req.session.username).remove();
+        firebase.database().ref('finance').child(req.session.username).remove();
+        firebase.database().ref('UploadDocDeatils').child(req.session.username).remove();
+        
+        
+        
+      })
 
 
-             
-
-
+           
 
 
 //logout Request

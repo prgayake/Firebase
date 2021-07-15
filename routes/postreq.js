@@ -4,9 +4,10 @@ const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
 const router = express.Router();
 const archiver = require('archiver');
+const path = require('path');
 var d = new Date();
 const multer = require('multer');
-const fs = require('fs')
+const fs = require('fs-extra')
 
 
 
@@ -499,6 +500,78 @@ router.post('/getdocs', (req, res, next) => {
 
 
 });
+    
+
+
+
+function copyfiles(arr,dir) {
+      for (var i = 0; i < arr.length; i++) {
+        fs.copy('./uploads/upload_forms/' + arr[i], dir+'/' + arr[i], err => {
+            if (err) return console.error(err);
+            
+            console.log('success!');
+        });
+    }
+    createzip()
+}
+
+
+function createdir(arr,dir){
+            
+        if (!fs.existsSync(dir)){
+            fs.mkdirSync(dir);
+            copyfiles(arr,dir)
+        }else{
+            console.log('already Directory created !');
+            copyfiles(arr,dir)
+        }
+}
+
+
+
+
+
+
+
+
+
+function createzip()
+{
+    var output1 = fs.createWriteStream('./uploads/Docs.zip');
+    var archive1 = archiver('zip');
+
+    output1.on('close', function() {
+
+        console.log(archive1.pointer() + ' total bytes');
+        console.log('archiver has been finalized and the output file descriptor has closed.');
+        
+
+    });
+
+    archive1.on('error', function(err) {
+        throw err;
+    });
+
+    var temp = archive1.pipe(output1);
+
+    // append files from a sub-directory, putting its contents at the root of archive
+  
+    archive1.directory('./uploads/selected', false);
+    archive1.finalize();
+   
+}
+
+
+router.post('/getlink', (req, res) => {
+    var arr = req.body.data
+    dir = './uploads/selected'
+    createdir(arr ,dir)
+    res.send('Download Here <a href="/getfile">download<a>')
+
+  
+
+})
+
 
 
 module.exports = router;
