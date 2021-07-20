@@ -373,3 +373,7 @@ body.sidebar-toggled footer.sticky-footer {
     width: calc(100% - 90px);
   }
 }
+
+.bgcol{
+  background-image: linear-gradient(to bottom , #2299fa, #a7d7dd);
+}

@@ -58,8 +58,7 @@
 
     const ifLoggedin = (req,res,next) => {
         if(req.session.isLoggedIn){
-             console.log(req.session.isLoggedIn) 
-              return res.redirect('/home');
+            
           }                                                                                                                                                                                                                                                                                                                                                         
           next();
       }
@@ -113,7 +112,9 @@
         
         
       }
-
+   
+       
+        
 function deletezip(path){
         
     fs.unlink(path, function (err) {
@@ -157,7 +158,6 @@ function deletezip(path){
       })
 
 
-           
 
 
 //logout Request

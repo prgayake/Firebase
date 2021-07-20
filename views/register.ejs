@@ -8,9 +8,10 @@
 <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <title>Register</title>
   <meta charset="utf-8">
+  
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/css/style.css">
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -26,6 +27,34 @@
 <script src="sweetalert2/dist/sweetalert2.min.js"></script>
 <link rel="stylesheet" href="sweetalert2/dist/sweetalert2.min.css">
 
+<style>
+  .inputbox1{
+    border-radius:25px;
+    width:380px;
+    height:50px;
+    margin:15px;
+    border:2px solid green;
+    background-color:green;
+    color:white
+}
+.inputbox1:hover{
+
+color:white;
+font-weight:bolder;
+
+}
+.clk-login1{
+color:green;
+text-decoration: none;
+
+}
+input:hover{
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+}
+
+</style>
+
 
 </head>
 
@@ -40,10 +69,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">Contact Us</a>
+              <a class="nav-link" href="/index">Back</a>
             </li>
           </ul>
         </div>
@@ -58,7 +84,7 @@
           <div class="contentbox">
             <div class="formbox">
               <p>
-              <h2 class="headline-login"><a class="clk-login" href="#">Signup</a></h2>
+              <h2 class="headline-login1"><a class="clk-login1" href="#">SIGN UP</a></h2>
               </p>
 
       <form action="/register" method="POST" novalidate>
@@ -100,14 +126,14 @@
           <input type="password" name="cuser_pass" id="c_rpass" class="form-control" placeholder="Confirm Password" required>
         </div>
 
-        <div class="inputbox">
-          <input type="submit" name="" value="Register">
+        <div>
+          <input type="submit" name="" class="inputbox1" value="Register">
         </div>
-         <div style="color :red;" role="alert" style=" " id="status">
+         <div style="color :red;" role="alert"  id="status">
                    <%=message%>
               </div>
 
-        <div class="inputbox">
+        <div >
           <p class="p1">Already have an account?</p><a href= "/login-register">Login</a>
         </div>
 

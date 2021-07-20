@@ -1,6 +1,6 @@
   
       body {
-        background: linear-gradient(-45deg, #cbf0f1, #f2f5f5, #e3f1f3, #cbf0f1);
+        background: linear-gradient(-45deg, #caf1be, #cde4d2, #d7eed8, #c4e7bd);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }
@@ -72,8 +72,11 @@
     }
     .footer-clean {
       padding: 50px 0;
-      background-image: linear-gradient(to bottom left, rgb(0, 1, 2), rgb(1, 70, 105));
-      color: #fdfdfd;
+      background-image: linear-gradient(to bottom , #f5faf9, #f4faf4);
+      color: black;
+      border-top:2px solid black;
+      font-weight:bolder;
+     
     }
     .l9 {
       font-family: 'Ubuntu', sans-serif;
@@ -194,9 +197,9 @@
       padding: 1% 5%;
     }
     .navbar {
+      color:green;
       padding: 0 1rem 0 1rem;
       margin-top: 10px;
-      ;
       margin-bottom: 1rem;
       border-radius: 8px;
     }
@@ -208,10 +211,10 @@
       font-family: 'Poppins', sans-serif;
     }
     .nav-link:hover {
-      border-bottom: 4px solid #ff4584;
+      border-bottom: 4px solid green;
     }
     .nav-link:active {
-      border-bottom: 4px solid #ff4584;
+      border-bottom: 4px solid green;
     }
     #l10 {
       margin-left: 50px;

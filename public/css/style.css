@@ -19,12 +19,13 @@ body {
 
 .nav-link {
   font-size: 1.2rem;
+ 
   font-family: 'Poppins', sans-serif;
 }
 
 .nav-link:hover {
   margin-bottom: 20px;
-  border-bottom: 4px solid #ff4584;
+  border-bottom: 4px solid green;
 }
 
 /* title image css */
@@ -259,3 +260,6 @@ section .contentbox-signup .formbox-signup .inputbox select{
   border-radius: 30px;
 
 }
+
+
+/*Social media Icons

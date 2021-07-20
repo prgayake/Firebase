@@ -187,22 +187,37 @@
 </body>
 </html>
 <!------ Include the above in your HEAD tag ---------->
-
+<form method="post">
+<input type="hidden" name="back" value='<%=Role%>'>
+<button type="submit" name="submit" class="btn btn-success" id="bback"><strong>BACK</strong></button>
+</form>
 
 <div class="container emp-profile">
+    <p hidden="">
+        <%
 
+    //Firebase Configuration Starts !!!
+  
+        var api_key = process.env.API_KEY
+        var authdomain = process.env.AUTHDOMAIN
+        var dburl= process.env.DBURL
+       var projectId = process.env.PROJECT_ID
+       var storageBucket = process.env.STORAGE_BUCKET
+       var messagingSenderId = process.env.MESSAGESENDER
+      var  appId = process.env.APPID
 
-            <form method="post">
+        %>
+    </p>
+                <form method="post">
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="profile-img">
-                            
-                            <img id="myImageID" src="" alt=""/>
-                            <div style="background-color: green;" class=" file btn btn primary">
-                              <label>Change Photo
-                                <input id="photo" type="file" name="file"> </label>
-                            </div>
-                        </div>
+                       <div class="profile-img">
+                   <a id="imglink" href="" target="_blank"> <img style="border:2px solid black" id="myImageID" src="https://www.gstatic.com/mobilesdk/180227_mobilesdk/storage_rules_zerostate.png" alt="" /></a>
+                    <div class=" file btn btn primary">
+                        <label style="color:white">Change Photo
+                            <input id="photo" type="file" name="file"> </label>
+                    </div>
+                </div>
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head">
@@ -304,12 +319,12 @@
     
               
                  var firebaseConfig = {
-                apiKey: "AIzaSyDdj4nopLhQT1W5yN7xrTf2xgnLvZ_H_HM",
-                authDomain: "ecellweb-5bc04.firebaseapp.com",
-                projectId: "ecellweb-5bc04",
-                storageBucket: "ecellweb-5bc04.appspot.com",
-                messagingSenderId: "964690264257",
-                appId: "1:964690264257:web:173c9a962ca4f0c1cb1440"
+                apiKey: "<%=api_key%>",
+                authDomain: "<%=authdomain%>",
+                projectId: "<%=projectId%>",
+                storageBucket: "<%=storageBucket%>",
+                messagingSenderId: "<%=messagingSenderId%>",
+                appId: "<%=appId%>"
               };
               // Initialize Firebase
               firebase.initializeApp(firebaseConfig);
@@ -331,6 +346,8 @@
                 console.log(url)
             
             document.getElementById('myImageID').src=url;
+            document.getElementById('imglink').href=url;
+
             });
             
             var db = firebase.database().ref();

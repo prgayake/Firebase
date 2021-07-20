@@ -40,6 +40,10 @@ const ifLoggedin = (req, res, next) => {
     next();
 }
 
+
+
+
+
  function requireLogin (req, res, next) {
     const db = firebase.database().ref();
     db.child('Admin').once('value', function(snap) {
@@ -56,9 +60,7 @@ const ifLoggedin = (req, res, next) => {
     });
   };
 
-
-
-
+    
 //APPLY COOKIE SESSION MIDDLEWARE  End
 router.get('/', ifNotLoggedin, (req, res) => {
     const db = firebase.database().ref();
@@ -105,7 +107,7 @@ router.get('/login-register', (req, res) => {
 });
 
 router.get('/forgetpass', (req, res) => {
-    res.render('forgetpass')
+    res.render('forgetpass',{message: ''})
 });
 
 
@@ -469,7 +471,6 @@ router.get('/admin',requireLogin,(req, res)=>{
 })
 
 });
-
 
 
 

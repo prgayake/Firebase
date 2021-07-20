@@ -22,24 +22,44 @@
     <link href="/css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
     </link>
+    <style>
+        .bgcol{
+  background-image: linear-gradient(to bottom , #35a0f8, #76c0ca);
+  font-weight:bolder;
+                }
+.bgcol2{
+  background-image: linear-gradient(to bottom , #05800b, #78b877);
+  color:white;
+}
+.bgcol1:hover{
+    font-weight:bolder;
+} 
+.bgcol2:hover{
+    font-weight:bolder;
+}
+.bgcol1{
+  background-image: linear-gradient(to bottom , #35a0f8, #77c8d3);
+  color:white;
+}
+    </style>
 </head>
 
 <body id="page-top">
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-        <a class="navbar-brand mr-1" href="index.html">E cell Dashboard</a>
+        <a class="navbar-brand mr-1" href="index.html">Ecell Dashboard</a>
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
             <i class="fas fa-bars"></i>
         </button>
         <!-- Navbar Search -->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-            <div class="input-group">
+            <!-- <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="button">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
-            </div>
+            </div> -->
         </form>
         <!-- Navbar -->
         <ul class="navbar-nav ml-auto ml-md-0">
@@ -77,7 +97,7 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="/admin/admin_incunatee">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Incubatee</span></a>
             </li>
@@ -101,13 +121,13 @@
                 <!-- Icon Cards-->
                 <div class="row">
                     <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="card text-white bg-primary o-hidden h-100">
+                        <div class="card text-white bgcol o-hidden h-100">
                             <h1></h1>
                             <div class="card-body">
                                 <div class="card-body-icon">
                                     <i class="fas fa-fw fa-comments"></i>
                                 </div>
-                                <div class="mr-5">Incubatees</div>
+                                <div class="mr-5">INCUBATEE</div>
                             </div>
                             <a class="card-footer text-white clearfix small z-1" href="/admin_incubatee">
                                 <span class="float-left">View Details</span>
@@ -118,12 +138,12 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="card text-white bg-warning o-hidden h-100">
+                        <div class="card text-white bgcol o-hidden h-100">
                             <div class="card-body">
                                 <div class="card-body-icon">
                                     <i class="fas fa-fw fa-list"></i>
                                 </div>
-                                <div class="mr-5">E Cell Members</div>
+                                <div class="mr-5">ECELL Members</div>
                             </div>
                             <a class="card-footer text-white clearfix small z-1" href="/admin_ecell">
                                 <span class="float-left">View Details</span>
@@ -133,7 +153,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-sm-6 mb-3">
+                    <!-- <div class="col-xl-3 col-sm-6 mb-3">
                         <div class="card text-white bg-danger o-hidden h-100">
                             <div class="card-body">
                                 <div class="card-body-icon">
@@ -148,11 +168,11 @@
                                 </span>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div>
-                    <span><button class="btn btn-success  float-right" onclick="tablesToExcel(['Incubatees','Basic','Team','Businessmodel','ipform','finance'], ['Incubatees','Basic','Team','Businessmodel','IP Form','finance'], 'Incubatee.xls', 'Excel')">Export to Excel</button></span>
-                    <span><a href="/download" title=""><button style="margin-right: 5px;" class="btn btn-primary float-right">Download Zip</button></a>
+                    <span><button class="btn btn-success bgcol2 float-right" onclick="tablesToExcel(['Incubatees','Basic','Team','Businessmodel','ipform','finance'], ['Incubatees','Basic','Team','Businessmodel','IP Form','finance'], 'Incubatee.xls', 'Excel')">Export All To Excel</button></span>
+                    <span><a href="/download" title=""><button style="margin-right: 5px;" class="btn  float-right bgcol1">Download All Zips</button></a>
                     </span>
                     <br><br>
                 </div>
@@ -209,13 +229,13 @@
                                         <td>
                                             <form method="POST" action="/getprofile" >
                                                 <input type="text" name="profilelink" value="<%=data.val().Username%>" hidden>
-                                                <button class="btn btn-success">View Profile</button>
+                                                <button class="btn bgcol1">View Profile</button>
                                             </form>
                                         </td>
                                         <td>
                                             <form method="POST" action="/getdocs" >
                                                 <input type="text" name="profilelink" value="<%=data.val().Username%>" hidden>
-                                                <button class="btn btn-primary">Download </button>
+                                                <button class="btn bgcol2">Download </button>
                                             </form>
                                         </td>
                                     </tr>

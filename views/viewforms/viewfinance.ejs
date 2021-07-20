@@ -43,6 +43,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/personal">Back</a>
         </li>
+        <li>
+          <a href=""> <button class="btn btn-success">Cancel Application </button></a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -95,7 +98,7 @@
         <label for="inputEmail4" class="form-label">Maximum Turnover of Any of the Previous Three Financial
           Years</label>
 
-        <div class="fields col-md-10">
+        <div class="fields col-md-10" id="span1">
           <span id="inspan">
             <%=MaxTurnover%>
           </span>
@@ -105,7 +108,7 @@
       </div>
       <div class="col-md-6">
         <label for="inputPassword4" class="form-label">What is the Startup’s Current Funding Status?</label>
-        <div class="fields col-md-10">
+        <div class="fields col-md-10" id="span1">
           <span id="inspan">
             <%=currentFunding%>
           </span>
@@ -115,7 +118,7 @@
       <div class="col-md-6">
         <label for="inputAddress" class="form-label">Total Funds Received Since Incorporation</label>
 
-        <div class="fields col-md-10">
+        <div class="fields col-md-10" id="span1">
           <span id="inspan">
             <%=TotalFund%>
           </span>
@@ -129,7 +132,7 @@
       <div class="col-md-6">
         <label for="inputAddress2" class="form-label">Financial Year</label>
 
-        <div class="fields col-md-10">
+        <div class="fields col-md-10" id="span1">
           <span id="inspan">
             <%=FinancialYear%>
           </span>
@@ -138,7 +141,7 @@
       </div>
       <div class="col-md-6">
         <label for="inputAddress2" class="form-label">Audited Financial No. (in INR)</label>
-        <div class="fields col-md-10">
+        <div class="fields col-md-10" id="span1">
           <span id="inspan">
             <%=AuditedFn%>
           </span>
@@ -172,96 +175,7 @@
   <!-- End Subscribe & Social Links Widget -->
 
   <!-- Start Copyright -->
-  <div class="footer-clean">
-    <footer class="l9">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-sm-4 col-md-3 item">
-            <h3>Explore</h3>
-            <ul>
-              <li><a href="https://mitaoe.ac.in/opportunities.php">CAREERS </a></li>
-              <li><a href="https://alumni.mitaoe.ac.in/" target="_blank">ALUMNI</a></li>
-              <li><a href="https://mitaoe.ac.in/contact-us.php">CONTACT</a></li>
-
-              <li><a href="https://mitaoe.ac.in/blog.php">BLOG</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-4 col-md-3 item">
-            <h3>IMP Links</h3>
-            <ul>
-              <li><a href="https://mitaoe.ac.in/mitaoe-nirf.php">NIRF</a></li>
-              <li><a href="https://mitaoe.ac.in/mandatory-disclosure.php">MANDATORY DISCLOSURE</a></li>
-
-
-
-              <li><a href="https://mitaoe.ac.in/mitaoe-downloads.php">DOWNLOADS</a></li>
-              <li><a href="https://mitaoe.ac.in/">READ MORE</a></li>
-            </ul>
-          </div>
-
-          <div class="col-sm-4 col-md-3 item">
-            <h3>IMP Links</h3>
-            <ul>
-              <li><a href="https://mitaoe.ac.in/mitaoe-quality-assurance.php">IQAC</a></li>
-
-
-              <li><a href="https://mitaoe.ac.in/mitaoe-statutory-compliance.php">STATUTORY COMPLIANCE</a></li>
-
-
-              <li><a href="https://mitaoe.ac.in/mitaoe-committees.php">GRIEVANCE REDRESSAL</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 item social">
-            <div class="socials">
-              <a target="_blank" href="https://www.facebook.com/MITAOEOfficial/">
-                <!-- <img src="face.png" width="50" height="50"> -->
-                <i class="fab fa-facebook fa-3x icons"></i>
-              </a>
-              <a target="_blank" href="https://www.youtube.com/channel/UCL4DWs9R4irwWUTFg8BYsOQ">
-                <!-- <img src="you.png" width="50" height="50"> -->
-                <i class="fab fa-youtube fa-3x icons"></i>
-              </a>
-              <a target="_blank" href="https://twitter.com/MITAOE">
-                <!-- <img src="twi.png" width="50" height="50"> -->
-                <i class="fab fa-twitter fa-3x icons"></i>
-              </a>
-              <a target="_blank" href="https://www.instagram.com/mitacademyofengineering/" width="50" height="50">
-                <i class="fab fa-instagram fa-3x icons"></i>
-              </a>
-              <a target="_blank" href="https://www.linkedin.com/company/mit-academy-of-engineering/">
-                <!-- <img src="in.png" width="50" height="40"> -->
-                <i class="fab fa-linkedin-in fa-3x icons"></i>
-              </a>
-
-
-
-              <!-- End Copyright -->
-
-
-
-              <!-- </div>
-                          <p class="copyright">Company Name © 2018</p>
-                      </div> -->
-
-            </div>
-            <p id="copyright" class="copyright"></p>
-                 <script>
-                      var d = new Date()
-                      var D = d.getFullYear()
-            document.getElementById("copyright").innerHTML =' &copy' +D+' MIT Academy of Engineering';
-            </script>
-          </div>
-    </footer>
-  </div>
-
-
-  </footer>
-
-
-
-  <!-- End Footer -->
-  </div>
+  <%- include('./footer'); %>>
   <!-- End Container -->
 
   <!-- Go To Top Link -->

@@ -187,7 +187,7 @@
 </body>
 </html>
 <!------ Include the above in your HEAD tag ---------->
-
+<button  class="btn btn-success"><strong><a href="/admin" style="color:white">BACK</a></strong></button>
 
 <div class="container emp-profile">
 
@@ -198,10 +198,7 @@
                         <div class="profile-img">
                             
                             <img id="myImageID" src="" alt=""/>
-                            <div style="background-color: green;" class=" file btn btn primary">
-                              <label>Change Photo
-                                <input id="photo" type="file" name="file"> </label>
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -292,7 +289,21 @@
                           <a href="" id="insta" class="icon-button google-plus"  target="_blank"><i class="fab fa-instagram"></i><span></span></a>
 
                         
-            
+             <p hidden="">
+        <%
+
+    //Firebase Configuration Starts !!!
+  
+        var api_key = process.env.API_KEY
+        var authdomain = process.env.AUTHDOMAIN
+        var dburl= process.env.DBURL
+       var projectId = process.env.PROJECT_ID
+       var storageBucket = process.env.STORAGE_BUCKET
+       var messagingSenderId = process.env.MESSAGESENDER
+      var  appId = process.env.APPID
+
+        %>
+    </p>
                         </div>
                 
             </div>
@@ -300,14 +311,13 @@
             <script type="text/javascript">
               var  username = document.getElementById('username').textContent;
     
-              
                  var firebaseConfig = {
-                apiKey: "AIzaSyDdj4nopLhQT1W5yN7xrTf2xgnLvZ_H_HM",
-                authDomain: "ecellweb-5bc04.firebaseapp.com",
-                projectId: "ecellweb-5bc04",
-                storageBucket: "ecellweb-5bc04.appspot.com",
-                messagingSenderId: "964690264257",
-                appId: "1:964690264257:web:173c9a962ca4f0c1cb1440"
+                apiKey: "<%=api_key%>",
+                authDomain: "<%=authdomain%>",
+                projectId: "<%=projectId%>",
+                storageBucket: "<%=storageBucket%>",
+                messagingSenderId: "<%=messagingSenderId%>",
+                appId: "<%=appId%>"
               };
               // Initialize Firebase
               firebase.initializeApp(firebaseConfig);

@@ -53,13 +53,15 @@ const ifNotLoggedin = (req, res, next) => {
     if (!req.session.isLoggedIn) {
         return res.render('index');
     }
-
+    firebase.auth().onAuthStateChanged(function(user){
+        console.log(user)
+});
     next();
 }
 
 const ifLoggedin = (req, res, next) => {
     if (req.session.isLoggedIn) {
-        console.log(req.session.isLoggedIn)
+        
            const db = firebase.database().ref();
      const query = db.child('users').child(req.session.username).get().then((snap) => {
         if(snap.val().Role == 'Incubiator')
@@ -97,12 +99,13 @@ router.post('/login-register', ifLoggedin, (req, res) => {
 
         if (snap.val().Username == username) {
             firebase.auth().signInWithEmailAndPassword(snap.val().Email, pass).then(() => {
+             var user = firebase.auth().currentUser;
 
-                req.session.isLoggedIn = true;
+             if(user.emailVerified)
+               {
+                 req.session.isLoggedIn = true;
                 req.session.username = snap.val().Username;
                 console.log(snap.val().Role)
-
-
 
                 if (snap.val().Role == 'Incubiator') {
 
@@ -118,6 +121,11 @@ router.post('/login-register', ifLoggedin, (req, res) => {
                 }
 
 
+               }else{
+                 user.sendEmailVerification();
+                  res.render('login-register', { message: 'Please Verify Email ,Email is send on this email' });
+
+               }
 
 
             }).then(function(usr) {}).catch(function(err) {
@@ -175,10 +183,11 @@ router.post('/register', ifLoggedin, (req, res, next) => {
                     Date: d.getFullYear()
                 });
 
-                firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error, userData) {
+               firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error, userData) {
 
 
                 });
+               
 
 
                 res.render('login-register', { message: 'Account Created Successfully' })
@@ -378,6 +387,8 @@ router.post('/profile2', function(req, res) {
 
 
 
+
+
 router.post('/Upload_form', upload.array('media'), function(req, res) {
     console.log(req.body)
 
@@ -409,13 +420,18 @@ router.post('/Upload_form', upload.array('media'), function(req, res) {
 router.post('/forgetpass', (req, res, next) => {
 
     var emailres = req.body.emailreset;
+    
+    const db = firebase.database().ref();
+    const query = db.child('users').orderByChild('Email').equalTo(emailres).get().then((snap) => {
 
-    if (emailres != "") {
+        if (snap.exists())  {
+
         firebase.auth().sendPasswordResetEmail(emailres)
             .then(() => {
-                console.log("email sent")
+                res.render('register', { message: 'Email Sent' });
 
             })
+            
             .catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;
@@ -424,14 +440,11 @@ router.post('/forgetpass', (req, res, next) => {
 
                 console.log(errorCode);
                 console.log(errorMessage);
-
-                console.log("Message :" + errorMessage)
-
-
             });
     } else {
-        console.log("Please type email")
+        res.render('forgetpass', { message: 'Please Enter Registered Email' });
     }
+})
 });
 
 router.post('/getprofile', (req, res, next) => {
@@ -571,6 +584,17 @@ router.post('/getlink', (req, res) => {
   
 
 })
+router.post('/profile', (req, res, next) => {
+
+    var back1 = req.body.back;
+
+    if (back1 == 'Incubiator') {
+        res.redirect('/incubateehome')
+    } 
+    else{
+        res.redirect('/ecellhome')
+    }
+});
 
 
 

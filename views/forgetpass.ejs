@@ -12,7 +12,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -30,7 +30,33 @@
         integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
         crossorigin="anonymous"></script>
 
-
+        <style>
+    
+            .inputbox1{
+              border-radius:25px;
+              width:250px;
+              height:50px;
+              margin-bottom: 10px;
+              border:2px solid green;
+              background-color:green;
+              color:white
+          }
+          .inputbox1:hover{
+          
+          color:white;
+          font-weight:bolder;
+          
+          }
+          .clk-login1{
+          color:green;
+          text-decoration: none;
+          
+          }
+          input:hover{
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          
+          }
+            </style>
 </head>
 
 
@@ -52,10 +78,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Contact Us</a>
+                            <a class="nav-link" href="/index">Back</a>
                         </li>
                     </ul>
                 </div>
@@ -71,20 +94,22 @@
 
                         <div class="formbox">
                             <p>
-                            <h2 class="headline-login"><a class="clk-login" href="#">Forget Password</a></h2>
-                            </p>
-
+                                <h2><a class="clk-login1" href="#">Forgot Password</a></h2>
+                                </p>
                             <form action="/forgetpass" method="POST">
-
+                                <br>
                                 <div class="inputbox">
-                                    <span>Email</span>
-                                    <input type="text" name="emailreset" id="_email" class="form-control" >
+                                   
+                                    <input type="email" name="emailreset" id="_email" class="form-control" placeholder="Enter Registered Email"required>
                                 </div>
-
+                                <div style="color :red;" role="alert"  id="status">
+                                    <%=message%>
+                               </div>
                                
-                                <div class="inputbox">
-                                    <input type="submit" name="" value="Reset">
-                                </div>
+                               
+                                <div>
+                                    <input type="submit" class="inputbox1" name="" value="Reset">
+                                  </div>
                                 
 
 

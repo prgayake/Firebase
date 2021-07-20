@@ -173,6 +173,7 @@
                         <%=Name%>
                     </h5>
                        <p id="username" hidden=""><%=Username%> </p>
+                       <p id="skill"></p>
                     <h6>
                         Web Developer and Designer
                     </h6>
@@ -244,7 +245,7 @@
 
 
                             <div class="col-md-6" id="mar">
-                                <textarea id="portfolio" name="Portfolio" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                                <textarea id="portfolio" name="Portfolio" class="form-control" id="portfolio" rows="2"></textarea>
 
                             </div>
                         </div>
@@ -261,7 +262,7 @@
                                 <div id="inputFormRow">
                                     <div class="input-group mb-3">
                                         <input name="Awards" type="text"  class="form-control m-input"
-                                            placeholder="Enter Awards" autocomplete="off">
+                                            placeholder="Enter Awards" autocomplete="off" id="Awards">
                                         <div class="input-group-append">
                                             <button id="removeRow" type="button" class="btn btn-light"><img
                                                     src="cross.jpg" id="a2" alt=""></button>
@@ -331,7 +332,21 @@
 
     </form>
 
+ <p hidden="">
+        <%
 
+    //Firebase Configuration Starts !!!
+  
+        var api_key = process.env.API_KEY
+        var authdomain = process.env.AUTHDOMAIN
+        var dburl= process.env.DBURL
+       var projectId = process.env.PROJECT_ID
+       var storageBucket = process.env.STORAGE_BUCKET
+       var messagingSenderId = process.env.MESSAGESENDER
+      var  appId = process.env.APPID
+
+        %>
+    </p>
 </div>
 
 <script type="text/javascript">
@@ -339,12 +354,12 @@
               var  uname = document.getElementById('uname').textContent;
 
                  var firebaseConfig = {
-                apiKey: "AIzaSyDdj4nopLhQT1W5yN7xrTf2xgnLvZ_H_HM",
-                authDomain: "ecellweb-5bc04.firebaseapp.com",
-                projectId: "ecellweb-5bc04",
-                storageBucket: "ecellweb-5bc04.appspot.com",
-                messagingSenderId: "964690264257",
-                appId: "1:964690264257:web:173c9a962ca4f0c1cb1440"
+                apiKey: "<%=api_key%>",
+                authDomain: "<%=authdomain%>",
+                projectId: "<%=projectId%>",
+                storageBucket: "<%=storageBucket%>",
+                messagingSenderId: "<%=messagingSenderId%>",
+                appId: "<%=appId%>"
               };
               // Initialize Firebase
               firebase.initializeApp(firebaseConfig);
@@ -354,6 +369,11 @@
                  document.getElementById('linkedin1').value =snap.val().Linkedin;
                  document.getElementById('fb').value =snap.val().Facebook;
                  document.getElementById('insta').value =snap.val().Instagram;
+                 document.getElementById('portfolio').textContent =snap.val().Portfolio;
+                 document.getElementById('Awards').textContent =snap.val().Awards;
+                 document.getElementById('skill').textContent =snap.val().skill;   
+                 
+
                 
 
 

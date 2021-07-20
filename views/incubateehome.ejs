@@ -25,7 +25,7 @@
 
   <!-- MAIN CSS -->
   <link rel="stylesheet" href="/css/templatemo-digital-trend.css">
-  <link rel="stylesheet" type="text/css" href="/css/allcss.css">
+  <link rel="stylesheet" type="text/css" href="/css/indexcss.css">
  
   <!-- JavaScript Bundle with Popper -->
  
@@ -66,13 +66,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="#nmov" class="nav-link smoothScroll">About Us</a>
+            <a href="#nmov" class="nav-link smoothScroll" id="navc">About Us</a>
           </li>
           <li class="nav-item">
-            <a href="/profile" class="nav-link smoothScroll">Profile</a>
+            <a href="/profile" class="nav-link smoothScroll" id="navc">Profile</a>
           </li>
           <li class="nav-item">
-            <a href="/logout" class="nav-link smoothScroll">Logout</a>
+            <a href="/logout" class="nav-link smoothScroll" id="navc">Logout</a>
           </li>
         </ul>
       </div>
@@ -81,7 +81,7 @@
 
 
   <!-- HERO -->
-  <section class="hero hero-bg d-flex justify-content-center align-items-center">
+  <section class="hero hero-bg d-flex justify-content-center align-items-center" id="herobg">
     <div class="container">
       <div class="row">
 
@@ -121,7 +121,7 @@
         <div class="col-lg-7 mx-auto col-md-10 col-12">
           <div class="about-info">
 
-            <h2  class="mb-4" data-aos="fade-up"><strong>About Us</strong></h2>
+            <h2  class="mb-4" data-aos="fade-up" id="headin">About Us</h2>
 
             <p class="mb-0" data-aos="fade-up">We provide mentoring, Networking & handholding support to students/
               alumni/ others for real venture/startups in sector agnostic industries. Till date entrepreneurship
@@ -129,12 +129,12 @@
               1500+ students & 7 faculty has been trained as entrepreneurship educators. The EDF also plans to offer a
               minor specialization for UG students in Innovation, Entrepreneurship & Startups.
               <br><br>
-              <a href="https://mitaoe.ac.in/Entrepreneurial-Development-Foundation/about.php" class="mybutton">Know
+              <a href="https://mitaoe.ac.in/Entrepreneurial-Development-Foundation/about.php" id="mybutton1">Know
                 More</a>
             </p>
             <br><br><br>
 
-            <h2 class="mb-4" data-aos="fade-up"><strong>Milestones</strong></h2>
+            <h2 class="mb-4" data-aos="fade-up" id="headin">Milestones</h2>
 
             <ul>
 
@@ -155,7 +155,7 @@
               <br>
             </ul>
             <p class="mb-0" data-aos="fade-up">
-              <a href="https://mitaoe.ac.in/Entrepreneurial-Development-Foundation/about.php" class="mybutton">Know
+              <a href="https://mitaoe.ac.in/Entrepreneurial-Development-Foundation/about.php" id="mybutton1">Know
                 More</a>
             </p>
 
@@ -173,15 +173,15 @@
 
 
   <!-- PROJECT -->
-  <section class="project section-padding" id="project">
+  <section class=" section-padding" id="project">
     <div class="container-fluid">
       <div class="row">
 
         <div class="col-lg-12 col-12">
 
-          <h2 class="mb-5 text-center" data-aos="fade-up">
+          <h2 class="mb-5 text-center" data-aos="fade-up" id="headin">
 
-            <strong>Our Pride Startups</strong>
+            Our Pride Startups
           </h2>
 
           <div class="owl-carousel owl-theme" id="project-slide">
@@ -223,14 +223,14 @@
   </section>
 
 
-  <br>
+ 
 
-
-
-  <%- include('./Assets/footer'); %>
 
 
   
+
+  <%- include('./Assets/footer'); %>
+
 
   <!-- SCRIPTS -->
   <script src="/js/jquery.min.js"></script>
