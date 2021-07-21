@@ -1,4 +1,29 @@
-<form  [formGroup]="dialogFormGroup">
-  <mat-checkbox formControlName="confirmAction">I agreeTerms & Conditions</mat-checkbox>
-  <button mat-button class="NxtBtnWrap" type="submit" [disabled]="!dialogFormGroup.controls.confirmAction.value">Submit</button>
-</form>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+  </script>
+</head>
+
+<body>
+
+  
+  <script>
+  onClickDownload: function () {
+    var zip = new JSZip();
+    for (var i = 0; i < 5; i++) {
+        var txt = 'hello';
+        zip.file("file" + i + ".txt", txt);
+    }
+    zip.generateAsync({
+        type: "base64"
+    }).then(function(content) {
+        window.location.href = "data:application/zip;base64," + content;
+    });       
+}
+  </script>
+</body>
+
+</html>

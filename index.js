@@ -171,4 +171,5 @@ app.get('/logout',(req,res)=>{
     res.redirect('index');
 });
 
-app.listen(3020, () => console.log("Server is Running...3020"));
+const port =process.env.PORT||3020
+app.listen(port, () => console.log("Server is Running...3020"));
