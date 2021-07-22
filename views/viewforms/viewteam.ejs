@@ -38,7 +38,9 @@
                     <a class="nav-link" href="/personal">Back</a>
                 </li>
                 <li>
-                  <a href=""> <button class="btn btn-success">Cancel Application </button></a>
+                  <h5  class="btn btn-warning" id="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Cancel Application
+        </h5>
                 </li>
             </ul>
         </div>
@@ -216,3 +218,35 @@
 </body>
 
 </html>
+
+
+
+   <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cancel Application !</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <h6>Are You sure about Cancel Application ? </h6>
+                <p style="color: red;">Your all Data will deleted forever after clicking confirm</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                <a href="/cancelapplication"><button class="btn btn-danger">Confirm</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script type="text/javascript">
+  var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})
+</script>

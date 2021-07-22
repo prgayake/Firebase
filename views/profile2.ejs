@@ -148,6 +148,9 @@
         font-weight: 600;
         color: #0062cc;
     }
+    #dec{
+        text-decoration: none;
+    }
 </style>
 
    
@@ -162,8 +165,9 @@
 </html>
 <!------ Include the above in your HEAD tag ---------->
 
-
+<a href="/profile" style="color:white" id="dec"><strong><button  class="btn btn-success" id="bback">BACK</button></strong></a>
 <div class="container emp-profile">
+  
     <form action="/profile2" method="POST">
         <div class="row">
             
@@ -174,9 +178,7 @@
                     </h5>
                        <p id="username" hidden=""><%=Username%> </p>
                        <p id="skill"></p>
-                    <h6>
-                        Web Developer and Designer
-                    </h6>
+                    
                     <p class="proile-rating"></p>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">

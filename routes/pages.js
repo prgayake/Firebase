@@ -132,6 +132,11 @@ router.get('/ecellhome',(req, res) => {
     }) 
 });
 
+router.get('/joinIncubatee',(req,res)=>{
+      const db = firebase.database().ref();
+      db.child('users').child(req.session.username).update({'Role':'Incubiator' })
+      res.redirect('/personal')
+})
 
 //personal Route
 router.get('/personal', ifNotLoggedin, (req, res) => {
