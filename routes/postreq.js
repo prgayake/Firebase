@@ -89,6 +89,8 @@ const ifLoggedin = (req, res, next) => {
 
 
 
+
+
 //Login page Post Request
 router.post('/login-register', ifLoggedin, (req, res) => {
     var username = req.body.username;
@@ -406,7 +408,7 @@ router.post('/Upload_form', upload.array('media'), function(req, res) {
             if (err) {
                 throw err;
             } else {
-                res.redirect('/viewpersonal')
+                res.redirect('/viewform')
             }
         });
 

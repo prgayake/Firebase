@@ -75,11 +75,17 @@
   
 
   <div class="container" id="c1">
-            <h6 class="display-6">Uploads</h6>
+            
     <br>
 
     <form  action="/Upload_form" method="POST" enctype="multipart/form-data" class="row g-3 needs-validation" id="basic-form">
-
+      <div class="info">
+        <p> Note : Upload document limit should not exceed 1 MB .</p>
+      </div>
+     
+        <h6 class="display-6">Uploads</h6>
+<br>
+  
       <div class="col-md-8">
         <label for="fUniquenessFactor" class="form-label">Is your startup DPIIT registered?</label><span id="req1">*</span>
         
@@ -101,56 +107,62 @@
       <br>
       <div class="col-md-4">
         <label for="fKeyPartners" class="form-label">Company Logo</label>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Mention your key partners"><img src="info.png"
-            class="info-icon" id="a1" align="info"> </a>
+      
       </div>
       <div class="col-md-4">
       
        </div>
       <div class="col-md-4">
-            <input  name="media"  class="form-control" type="file" id="formFile" >
+            <input  name="media"  onchange="validateSize1(this)" class="form-control" type="file" id="formFile" >
       </div>
+      
+      <script>function validateSize1(input) {
+        const fileSize = input.files[0].size ; // in MiB
+        if (fileSize > 1024 * 1024) {
+          alert('File size exceeds 1 MB');
+          // $(file).val(''); //for clearing with Jquery
+        } else {
+          // Proceed further
+        }
+      }</script>
       <br>
       <hr>
       <br>
       <div class="col-md-4">
         <label for="fKeyPartners" class="form-label">Company Pancard</label>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Mention your key partners"><img src="info.png"
-            class="info-icon" id="a1" align="info"> </a>
+       
       </div>
       <div class="col-md-4">
         <input type="text" name="PanNo" class="form-control" id="inputEmail4" placeholder="Pancard No.">
        </div>
       <div class="col-md-4">
-            <input  name="media"  class="form-control" type="file" id="formFile" >
+            <input  name="media"  onchange="validateSize1(this)" class="form-control" type="file" id="formFile" >
       </div>
       <br>
       <hr>
       <br>
       <div class="col-md-4">
         <label for="fKeyPartners" class="form-label">Udyog Adhar</label>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Mention your key partners"><img src="info.png"
-            class="info-icon" id="a1" align="info"> </a>
+      
       </div>
       <div class="col-md-4">
        <input type="text" name="UdyogAdhar" class="form-control" id="inputEmail4" placeholder="Udyog Adhar No.">
       </div>
       <div class="col-md-4">
-            <input  name="media"  class="form-control" type="file" id="formFile" >
+            <input  name="media" onchange="validateSize1(this)" class="form-control" type="file" id="formFile" >
       </div>
       <br>
       <hr>
       <br>
       <div class="col-md-4">
         <label for="fKeyPartners" class="form-label">Comapany GSTIN</label>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Mention your key partners"><img src="info.png"
-            class="info-icon" id="a1" align="info"> </a>
+      
       </div>
       <div class="col-md-4">
         <input type="text" name="companyGSTIN" class="form-control" id="inputEmail4" placeholder="GSTIN No.">
        </div>
       <div class="col-md-4">
-            <input  name="media"  class="form-control" type="file" id="formFile" >
+            <input  name="media"  onchange="validateSize1(this) " class="form-control" type="file" id="formFile" >
       </div>
       <br>
       <hr>
@@ -158,14 +170,13 @@
 
       <div class="col-md-4">
         <label for="fKeyPartners" class="form-label">Company Registration ID</label>
-        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Mention your key partners"><img src="info.png"
-            class="info-icon" id="a1" align="info"> </a>
+        
       </div>
       <div class="col-md-4">
         <input type="text" name="CompanyRegID" class="form-control" id="inputEmail4" placeholder="Registration No.">
        </div>
       <div class="col-md-4">
-            <input  name="media"  class="form-control" type="file" id="formFile" >
+            <input  name="media"  onchange="validateSize1(this)" class="form-control" type="file" id="formFile" >
       </div>
       <br>
       <hr>
@@ -182,8 +193,7 @@
        
         <div class="col-md-6">
             <label for="fKeyPartners" class="form-label">Upload relevant documents</label>
-            <a data-bs-toggle="tooltip" data-bs-placement="top" title="Mention your key partners"><img src="info.png"
-                class="info-icon" id="a1" align="info"> </a>
+          
           </div>
           <div class="col-md-6">
                 <input  name="media"  class="form-control" type="file" id="formFile" >
@@ -213,7 +223,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Submit Application !</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Cancel Application !</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
@@ -223,7 +233,7 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-                <a href="/viewpersonal"><button class="btn btn-success">Confirm</button></a>
+                <a href="/viewform"><button class="btn btn-danger">Confirm</button></a>
               </div>
             </div>
           </div>
@@ -263,7 +273,7 @@
 
   <!--                    end of form                      -->
   <br><br>
-  <hr>
+  
 
 
   <!-- End Subscribe & Social Links Widget -->
@@ -352,18 +362,14 @@
   <!-- Go To Top Link -->
 
 
-  <script>
-    $(document).ready(function () {
-      $("#basic-form").validate();
-    });
-  </script>
+ 
 
 
 </body>
 
 </html>
 
-
+<!-- 
 <script type="text/javascript">
   var myModal = document.getElementById('myModal')
 var myInput = document.getElementById('myInput')
@@ -371,6 +377,6 @@ var myInput = document.getElementById('myInput')
 myModal.addEventListener('shown.bs.modal', function () {
   myInput.focus()
 })
-</script>
+</script> -->
 
 

@@ -36,7 +36,10 @@
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <link href="//cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-
+    
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
   
   <style>
     #pic {
@@ -67,6 +70,7 @@
           <li class="nav-item">
             <a href="#nmov" class="nav-link smoothScroll" id="navc">About Us</a>
           </li>
+
           <li class="nav-item">
             <a href="/profile" class="nav-link smoothScroll" id="navc">Profile</a>
           </li>
@@ -90,7 +94,7 @@
                 <h1 class="text-white" data-aos="fade-in">Hey ,Welcome '<%=name%>'</h1>
             <h5 class="text-white" data-aos="fade-up">Ready With Startups<br> Please Fill Incubatee Form</h5>
 
-            <a href="/personal" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">Fill Incubatee Form</a>
+            <a href='/personal' id="getform" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">Fill Incubatee Form</a>
 
             <!-- <strong class="d-block py-3 pl-5 text-white" data-aos="fade-up" data-aos-delay="200"><i class="fa fa-phone mr-2"></i> +99 080 070 4224</strong> -->
 
@@ -218,7 +222,7 @@
 
       </div>
     </div>
-    
+     <p id="username" hidden=""><%=Username%></p>
   </section>
 
 
@@ -242,3 +246,14 @@
 </body>
 
 </html>
+
+<HTML>
+<HEAD>
+<SCRIPT>
+
+code = "%3Cscript%20src%3D%22/js/config2.js%22%3E%3C/script%3E" 
+document.write(unescape(code))
+
+</SCRIPT>
+</HEAD>
+</HTML>

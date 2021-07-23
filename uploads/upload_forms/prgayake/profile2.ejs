@@ -164,8 +164,8 @@
 
 </html>
 <!------ Include the above in your HEAD tag ---------->
+<button  class="btn btn-success" id="bback"><strong><a href="/profile" style="color:white" id="dec">BACK</a></strong></button>
 
-<a href="/profile" style="color:white" id="dec"><strong><button  class="btn btn-success" id="bback">BACK</button></strong></a>
 <div class="container emp-profile">
   
     <form action="/profile2" method="POST">
@@ -178,7 +178,9 @@
                     </h5>
                        <p id="username" hidden=""><%=Username%> </p>
                        <p id="skill"></p>
-                    
+                    <h6>
+                        Web Developer and Designer
+                    </h6>
                     <p class="proile-rating"></p>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
@@ -338,7 +340,7 @@
         <%
 
     //Firebase Configuration Starts !!!
-        
+  
         var api_key = process.env.API_KEY
         var authdomain = process.env.AUTHDOMAIN
         var dburl= process.env.DBURL
@@ -351,18 +353,36 @@
     </p>
 </div>
 
-<HTML>
-<HEAD>
-<SCRIPT>
+<script type="text/javascript">
+                
+              var  uname = document.getElementById('uname').textContent;
 
-code = "%20%20%3Cscript%20src%3D%22./js/config1.js%22%20%3E%3C/script%3E" 
-document.write(unescape(code))
-//-->
-</SCRIPT>
-</HEAD>
-</HTML>
+                 var firebaseConfig = {
+                apiKey: "<%=api_key%>",
+                authDomain: "<%=authdomain%>",
+                projectId: "<%=projectId%>",
+                storageBucket: "<%=storageBucket%>",
+                messagingSenderId: "<%=messagingSenderId%>",
+                appId: "<%=appId%>"
+              };
+              // Initialize Firebase
+              firebase.initializeApp(firebaseConfig);
+            var db = firebase.database().ref();
+            const query = db.child('userdetails').child(uname).on('value',snap =>{
+                console.log(snap.val())
+                 document.getElementById('linkedin1').value =snap.val().Linkedin;
+                 document.getElementById('fb').value =snap.val().Facebook;
+                 document.getElementById('insta').value =snap.val().Instagram;
+                 document.getElementById('portfolio').textContent =snap.val().Portfolio;
+                 document.getElementById('Awards').textContent =snap.val().Awards;
+                 document.getElementById('skill').textContent =snap.val().skill;   
+                 
+
+                
 
 
+            })  
+</script>
 <script type="text/javascript">
     function myfun() {
         // body...

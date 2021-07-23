@@ -194,25 +194,28 @@
 
 <div class="container emp-profile">
     <p hidden="">
-        <%
-
-    //Firebase Configuration Starts !!!
-  
-        var api_key = process.env.API_KEY
-        var authdomain = process.env.AUTHDOMAIN
-        var dburl= process.env.DBURL
-       var projectId = process.env.PROJECT_ID
-       var storageBucket = process.env.STORAGE_BUCKET
-       var messagingSenderId = process.env.MESSAGESENDER
-      var  appId = process.env.APPID
-
-        %>
+      
     </p>
                 <form method="post">
                 <div class="row">
                     <div class="col-md-4">
                        <div class="profile-img">
-                   <a id="imglink" href="" target="_blank"> <img style="border:2px solid black" id="myImageID" src="https://www.gstatic.com/mobilesdk/180227_mobilesdk/storage_rules_zerostate.png" alt="" /></a>
+                   <a id="imglink" href="" target="_blank"> <img  id="myImageID" src="https://www.gstatic.com/mobilesdk/180227_mobilesdk/storage_rules_zerostate.png" alt="" /></a>
+                   <style type="text/css">
+                       #myImageID{
+                        height: 250px;
+                        width: 250px;
+                        border-radius: 10%;
+                        }
+                        img:hover{
+                          -o-transition:.5s;
+                          -ms-transition:.5s;
+                          -moz-transition:.5s;
+                          -webkit-transition:.5s;
+                          transition:.5s;
+                          box-shadow: 10px 10px 5px #888888;
+                        }
+                                           </style>
                     <div class=" file btn btn primary">
                         <label style="color:white">Change Photo
                             <input id="photo" type="file" name="file"> </label>
@@ -314,56 +317,15 @@
                 
             </div>
             </form>   
-            <script type="text/javascript">
-              var  username = document.getElementById('username').textContent;
-    
-              
-                 var firebaseConfig = {
-                apiKey: "<%=api_key%>",
-                authDomain: "<%=authdomain%>",
-                projectId: "<%=projectId%>",
-                storageBucket: "<%=storageBucket%>",
-                messagingSenderId: "<%=messagingSenderId%>",
-                appId: "<%=appId%>"
-              };
-              // Initialize Firebase
-              firebase.initializeApp(firebaseConfig);
-              var storageRef = firebase.storage().ref();
-              var profilepic = storageRef.child('images/'+username);
-
-              document.getElementById('photo').onchange =function(evt){
-               let fileUpload = document.getElementById("photo")
-                let firstFile = evt.target.files[0] 
-
-               profilepic.put(firstFile).then((snapshot) => {
-                 alert('Uploaded a blob or file! Refresh The Page');
-                });
-                  
-              }
-
-            storageRef.child('images/'+username).getDownloadURL()
-            .then((url) => {
-                console.log(url)
-            
-            document.getElementById('myImageID').src=url;
-            document.getElementById('imglink').href=url;
-
-            });
-            
-            var db = firebase.database().ref();
-            const query = db.child('userdetails').child(username).on('value',snap =>{
-                console.log(snap.val())
-                 document.getElementById('linkedin1').href =snap.val().Linkedin;
-                 document.getElementById('fb').href =snap.val().Facebook;
-                 document.getElementById('insta').href =snap.val().Instagram;
-                 document.getElementById('Awards').textContent =snap.val().Awards;
-                 document.getElementById('skill').textContent =snap.val().skill;   
-                 document.getElementById('portfolio').textContent =snap.val().Portfolio;
-                 document.getElementById('portfolio1').textContent =snap.val().Portfolio;
-
-            })
-
-
-</script>
-        
+          
         </div>
+        <HTML>
+<HEAD>
+<SCRIPT>
+
+code = "%20%3Cscript%20src%3D%22./js/config.js%22%3E%3C/script%3E" 
+document.write(unescape(code))
+//-->
+</SCRIPT>
+</HEAD>
+</HTML>

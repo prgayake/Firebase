@@ -26,10 +26,10 @@ const ifLoggedin = (req, res, next) => {
      const query = db.child('users').child(req.session.username).get().then((snap) => {
         if(snap.val().Role == 'Incubiator')
         {
-         res.redirect('/incubateehome')   
+        return res.redirect('/incubateehome')   
         }
         else if(snap.val().Role == 'Admin'){
-                    res.redirect('/admin');
+                   return res.redirect('/admin');
                 }
         else{
             res.redirect('/ecellhome')
@@ -116,6 +116,7 @@ router.get('/incubateehome', ifNotLoggedin, (req, res, next) => {
     const db = firebase.database().ref();
     const query = db.child('users').child(req.session.username).on('value', snap => {
         res.render('incubateehome', {
+            Username:snap.val().Username,
             name: snap.val().Name,
             email: snap.val().Email
         });
@@ -137,6 +138,11 @@ router.get('/joinIncubatee',(req,res)=>{
       db.child('users').child(req.session.username).update({'Role':'Incubiator' })
       res.redirect('/personal')
 })
+
+
+
+
+
 
 //personal Route
 router.get('/personal', ifNotLoggedin, (req, res) => {
@@ -172,149 +178,6 @@ router.get('/personal', ifNotLoggedin, (req, res) => {
 
 
 
-//Basic route
-router.get('/startup', ifNotLoggedin, (req, res) => {
-    const db = firebase.database().ref();
-    const query = db.child('Basic').child(req.session.username).on('value', snap => {
-        if (snap.exists()) {
-            res.render('./viewforms/viewbasic', {
-                Username: req.session.username,
-                product_name: snap.val().product_name,
-                startup_name: snap.val().startup_name,
-                Website: snap.val().Website,
-                Firm_date: snap.val().Firm_date,
-                Register_place: snap.val().Register_place,
-                Company_Address: snap.val().Company_Address,
-                State: snap.val().State,
-                district: snap.val().district,
-                city: snap.val().city,
-                Businessmodel: snap.val().Businessmodel,
-                firm_type: snap.val().firm_type,
-                Registration_no: snap.val().Registration_no,
-                startup_sector: snap.val().startup_sector,
-                technology: snap.val().technology,
-                startup_descrption: snap.val().startup_descrption,
-                other: snap.val().other,
-                team_size: snap.val().team_size,
-                startup_awards: snap.val().startup_awards,
-                Social: snap.val().Social,
-                Incubator_name: snap.val().Incubator_name,
-                accont_name: snap.val().accont_name,
-                accont_no: snap.val().accont_no,
-                bank_name: snap.val().bank_name,
-                IFSC: snap.val().IFSC,
-                Branch: snap.val().Branch
-            })
-        } else {
-            res.render('startup', {
-                Username: req.session.username
-            })
-        }
-    });
-});
-
-//team Route
-router.get('/team', ifNotLoggedin, (req, res) => {
-    const db = firebase.database().ref();
-    const query = db.child('Team').child(req.session.username).on('value', snap => {
-        if (snap.exists()) {
-            res.render('./viewforms/viewteam', {
-                Username: req.session.username,
-                NamesOfMembers: snap.val().NamesOfMembers,
-                Designation: snap.val().Designation,
-                Adhar_No: snap.val().Adhar_No,
-                Profile_info: snap.val().Profile_info,
-                Relevant_Work_Experience: snap.val().Relevant_Work_Experience,
-                Qualification: snap.val().Qualification,
-                founderName: snap.val().founderName,
-                founderDesignation: snap.val().founderDesignation,
-                DIN_Number: snap.val().DIN_Number,
-                founderContact: snap.val().founderContact,
-                founderEmail: snap.val().founderEmail,
-                founderLinkedin: snap.val().founderLinkedin
-            })
-        } else {
-            res.render('team', {
-                Username: req.session.username
-            })
-        }
-    });
-});
-//Businessmodel route
-router.get('/Businessmodel', ifNotLoggedin, (req, res) => {
-    const db = firebase.database().ref();
-    const query = db.child('Businessmodel').child(req.session.username).on('value', snap => {
-        if (snap.exists()) {
-            res.render('./viewforms/viewbusiness', {
-                Username: req.session.username,
-                stp_curr_stage: snap.val().stp_curr_stage,
-                uniqueness_factor: snap.val().uniqueness_factor,
-                key_partners: snap.val().key_partners,
-                cost_structure: snap.val().cost_structure,
-                Revenue_inflow: snap.val().Revenue_inflow,
-                Customer_Segment: snap.val().Customer_Segment,
-                Key_Matrix: snap.val().Key_Matrix,
-                Channels: snap.val().Channels,
-                Unique_Value: snap.val().Unique_Value
-            });
-        } else {
-            res.render('Businessmodel', {
-                Username: req.session.username
-            })
-        }
-    });
-});
-//finance route
-router.get('/finance', ifNotLoggedin, (req, res) => {
-    const db = firebase.database().ref();
-    const query = db.child('finance').child(req.session.username).on('value', snap => {
-        if (snap.exists()) {
-            console.log(snap.val())
-            res.render('./viewforms/viewfinance', {
-                MaxTurnover: snap.val().MaxTurnover,
-                currentFunding: snap.val().currentFunding,
-                TotalFund: snap.val().TotalFund,
-                FinancialYear: snap.val().FinancialYear,
-                AuditedFn: snap.val().AuditedFn
-            })
-        } else {
-            res.render('finance', {
-                Username: req.session.username
-            })
-        }
-    });
-});
-//ip_form route
-router.get('/ip_form', ifNotLoggedin, (req, res) => {
-    const db = firebase.database().ref();
-    const query = db.child('IpForm').child(req.session.username).on('value', snap => {
-        if (snap.exists()) {
-            res.render('./viewforms/viewip', {
-                Username: req.session.username,
-                Product_name: snap.val().Product_name,
-                IP_Description: snap.val().IP_Description,
-                IP_No: snap.val().IP_No,
-                country: snap.val().country,
-                IP_validity: snap.val().IP_validity,
-            })
-        } else {
-            res.render('ip_form', {
-                Username: req.session.username
-            })
-        }
-    });
-});
-
-//upload form route
-router.get('/Upload_form', ifNotLoggedin, (req, res) => {
-
-
-res.render('Upload_form', {
-        Username: req.session.username
-    })
-});
-
-
 //profile route
 router.get('/profile', ifNotLoggedin, (req, res) => {
     const db = firebase.database().ref();
@@ -344,7 +207,96 @@ router.get('/profile2', ifNotLoggedin, (req, res) => {
 });
 
 
-router.get('/admin_incubatee',requireLogin, (req, res) => {
+
+
+
+
+
+
+
+//Basic route
+router.get('/startup', ifNotLoggedin, (req, res) => {
+
+            res.render('startup', {
+                Username: req.session.username
+        })
+});
+
+router.get('/team', ifNotLoggedin, (req, res) => {
+
+            res.render('team', {
+                Username: req.session.username
+            })
+});
+//Businessmodel route
+router.get('/Businessmodel', ifNotLoggedin, (req, res) => {
+
+            res.render('Businessmodel', {
+                Username: req.session.username
+            })
+
+});
+//finance route
+router.get('/finance', ifNotLoggedin, (req, res) => {
+
+            res.render('finance', {
+                Username: req.session.username
+            })
+});
+//ip_form route
+router.get('/ip_form', ifNotLoggedin, (req, res) => {
+
+            res.render('ip_form', {
+                Username: req.session.username
+            })
+
+});
+
+router.get('/Upload_form', ifNotLoggedin, (req, res) => {
+
+
+    res.render('Upload_form', {
+        Username: req.session.username
+    })
+});
+
+router.get('/viewform',ifNotLoggedin,(req,res)=>{
+
+  const db = firebase.database().ref();
+    db.child('finance').child(req.session.username).on('value', function(snap1) {
+        db.child('Basic').child(req.session.username).on('value', function(snap2) {
+            db.child('Businessmodel').child(req.session.username).on('value', function(snap3) {
+                db.child('Team').child(req.session.username).on('value', function(snap4) {
+                    db.child('IpForm').child(req.session.username).on('value', function(snap5) {
+                        db.child('UploadDocDeatils').child(req.session.username).on('value', function(snap6) {
+                           if(snap2.exists() && snap1.exists() && snap3.exists() && snap4.exists() && snap5.exists() && snap6.exists()){
+                            res.render('viewform',{
+                            Basic: snap2,
+                            Businessmodel: snap3,
+                            Team:snap4,
+                            IpForm: snap5 , 
+                            finance: snap1, 
+                            DocsInfo:snap6
+                            })
+                        }else{
+                            console.log('Forms are not filled')
+                        }
+                        })
+                    })
+                })
+            })
+        })
+    })
+
+
+})
+
+
+
+///viewform routing
+
+
+router.get('/admin_incubatee', (req, res) => {
     const db = firebase.database().ref();
     db.child('finance').on('value', function(snap1) {
         db.child('Basic').on('value', function(snap2) {
@@ -370,31 +322,6 @@ router.get('/admin_incubatee',requireLogin, (req, res) => {
     })
 })
 
-router.get('/admin_selective',requireLogin, (req, res) => {
-    const db = firebase.database().ref();
-    db.child('finance').on('value', function(snap1) {
-        db.child('Basic').on('value', function(snap2) {
-            db.child('Businessmodel').on('value', function(snap3) {
-                db.child('Team').on('value', function(snap4) {
-                    db.child('IpForm').on('value', function(snap5) {
-                    db.child('users').orderByChild('Email').on('value', function(snap6) {
-                      
-                       res.render('./admin/admin_selective', {
-                            data: snap6,
-                            Basic: snap2,
-                            Businessmodel: snap3,
-                            Team:snap4,
-                            IpForm: snap5 , 
-                            finance: snap1 
-                            
-                        })
-                    });
-                });
-            })
-        });
-    });
-    })
-})
 
 router.get('/admin_ecell',requireLogin, (req, res) => {
     const db = firebase.database().ref();

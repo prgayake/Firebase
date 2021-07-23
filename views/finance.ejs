@@ -2,7 +2,7 @@
 <html lang="en">
 
  <%- include('./Assets/header'); %>
- <title>Finance Incubatee</title>
+ 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -61,15 +61,27 @@
     <!--        start of form           -->
     <div class="container" id="c1">
         <div class="info">
-            <p> Note : Howering on <img src="info.png" class="info-icon" id="a1" align="info"> Symbol will Tell you More About the Given Field .</p>
+            <p> Note : <img src="info.png" class="info-icon" id="a1" align="info"> Symbol will Tell you More About the Given Field .</p>
             <p> Note : Field with ( <span id="req1">*</span> ) Marked are the Required One .</p>
+            <p> Note : Upload document limit should not exceed 1 MB .</p>
         </div>
         <h6 class="display-6">Financials</h6>
         <br>
         <form action="/finance" method="POST" enctype="multipart/form-data" class="row g-3 needs-validation" id="basic-form">
             <div class="col-md-6">
                 <label for="fUniquenessFactor" class="form-label">Maximum Turnover of Any of the Previous Three Financial Years</label><span id="req1">*</span>
-                <a data-bs-toggle="tooltip" data-bs-placement="top" title="Mention amount of funds available."><img src="info.png" class="info-icon" id="a1" align="info"> </a>
+                <img src="info.png" class="info-icon" onclick="myup9()" id="a1" align="info">
+        <p id="demo9"></p>
+        <script>
+            function myup9() {
+                document.getElementById("demo9").innerHTML = "Mention amount of funds available. <img src='cross.jpg' class='info-icon' onclick='myup19()' id='a1' align='info'>";
+            }
+            function myup19() {
+                document.getElementById("demo9").innerHTML = " ";
+            }
+        </script>
+                
+                <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="c"><img src="info.png" class="info-icon" id="a1" align="info"> </a> -->
                 <select name="max_turnover" class="form-select" aria-label="Default select example" required>
                     <option value="" class="" selected="selected">-- Select an option--</option>
                     <option label="Less than 50 lakh" value="Less than 50 lakh">Less than 50 lakh</option>
@@ -83,7 +95,17 @@
             </div>
             <div class="col-md-6">
                 <label for="fKeyPartners" class="form-label">What is the Startup’s Current Funding Status?</label><span id="req1">*</span>
-                <a data-bs-toggle="tooltip" data-bs-placement="top" title="Specify last source -Name of firm/invester"><img src="info.png" class="info-icon" id="a1" align="info"> </a>
+                <img src="info.png" class="info-icon" onclick="myup6()" id="a1" align="info">
+        <p id="demo6"></p>
+        <script>
+            function myup6() {
+                document.getElementById("demo6").innerHTML = "Specify last source -Name of firm/invester <img src='cross.jpg' class='info-icon' onclick='myup16()' id='a1' align='info'>";
+            }
+            function myup16() {
+                document.getElementById("demo6").innerHTML = " ";
+            }
+        </script>
+                <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Specify last source -Name of firm/invester"><img src="info.png" class="info-icon" id="a1" align="info"> </a> -->
                 <select name="current_funding" class="form-select" aria-label="Default select example" required>
                     <option value="" class="" selected="selected">-- Select an option--</option>
                     <option label="Equity" value="Equity">Equity</option>
@@ -105,7 +127,18 @@
             <br>
             <hr>
             <p><b>Financial Details of last 3 Years (if any)</b>
-                <a data-bs-toggle="tooltip" data-bs-placement="top" title="Financial Details like Balance Sheet / Audit Statement (if any)"><img src="info.png" class="info-icon" id="a1" align="info"> </a></p>
+                <img src="info.png" class="info-icon" onclick="myup7()" id="a1" align="info">
+                <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Financial Details like Balance Sheet / Audit Statement (if any)"><img src="info.png" class="info-icon" id="a1" align="info"> </a>--></p> 
+                
+        <p id="demo7"></p>
+        <script>
+            function myup7() {
+                document.getElementById("demo7").innerHTML = "Financial Details like Balance Sheet / Audit Statement (if any). <img src='cross.jpg' class='info-icon' onclick='myup17()' id='a1' align='info'>";
+            }
+            function myup17() {
+                document.getElementById("demo7").innerHTML = " ";
+            }
+        </script>
             <div class="row g-3">
                 <div class=" col-md-4">
                     <label for="inputPassword4" class="form-label">Financial Year</label>
@@ -117,8 +150,17 @@
                 </div>
                 <div class=" col-md-4">
                     <label for="inputPassword4" class="form-label">Upload Proof(Audited statement from CA)</label>
-                    <input class="form-control" name="media" type="file" id="formFile">
+                    <input class="form-control" onchange="validateSize(this)" name="media" type="file" id="formFile">
                 </div>
+                <script>function validateSize(input) {
+                    const fileSize = input.files[0].size / 1024; // in MiB
+                    if (fileSize > 2) {
+                      alert('File size exceeds 1 MB');
+                      // $(file).val(''); //for clearing with Jquery
+                    } else {
+                      // Proceed further
+                    }
+                  }</script>
                 <div class="field_wrapper">
                     <div>
                         <a href="javascript:void(0);" class="add_button" title="Add field"><img src="add.png" id="a2"></a>
