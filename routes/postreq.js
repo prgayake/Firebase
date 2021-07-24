@@ -61,21 +61,7 @@ const ifNotLoggedin = (req, res, next) => {
 
 const ifLoggedin = (req, res, next) => {
     if (req.session.isLoggedIn) {
-        
-           const db = firebase.database().ref();
-     const query = db.child('users').child(req.session.username).get().then((snap) => {
-        if(snap.val().Role == 'Incubiator')
-        {
-         res.redirect('/incubateehome')   
-        }
-        else if(snap.val().Role == 'Admin'){
-                    res.redirect('/admin');
-                }
-        else{
-            res.redirect('/ecellhome')
-        }
-    
-    });
+        console.log('hey')
     }
     next();
 }

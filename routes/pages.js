@@ -21,21 +21,7 @@ const ifNotLoggedin = (req, res, next) => {
 }
 const ifLoggedin = (req, res, next) => {
     if (req.session.isLoggedIn) {
-        console.log(req.session.isLoggedIn)
-          const db = firebase.database().ref();
-     const query = db.child('users').child(req.session.username).get().then((snap) => {
-        if(snap.val().Role == 'Incubiator')
-        {
-        return res.redirect('/incubateehome')   
-        }
-        else if(snap.val().Role == 'Admin'){
-                   return res.redirect('/admin');
-                }
-        else{
-            res.redirect('/ecellhome')
-        }
-    
-    });
+        console.log('hey')
     }
     next();
 }
@@ -85,6 +71,7 @@ router.get('/ecellhome', ifNotLoggedin, (req, res, next) => {
     const db = firebase.database().ref();
     const query = db.child('users').child(req.session.username).on('value', snap => {
         res.render('ecellhome', {
+            Username:snap.val().Username,
             name: snap.val().Name,
             email: snap.val().Email
         });
@@ -122,22 +109,13 @@ router.get('/incubateehome', ifNotLoggedin, (req, res, next) => {
         });
     });
 });
-router.get('/incubateehome',(req, res) => {
-    
-    res.render('incubateehome', {
-    })
-});
-router.get('/ecellhome',(req, res) => {
-    res.render('ecellhome', {
-        
-    }) 
-});
 
-router.get('/joinIncubatee',(req,res)=>{
+
+router.get('/joinIncubatee',ifNotLoggedin,(req,res)=>{
       const db = firebase.database().ref();
       db.child('users').child(req.session.username).update({'Role':'Incubiator' })
-      res.redirect('/personal')
-})
+            
+      })
 
 
 

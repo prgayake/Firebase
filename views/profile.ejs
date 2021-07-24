@@ -178,6 +178,20 @@
     width: 3.6rem;
     z-index: 10;
 }
+.float{
+    float:right;
+
+}
+.flaot2{
+    display: inline-block;
+}
+.mar{
+    margin:5px;
+}
+#dec
+{
+    text-decoration: none;
+}
 </style>
 <body>
     
@@ -187,40 +201,48 @@
 </body>
 </html>
 <!------ Include the above in your HEAD tag ---------->
-<form method="post">
+<form method="post" class="flaot2">
 <input type="hidden" name="back" value='<%=Role%>'>
-<button type="submit" name="submit" class="btn btn-success" id="bback"><strong>BACK</strong></button>
+<button type="submit" name="submit" class="btn btn-success mar" id="bback"><strong>BACK</strong></button>
+
 </form>
+<button  class="btn btn-success float mar" id="bback"><strong><a href="/profile2" style="color:white" id="dec">EDIT</a></strong></button>
 
 <div class="container emp-profile">
     <p hidden="">
-      
+        <%
+
+    //Firebase Configuration Starts !!!
+  
+        var api_key = process.env.API_KEY
+        var authdomain = process.env.AUTHDOMAIN
+        var dburl= process.env.DBURL
+       var projectId = process.env.PROJECT_ID
+       var storageBucket = process.env.STORAGE_BUCKET
+       var messagingSenderId = process.env.MESSAGESENDER
+      var  appId = process.env.APPID
+
+        %>
     </p>
                 <form method="post">
                 <div class="row">
                     <div class="col-md-4">
                        <div class="profile-img">
-                   <a id="imglink" href="" target="_blank"> <img  id="myImageID" src="https://www.gstatic.com/mobilesdk/180227_mobilesdk/storage_rules_zerostate.png" alt="" /></a>
-                   <style type="text/css">
-                       #myImageID{
-                        height: 250px;
-                        width: 250px;
-                        border-radius: 10%;
-                        }
-                        img:hover{
-                          -o-transition:.5s;
-                          -ms-transition:.5s;
-                          -moz-transition:.5s;
-                          -webkit-transition:.5s;
-                          transition:.5s;
-                          box-shadow: 10px 10px 5px #888888;
-                        }
-                                           </style>
+                   <a id="imglink" href="" target="_blank"> <img style="border:2px solid black" id="myImageID" src="https://www.gstatic.com/mobilesdk/180227_mobilesdk/storage_rules_zerostate.png" alt="" /></a>
                     <div class=" file btn btn primary">
                         <label style="color:white">Change Photo
                             <input id="photo" type="file" name="file"> </label>
                     </div>
                 </div>
+                         <style type="text/css">
+                       #myImageID{
+                        height: 250px;
+                        width: 250px;
+                        border-radius: 3%;
+                        }
+                        
+                    </style>
+
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head">
@@ -239,9 +261,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <a href="/Profile2" class="profile-edit-btn" name="btnAddMore">Edit Profile</a>
-                    </div>
+                   
                 </div>
                 <div class="row">
                     <div class="col-md-4">
@@ -317,8 +337,10 @@
                 
             </div>
             </form>   
-          
+
         </div>
+
+
         <HTML>
 <HEAD>
 <SCRIPT>
