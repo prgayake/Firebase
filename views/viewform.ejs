@@ -24,6 +24,12 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+
 </head>
 
 <body>
@@ -39,7 +45,7 @@
       <ul class="navbar-nav ms-auto">
         
         <li>
-          <a href=""> <button class="btn btn-outline-success">Cancel Application </button></a>
+          <button   id="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-danger">Cancel Application </button>
         </li>
         <li class="nav-item">
           <a href=""> <button class="btn btn-outline-success" onclick="printDiv('printableArea')" value="print a div!">Print</button></a>
@@ -763,3 +769,71 @@
 </body>
 
 </html>
+<!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cancel Application!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <h6>Are You sure about Cancel Application ? </h6>
+                <p style="color: red;">All Details will be deleted permanently</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                
+                <button onclick="cancelapplication()" type="submit" class="btn btn-success"><strong><a style="font-size: 20px;" href="/cancelapplication">CONFIRM</a></strong></button>
+              </div>
+            </div>
+          </div>
+     <p id="username" hidden=""><%=Username%></p>
+          
+        </div>
+
+        <script type="text/javascript">
+  var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})
+</script>
+
+
+
+<script type="text/javascript">
+  function cancelapplication(){
+      var  username = document.getElementById('username').textContent;
+     
+              var firebaseConfig = {
+                projectId: "ecellweb-5bc04",
+                storageBucket: "ecellweb-5bc04.appspot.com"
+              }; 
+
+              firebase.initializeApp(firebaseConfig);
+               var db = firebase.database().ref();
+              var adaRef =db.child('IpForm').child(username);
+             var adaRef1= db.child('Basic').child(username)
+             var adaRef2= db.child('Businessmodel').child(username)
+             var adaRef3= db.child('Team').child(username)
+             var adaRef4= db.child('finance').child(username)
+             var adaRef5= db.child('UploadDocDeatils').child(username)
+              
+             adaRef1.remove()
+              adaRef2.remove()
+              adaRef3.remove()
+              adaRef4.remove()
+              adaRef5.remove()
+              adaRef.remove()
+                .then(function() {
+                  
+                  console.log("Remove succeeded.")
+                })
+                .catch(function(error) {
+                  console.log("Remove failed: " + error.message)
+                });
+                alert('Application Form Cancelled Successfully !!')
+  }
+</script>

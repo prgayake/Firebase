@@ -111,12 +111,6 @@ router.get('/incubateehome', ifNotLoggedin, (req, res, next) => {
 });
 
 
-router.get('/joinIncubatee',ifNotLoggedin,(req,res)=>{
-      const db = firebase.database().ref();
-      db.child('users').child(req.session.username).update({'Role':'Incubiator' })
-            
-      })
-
 
 
 
@@ -239,8 +233,7 @@ router.get('/Upload_form', ifNotLoggedin, (req, res) => {
 });
 
 router.get('/viewform',ifNotLoggedin,(req,res)=>{
-
-  const db = firebase.database().ref();
+    const db = firebase.database().ref();
     db.child('finance').child(req.session.username).on('value', function(snap1) {
         db.child('Basic').child(req.session.username).on('value', function(snap2) {
             db.child('Businessmodel').child(req.session.username).on('value', function(snap3) {
@@ -254,7 +247,8 @@ router.get('/viewform',ifNotLoggedin,(req,res)=>{
                             Team:snap4,
                             IpForm: snap5 , 
                             finance: snap1, 
-                            DocsInfo:snap6
+                            DocsInfo:snap6,
+                            Username:req.session.username
                             })
                         }else{
                             console.log('Forms are not filled')

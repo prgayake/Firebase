@@ -31,7 +31,6 @@ app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use('/', require('./routes/pages'));
 app.use('/', require('./routes/postreq'));
-app.use('/', require('./routes/viewpages.js'));
 
 
 //pages and app configuration Ends Here!!
@@ -140,16 +139,11 @@ app.get('/download', preparezipforall, (req, res) => {
 
 });
 
-app.get('/cancelapplication', (req, res) => {
 
+app.get('/cancelapplication',ifNotLoggedin,(req,res)=>{
     fs.remove('./uploads/upload_forms/'+req.session.username);
-    firebase.database().ref('IpForm').child(req.session.username).remove();
-   
-   
-
-
+    res.redirect('/')
 })
-
 
 
 

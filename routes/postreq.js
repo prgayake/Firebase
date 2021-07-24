@@ -192,6 +192,33 @@ router.post('/register', ifLoggedin, (req, res, next) => {
 
 });
 
+router.post('/joinIncubatee',ifNotLoggedin,(req,res)=>{
+    
+    const db = firebase.database().ref();
+ res.setHeader('Content-Type', 'text/html');
+    const query = db.child('users').child(req.session.username).get().then((snap) => {
+        var name =snap.val().Name
+        const email =snap.val().Email
+        const username =snap.val().Username
+        var phone = snap.val().Mobile
+        var role = req.body.role
+
+     firebase.database().ref('users/' + username).set({
+                    Name: name,
+                    Email: email,
+                    Username: username,
+                    Mobile: phone,
+                    Role: role,
+                    Date: d.getFullYear()
+                })
+
+     res.redirect('/incubateehome')
+
+
+
+ });
+})
+
 // Team Page Post Request
 router.post('/team', function(req, res) {
     console.log('req.body');
