@@ -216,6 +216,7 @@
          <h5  class="btn btn-primary" id="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Submit
         </h5>
+          <a href="/viewform" id="btn2" class="btn btn-primary">View Application</a>
 
 
         <!-- Modal -->
@@ -361,7 +362,10 @@
 
   <!-- Go To Top Link -->
 
-
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+     
  
 
 
@@ -379,3 +383,28 @@ myModal.addEventListener('shown.bs.modal', function () {
 </script> 
 
 
+
+<HTML>
+<HEAD>
+<SCRIPT>
+
+code = "%20%20%3Cscript%20src%3D%22/js/fbconfig.js%22%3E%3C/script%3E%0A" 
+document.write(unescape(code))
+</SCRIPT>
+</HEAD>
+</HTML>
+
+<script type="text/javascript">
+   var  username = '<%=Username%>'
+    
+              firebase.initializeApp(firebaseConfig);
+              var db = firebase.database().ref();
+                 db.child('UploadDocDeatils').child(username).on('value',snap =>{
+                  if(snap.val()!=null){
+                    document.getElementById("btn1").disabled = true;
+                                        alert("Response Recorded ...")
+
+                  }
+
+                 })
+</script
