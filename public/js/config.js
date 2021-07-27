@@ -6,8 +6,20 @@
                 storageBucket: "ecellweb-5bc04.appspot.com"
               }; 
 
+
               firebase.initializeApp(firebaseConfig);
               var storageRef = firebase.storage().ref();
+                 var profilepic = storageRef.child('images/'+username);
+
+              document.getElementById('photo').onchange =function(evt){
+               let fileUpload = document.getElementById("photo")
+                let firstFile = evt.target.files[0] 
+
+               profilepic.put(firstFile).then((snapshot) => {
+                 alert('Uploaded a blob or file! Refresh The Page');
+                });
+                  
+              }
              
             storageRef.child('images/'+username).getDownloadURL()
             .then((url) => {

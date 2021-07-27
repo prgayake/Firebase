@@ -421,7 +421,7 @@ router.post('/Upload_form', upload.array('media'), function(req, res) {
             if (err) {
                 throw err;
             } else {
-                res.redirect('/viewform')
+                res.redirect('/sendmail')
             }
         });
 

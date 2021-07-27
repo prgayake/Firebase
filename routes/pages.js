@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
 const router = express.Router();
 const path = require('path');
+var nodemailer = require('nodemailer');
 const fs = require('fs-extra')
 
 // APPLY COOKIE SESSION MIDDLEWARE starts
@@ -231,6 +232,50 @@ router.get('/Upload_form', ifNotLoggedin, (req, res) => {
         Username: req.session.username
     })
 });
+
+
+router.get('/sendmail',ifNotLoggedin,(req,res)=>{
+    const db = firebase.database().ref();
+    
+    db.child('users').child(req.session.username).on('value', function(snap) {
+
+        
+        var transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: 'anujbarave@gmail.com',
+            pass: 'Anujbarave28@'
+          }
+        });
+
+   
+
+        var mailOptions = {
+          from: 'anujbarave@gmail.com',
+          to: snap.val().Email,
+          subject: 'Ecell Confirmation',
+          html:'<h4 style ="color:green">Dear '+snap.val().Name+'</h4><h4>You have successfully submitted Incubatee Registration details. Wait for the furthur Instruction.<br><br>In Case You have any Query Please contact <a href ="edcell@mitaoe.ac.in"> EDcellMITAOE  </h4> <h5 style="color:#7636BE">Thank You , <br> <a href ="https://ecellwebapp.herokuapp.com/">EDcell MITAOE ,Alandi </h5><br> <img style="width:200px;height:100;" src="https://mitaoe.ac.in/Entrepreneurial-Development-Foundation/images/logo.jpg">',
+          text:''
+
+         
+         
+          
+          } 
+
+
+        transporter.sendMail(mailOptions, function(error, info){
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+            res.redirect('/viewform')
+          }
+    });
+
+    
+    })
+})
+
 
 router.get('/viewform',ifNotLoggedin,(req,res)=>{
     const db = firebase.database().ref();
