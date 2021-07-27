@@ -109,7 +109,7 @@
                 <input type="radio" name="colorRadio" value="n"> No</label>
         </div>
         <br>
-        <form action="/ip_form" method="POST" enctype="multipart/form-data" class="row g-3 needs-validation"
+        <form action="/ip_form" method="POST" enctype="multipart/form-data" class="row g-3"
             id="basic-form">
             <div class="row y selectt mar3">
                 <div class="col-md-6">
@@ -126,7 +126,7 @@
                         }
                     </script>
                     <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Name of your patented product/services"><img src="images/info.png" class="info-icon" id="a1" align="info"> </a> -->
-                    <input type="text" name="Product_name" class="form-control" id="inputProductName1" required>
+                    <input type="text" name="Product_name" class="form-control" id="inputProductName1" >
                 </div>
                 <div class="col-6  ">
                     <label for="fIpDescription" class="form-label">IP Description</label><span id="req1">*</span>
@@ -142,7 +142,7 @@
                     </script>
                     <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Input Short Discription (max 255 Characters) about "><img src="images/info.png" class="info-icon" id="a1" align="info"> </a> -->
                     <textarea class="form-control" name="IP_Description" id="exampleFormControlTextarea1" rows="2"
-                        required></textarea>
+                        ></textarea>
                 </div>
                 <div class="col-md-6  mar3">
                     <label for="fIpNo" class="form-label">IP Number</label><span id="req1">*</span>
@@ -157,7 +157,7 @@
                         }
                     </script>
                     <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Input patent number as per certificate"><img src="images/info.png" class="info-icon" id="a1" align="info"> </a> -->
-                    <input type="text" class="form-control" name="IP_No" id="inputProductName" required>
+                    <input type="text" class="form-control" name="IP_No" id="inputProductName" >
                 </div>
                 <div class="col-6  mar3">
                     <label for="exampleFormControlTextarea1" class="form-label">Country where Applied for
@@ -173,7 +173,7 @@
                         }
                     </script>
                     <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Specify the contry where the patent is obtained"><img src="images/info.png" class="info-icon" id="a1" align="info"> </a> -->
-                    <select class="form-select" name="country" aria-label="Default select example" required>
+                    <select class="form-select" name="country" aria-label="Default select example" >
                         <option value="">Select Contry</option>
                         <option value="Afganistan">Afghanistan</option>
                         <option value="Albania">Albania</option>
@@ -436,7 +436,7 @@
                         }
                     </script>
                     <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Mention the validity date mentioned in the certificate"><img src="images/info.png" class="info-icon" id="a1" align="info"> </a> -->
-                    <input type="Date" name="IP_validity" class="form-control" id="inputAddress2" required>
+                    <input type="Date" name="IP_validity" class="form-control" id="inputAddress2" >
                 </div>
                 <div class="col-md-6  mar3">
                     <label for="fUploadIp" class="form-label">Upload IP Certificate</label>
@@ -457,7 +457,7 @@
             <div class="col-md-5"></div>
             <div class="col-md-7 ">
                 <button type="submit" id="btn1" class="btn btn-primary">Submit</button>
-          <a href="/Businessmodel" id="btn2" class="btn btn-primary">Next</a>
+         
 
             </div>
     </div>
@@ -506,9 +506,6 @@
 
 </style>
 
-<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
 
 </body>
 
@@ -516,29 +513,3 @@
 
 
      
- 
-
-
-<HTML>
-<HEAD>
-<SCRIPT>
-
-code = "%20%20%3Cscript%20src%3D%22/js/fbconfig.js%22%3E%3C/script%3E%0A" 
-document.write(unescape(code))
-</SCRIPT>
-</HEAD>
-</HTML>
-
-<script type="text/javascript">
-   var  username = '<%=Username%>'
-    
-              firebase.initializeApp(firebaseConfig);
-              var db = firebase.database().ref();
-                 db.child('IpForm').child(username).on('value',snap =>{
-                  if(snap.val()!=null){
-                    document.getElementById("btn1").disabled = true;
-                    alert("Response Recorded ...")
-                  }
-
-                 })
-</script>

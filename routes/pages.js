@@ -235,6 +235,7 @@ router.get('/Upload_form', ifNotLoggedin, (req, res) => {
 
 
 
+
 router.get('/viewform',ifNotLoggedin,(req,res)=>{
     const db = firebase.database().ref();
     db.child('finance').child(req.session.username).on('value', function(snap1) {
@@ -243,7 +244,7 @@ router.get('/viewform',ifNotLoggedin,(req,res)=>{
                 db.child('Team').child(req.session.username).on('value', function(snap4) {
                     db.child('IpForm').child(req.session.username).on('value', function(snap5) {
                         db.child('UploadDocDeatils').child(req.session.username).on('value', function(snap6) {
-                           if(snap2.exists() && snap1.exists() && snap3.exists() && snap4.exists() && snap5.exists() && snap6.exists()){
+                           if(snap2.exists() && snap1.exists() && snap3.exists() && snap4.exists() ){
                             res.render('viewform',{
                             Basic: snap2,
                             Businessmodel: snap3,
@@ -254,7 +255,7 @@ router.get('/viewform',ifNotLoggedin,(req,res)=>{
                             Username:req.session.username
                             })
                         }else{
-                            console.log('Forms are not filled')
+                            res.redirect('/')       
                         }
                         })
                     })

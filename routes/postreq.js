@@ -5,6 +5,8 @@ const cookieSession = require('cookie-session');
 const router = express.Router();
 const archiver = require('archiver');
 const path = require('path');
+const nodemailer = require('nodemailer');
+
 var d = new Date();
 const multer = require('multer');
 const fs = require('fs-extra')
@@ -406,7 +408,7 @@ router.post('/profile2', function(req, res) {
 
 router.post('/Upload_form', upload.array('media'), function(req, res) {
     console.log(req.body)
-
+    
     const db = firebase.database().ref();
     db.child('users').child(req.session.username).on('value', function(snap) {
         firebase.database().ref('UploadDocDeatils/' + req.session.username).set({
@@ -418,17 +420,54 @@ router.post('/Upload_form', upload.array('media'), function(req, res) {
 
 
         }, function(err, result) {
-            if (err) {
-                throw err;
-            } else {
-                res.redirect('/viewform')
-            }
+        if (err) {
+            throw err;
+        } else {
+
+    db.child('users').child(req.session.username).on('value', function(snap) {
+
+        
+        var transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: 'prmaratha96k@gmail.com',
+            pass: 'pradyumna@9'
+          }
         });
 
+   
+
+        var mailOptions = {
+          from: 'prmaratha96k@gmail.com',
+          to: snap.val().Email,
+          subject: 'Ecell Confirmation',
+          html:'<h4 style ="color:green">Dear '+snap.val().Name+'</h4><h4>You have successfully submitted Incubatee Registration details. Wait for the furthur Instruction.<br><br>In Case You have any Query Please contact <a href ="edcell@mitaoe.ac.in"> EDcellMITAOE  </h4> <h5 style="color:#7636BE">Thank You , <br> <a href ="https://ecellwebapp.herokuapp.com/">EDcell MITAOE ,Alandi </h5><br> <img style="width:200px;height:100;" src="https://mitaoe.ac.in/Entrepreneurial-Development-Foundation/images/logo.jpg">',
+          text:''
+
+         
+         
+          
+          } 
 
 
-
+        transporter.sendMail(mailOptions, function(error, info){
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+            res.redirect('/')
+          }
     });
+
+    
+    })
+        }
+    })
+        
+    })
+   
+
+     
 });
 
 //forget Password

@@ -25,9 +25,7 @@
 
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+
 
 </head>
 
@@ -45,9 +43,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
         
-        <li>
-          <button   id="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-danger">Cancel Application </button>
-        </li>
+
         <li class="nav-item">
           <a href=""> <button class="btn btn-outline-success" onclick="printDiv('printableArea')" value="print a div!">Print</button></a>
         </li>
@@ -711,12 +707,14 @@
         <div class="fields col-md-10" id="span1">
           <span id="inspan"><%=DocsInfo.val().CompanyRegID%> </span>
         </div>
+        <br>
+         <button   id="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger">Cancel Application </button>
       </div>
 
 
       <br>
 
-
+     
 
 
     </div>
@@ -819,39 +817,3 @@ myModal.addEventListener('shown.bs.modal', function () {
 })
 </script>
 
-
-
-<script type="text/javascript">
-  function cancelapplication(){
-      var  username = document.getElementById('username').textContent;
-     
-              var firebaseConfig = {
-                projectId: "ecellweb-5bc04",
-                storageBucket: "ecellweb-5bc04.appspot.com"
-              }; 
-
-              firebase.initializeApp(firebaseConfig);
-               var db = firebase.database().ref();
-              var adaRef =db.child('IpForm').child(username);
-             var adaRef1= db.child('Basic').child(username)
-             var adaRef2= db.child('Businessmodel').child(username)
-             var adaRef3= db.child('Team').child(username)
-             var adaRef4= db.child('finance').child(username)
-             var adaRef5= db.child('UploadDocDeatils').child(username)
-              
-             adaRef1.remove()
-              adaRef2.remove()
-              adaRef3.remove()
-              adaRef4.remove()
-              adaRef5.remove()
-              adaRef.remove()
-                .then(function() {
-                  
-                  console.log("Remove succeeded.")
-                })
-                .catch(function(error) {
-                  console.log("Remove failed: " + error.message)
-                });
-                alert('Application Form Cancelled Successfully !!')
-  }
-</script>

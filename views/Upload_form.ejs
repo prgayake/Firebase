@@ -214,32 +214,10 @@
         <div class="col-md-5"></div>
         <div class="col-md-7">
 
-         <h5  class="btn btn-primary" id="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Submit
-        </h5>
-          <a href="/viewform" id="btn2" class="btn btn-primary">View Application</a>
+         <button type="submit" id="btn1" class="btn btn-primary">Submit</button>
+         
 
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cancel Application !</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <h6>Are You sure about Submit Application ? </h6>
-                <p style="color: green;">changes will be saved after Submit form</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-                <a href="/viewform"><button class="btn btn-danger">Confirm</button></a>
-              </div>
-            </div>
-          </div>
-        </div>
+       
 
         </div>
       </div>
@@ -380,9 +358,6 @@
 
   <!-- Go To Top Link -->
 
-<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
      
  
 
@@ -401,28 +376,3 @@ myModal.addEventListener('shown.bs.modal', function () {
 </script> 
 
 
-
-<HTML>
-<HEAD>
-<SCRIPT>
-
-code = "%20%20%3Cscript%20src%3D%22/js/fbconfig.js%22%3E%3C/script%3E%0A" 
-document.write(unescape(code))
-</SCRIPT>
-</HEAD>
-</HTML>
-
-<script type="text/javascript">
-   var  username = '<%=Username%>'
-    
-              firebase.initializeApp(firebaseConfig);
-              var db = firebase.database().ref();
-                 db.child('UploadDocDeatils').child(username).on('value',snap =>{
-                  if(snap.val()!=null){
-                    document.getElementById("btn1").disabled = true;
-                                        alert("Response Recorded ...")
-
-                  }
-
-                 })
-</script
