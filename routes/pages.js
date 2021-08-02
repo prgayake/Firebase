@@ -102,11 +102,40 @@ router.get('/forgetpass', (req, res) => {
 router.get('/incubateehome', ifNotLoggedin, (req, res, next) => {
     const db = firebase.database().ref();
     const query = db.child('users').child(req.session.username).on('value', snap => {
-        res.render('incubateehome', {
-            Username:snap.val().Username,
-            name: snap.val().Name,
-            email: snap.val().Email
-        });
+
+      db.child('finance').child(req.session.username).on('value',snap1 => {
+        db.child('Basic').child(req.session.username).on('value',snap2 => {
+            db.child('Businessmodel').child(req.session.username).on('value',snap3 => {
+                db.child('Team').child(req.session.username).on('value',snap4 => {
+                    db.child('IpForm').child(req.session.username).on('value',snap5 => {
+                        db.child('UploadDocDeatils').child(req.session.username).on('value',snap6 =>{
+                           if(snap2.val()!=null && snap1.val()!=null && snap3.val()!=null && snap4.val()!=null && snap6.val()!=null){
+                            res.render('incubateehome', {
+                            Username:snap.val().Username,
+                            name: snap.val().Name,
+                            email: snap.val().Email,
+                            message:'yes'
+                            });
+                                                   
+                            }else{
+                              
+                            res.render('incubateehome', {
+                            Username:snap.val().Username,
+                            name: snap.val().Name,
+                            email: snap.val().Email,
+                            message:'no'
+
+                            });
+                            }
+          
+                 
+                        })
+                      })
+                    })
+                })
+            })
+        })
+        
     });
 });
 
@@ -280,18 +309,20 @@ router.get('/admin_incubatee', (req, res) => {
                 db.child('Team').on('value', function(snap4) {
                     db.child('IpForm').on('value', function(snap5) {
                     db.child('users').orderByChild('Email').on('value', function(snap6) {
-                      
+                       db.child('UploadDocDeatsils').on('value', function(snap7) {  
                        res.render('./admin/admin_incubatee', {
                             data: snap6,
                             Basic: snap2,
                             Businessmodel: snap3,
                             Team:snap4,
                             IpForm: snap5 , 
-                            finance: snap1 
+                            finance: snap1 ,
+                            upload:snap7
                             
                         })
                     });
                 });
+            })
             })
         });
     });
