@@ -109,7 +109,8 @@ router.get('/incubateehome', ifNotLoggedin, (req, res, next) => {
                 db.child('Team').child(req.session.username).on('value',snap4 => {
                     db.child('IpForm').child(req.session.username).on('value',snap5 => {
                         db.child('UploadDocDeatils').child(req.session.username).on('value',snap6 =>{
-                           if(snap2.val()!=null && snap1.val()!=null && snap3.val()!=null && snap4.val()!=null && snap6.val()!=null){
+                           
+                           if(fs.existsSync('./uploads/upload_forms/'+req.session.username) && snap2.val()!=null && snap1.val()!=null && snap3.val()!=null && snap4.val()!=null && snap6.val()!=null){
                             res.render('incubateehome', {
                             Username:snap.val().Username,
                             name: snap.val().Name,
@@ -311,6 +312,8 @@ router.get('/admin_incubatee', (req, res) => {
                     db.child('users').orderByChild('Email').on('value', function(snap6) {
                        db.child('UploadDocDeatsils').on('value', function(snap7) {  
                        res.render('./admin/admin_incubatee', {
+                            count:snap2.numChildren(),
+                        
                             data: snap6,
                             Basic: snap2,
                             Businessmodel: snap3,
@@ -329,6 +332,34 @@ router.get('/admin_incubatee', (req, res) => {
     })
 })
 
+router.get('/incubatees', (req, res) => {
+    const db = firebase.database().ref();
+    db.child('finance').on('value', function(snap1) {
+        db.child('Basic').on('value', function(snap2) {
+            db.child('Businessmodel').on('value', function(snap3) {
+                db.child('Team').on('value', function(snap4) {
+                    db.child('IpForm').on('value', function(snap5) {
+                    db.child('users').orderByChild('Email').on('value', function(snap6) {
+                       db.child('UploadDocDeatsils').on('value', function(snap7) {  
+                       res.render('./admin/incubatees', {
+                            count:snap2.numChildren(),
+                            data: snap6,
+                            Basic: snap2,
+                            Businessmodel: snap3,
+                            Team:snap4,
+                            IpForm: snap5 , 
+                            finance: snap1 ,
+                            upload:snap7
+                            
+                        })
+                    });
+                });
+            })
+            })
+        });
+    });
+    })
+})
 
 router.get('/admin_ecell',requireLogin, (req, res) => {
     const db = firebase.database().ref();

@@ -142,7 +142,7 @@ app.get('/download', preparezipforall, (req, res) => {
 
 });
 
-//
+
 
 app.get('/cancelapplication',ifNotLoggedin,(req,res)=>{
     fs.remove('./uploads/upload_forms/'+req.session.username);
