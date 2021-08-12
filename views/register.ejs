@@ -2,10 +2,8 @@
 <html lang="en" dir="ltr">
 
 <head>
-  
-     <!-- Favicons -->
+       <!-- Favicons -->
   <link rel="icon" type="image/png" href="images/logo.jpg"/>
-<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <title>Register</title>
   <meta charset="utf-8">
   
@@ -96,10 +94,12 @@ input:hover{
         <div class="inputbox">
           <span>EmailID</span>
           <input type="email" name="user_email" id="_remail" class="form-control" placeholder="Email"  required>
+          
         </div>
         <div class="inputbox">
           <span>Username</span>
           <input type="text" name="username" id="_remail" class="form-control" placeholder="Username"  required>
+          <p style="color:red">Note : Please do not use any Symbols like ".", "#", "$", "[", or "]"</p>
         </div>
         <div class="inputbox">
             <span>Mobile Number</span>
@@ -110,8 +110,9 @@ input:hover{
             <span><label for="cars">Type Of Registration</label></span>
                   <select name="role" id="role">
                     <option >Select Option Below</option>
+                    <option value="Incubatee">Incubatee</option>
                     <option value="E-CellMember">E-Cell Member</option>
-                    <option value="Incubiator">Incubatee</option>
+                    
                   </select>
         </div>
 

@@ -1,5 +1,5 @@
  var  username = document.getElementById('username').textContent;
-    
+
                    var firebaseConfig = {
                 projectId: "ecellweb-5bc04",
                 storageBucket: "ecellweb-5bc04.appspot.com"
@@ -14,9 +14,13 @@
                 db.child('Team').child(username).on('value',snap4 => {
                     db.child('IpForm').child(username).on('value',snap5 => {
                         db.child('UploadDocDeatils').child(username).on('value',snap6 =>{
-                           if(snap2.exists() && snap1.exists() && snap3.exists() && snap4.exists() && snap5.exists() && snap6.exists()){
+                           if(snap2.val()!=null && snap1.val()!=null && snap3.val()!=null && snap4.val()!=null && snap6.val()!=null){
                             
-                            document.getElementById('getform').href ='/viewform'
+                              document.getElementById('getform').disabled = true;
+                      
+                            }else{
+                              document.getElementById('viewform').disabled = true;
+
                             }
           
                  

@@ -49,7 +49,8 @@
 
 </head>
 
-<body>
+<body onload="myFunction()">
+<div id="loading"></div>
 
   <!-- MENU BAR -->
   <nav class="navbar navbar-expand-lg">
@@ -305,13 +306,30 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <form method="POST" action="/joinIncubatee">
-                  <input type="text" name="role" value="Incubiator" hidden="">
+                  <input type="text" name="role" value="Incubatee" hidden="">
                 <a href=""><button type="submit" class="btn btn-success">Confirm</button></a></form>
               </div>
             </div>
           </div>
      <p id="username" hidden=""><%=Username%></p>
-          
+              <script>
+  var preloader = document.getElementById("loading");
+    function myFunction(){
+      preloader.style.display = 'none';
+    };
+  </script>
+  <style type="text/css">
+  #loading{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #fff
+  url('https://flevix.com/wp-content/uploads/2019/07/Comp-2.gif')
+   no-repeat center center; 
+  z-index: 99999;
+}
+
+</style>
         </div>
 
         <script type="text/javascript">

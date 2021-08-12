@@ -51,7 +51,7 @@ const ifLoggedin = (req, res, next) => {
 router.get('/', ifNotLoggedin, (req, res) => {
     const db = firebase.database().ref();
      const query = db.child('users').child(req.session.username).get().then((snap) => {
-        if(snap.val().Role == 'Incubiator')
+        if(snap.val().Role == 'Incubatee')
         {
          res.redirect('/incubateehome')   
         }
@@ -232,6 +232,10 @@ router.get('/Upload_form', ifNotLoggedin, (req, res) => {
     })
 });
 
+
+
+
+
 router.get('/viewform',ifNotLoggedin,(req,res)=>{
     const db = firebase.database().ref();
     db.child('finance').child(req.session.username).on('value', function(snap1) {
@@ -240,7 +244,7 @@ router.get('/viewform',ifNotLoggedin,(req,res)=>{
                 db.child('Team').child(req.session.username).on('value', function(snap4) {
                     db.child('IpForm').child(req.session.username).on('value', function(snap5) {
                         db.child('UploadDocDeatils').child(req.session.username).on('value', function(snap6) {
-                           if(snap2.exists() && snap1.exists() && snap3.exists() && snap4.exists() && snap5.exists() && snap6.exists()){
+                           if(snap2.exists() && snap1.exists() && snap3.exists() && snap4.exists() ){
                             res.render('viewform',{
                             Basic: snap2,
                             Businessmodel: snap3,
@@ -251,7 +255,7 @@ router.get('/viewform',ifNotLoggedin,(req,res)=>{
                             Username:req.session.username
                             })
                         }else{
-                            console.log('Forms are not filled')
+                            res.redirect('/')       
                         }
                         })
                     })
@@ -275,6 +279,9 @@ router.get('/admin_incubatee', (req, res) => {
             db.child('Businessmodel').on('value', function(snap3) {
                 db.child('Team').on('value', function(snap4) {
                     db.child('IpForm').on('value', function(snap5) {
+
+                        db.child('UploadDocDeatsils').on('value', function(snap7) {
+
                     db.child('users').orderByChild('Email').on('value', function(snap6) {
                       
                        res.render('./admin/admin_incubatee', {
@@ -283,10 +290,13 @@ router.get('/admin_incubatee', (req, res) => {
                             Businessmodel: snap3,
                             Team:snap4,
                             IpForm: snap5 , 
-                            finance: snap1 
+                            finance: snap1,
+                            upload:snap7
                             
                         })
                     });
+
+                });
                 });
             })
         });
@@ -310,7 +320,7 @@ router.get('/admin_ecell',requireLogin, (req, res) => {
 })
 
 router.get('/admin',requireLogin,(req, res)=>{
-  var children = firebase.database().ref('users').orderByChild('Role').equalTo('Incubiator').once("value", (snapshot) => {
+  var children = firebase.database().ref('users').orderByChild('Role').equalTo('Incubatee').once("value", (snapshot) => {
       const count = snapshot.numChildren();
       console.log("count" + count);
 

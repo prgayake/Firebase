@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/logo.jpg" />
-    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+     <!-- Favicons -->
+  <link rel="icon" type="image/png" href="images/logo.jpg"/>
+
     <title>IP Details Incubatee</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -34,7 +35,8 @@
     </style>
 </head>
 
-<body>
+<body onload="myFunction()">
+<div id="loading"></div>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <a class="navbar-brand" href="/"><img src="images/logo.jpg" alt=""></a>
@@ -107,7 +109,7 @@
                 <input type="radio" name="colorRadio" value="n"> No</label>
         </div>
         <br>
-        <form action="/ip_form" method="POST" enctype="multipart/form-data" class="row g-3 needs-validation"
+        <form action="/ip_form" method="POST" enctype="multipart/form-data" class="row g-3"
             id="basic-form">
             <div class="row y selectt mar3">
                 <div class="col-md-6">
@@ -124,7 +126,7 @@
                         }
                     </script>
                     <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Name of your patented product/services"><img src="images/info.png" class="info-icon" id="a1" align="info"> </a> -->
-                    <input type="text" name="Product_name" class="form-control" id="inputProductName1" required>
+                    <input type="text" name="Product_name" class="form-control" id="inputProductName1" >
                 </div>
                 <div class="col-6  ">
                     <label for="fIpDescription" class="form-label">IP Description</label><span id="req1">*</span>
@@ -140,7 +142,7 @@
                     </script>
                     <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Input Short Discription (max 255 Characters) about "><img src="images/info.png" class="info-icon" id="a1" align="info"> </a> -->
                     <textarea class="form-control" name="IP_Description" id="exampleFormControlTextarea1" rows="2"
-                        required></textarea>
+                        ></textarea>
                 </div>
                 <div class="col-md-6  mar3">
                     <label for="fIpNo" class="form-label">IP Number</label><span id="req1">*</span>
@@ -155,7 +157,7 @@
                         }
                     </script>
                     <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Input patent number as per certificate"><img src="images/info.png" class="info-icon" id="a1" align="info"> </a> -->
-                    <input type="text" class="form-control" name="IP_No" id="inputProductName" required>
+                    <input type="text" class="form-control" name="IP_No" id="inputProductName" >
                 </div>
                 <div class="col-6  mar3">
                     <label for="exampleFormControlTextarea1" class="form-label">Country where Applied for
@@ -171,8 +173,8 @@
                         }
                     </script>
                     <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Specify the contry where the patent is obtained"><img src="images/info.png" class="info-icon" id="a1" align="info"> </a> -->
-                    <select class="form-select" name="country" aria-label="Default select example" required>
-                        <option value="">Select Contry</option>
+                    <select class="form-select" name="country" aria-label="Default select example" >
+                        <option value="">Select country</option>
                         <option value="Afganistan">Afghanistan</option>
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
@@ -434,7 +436,7 @@
                         }
                     </script>
                     <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Mention the validity date mentioned in the certificate"><img src="images/info.png" class="info-icon" id="a1" align="info"> </a> -->
-                    <input type="Date" name="IP_validity" class="form-control" id="inputAddress2" required>
+                    <input type="Date" name="IP_validity" class="form-control" id="inputAddress2" >
                 </div>
                 <div class="col-md-6  mar3">
                     <label for="fUploadIp" class="form-label">Upload IP Certificate</label>
@@ -455,6 +457,8 @@
             <div class="col-md-5"></div>
             <div class="col-md-7 ">
                 <button type="submit" id="btn1" class="btn btn-primary">Submit</button>
+         
+
             </div>
     </div>
     </div>
@@ -481,6 +485,31 @@
                 });
             });
         </script>
+
+
+  <script>
+  var preloader = document.getElementById("loading");
+    function myFunction(){
+      preloader.style.display = 'none';
+    };
+  </script>
+  <style type="text/css">
+  #loading{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #fff
+  url('https://flevix.com/wp-content/uploads/2019/07/Comp-2.gif')
+   no-repeat center center; 
+  z-index: 99999;
+}
+
+</style>
+
+
 </body>
 
 </html>
+
+
+     

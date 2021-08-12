@@ -8,9 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-         <!-- Favicons -->
+     <!-- Favicons -->
   <link rel="icon" type="image/png" href="images/logo.jpg"/>
-<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
     <title>Ecell Admin - Incubatee</title>
     <!-- Bootstrap core CSS-->
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +43,8 @@
     </style>
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="myFunction()"><div id="loading"></div>
+
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
         <a class="navbar-brand mr-1" href="/admin">Ecell Dashboard</a>
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
@@ -161,7 +161,7 @@
                     </div> -->
                 </div>
                 <div>
-                    <span><button class="btn btn-success bgcol2 float-right" onclick="tablesToExcel(['Incubatees','Basic','Team','Businessmodel','ipform','finance'], ['Incubatees','Basic','Team','Businessmodel','IP Form','finance'], 'Incubatee.xls', 'Excel')">Export All To Excel</button></span>
+                    <span><button class="btn btn-success bgcol2 float-right" onclick="tablesToExcel(['Incubatees','Basic','Team','Businessmodel','ipform','finance','upload'], ['Incubatees','Basic','Team','Businessmodel','IP Form','finance','Upload'], 'Incubatee.xls', 'Excel')">Export All To Excel</button></span>
                     <span><a href="/download" title=""><button style="margin-right: 5px;" class="btn  float-right bgcol1">Download All Zips</button></a>
                     </span>
                     <br><br>
@@ -199,7 +199,7 @@
                                 <tbody style="text-align:left">
                                     </tr>
                                     <% data.forEach(function(data){%>
-                                    <%if(data.val().Role== 'Incubiator'){%>
+                                    <%if(data.val().Role== 'Incubatee'){%>
                                     <tr>
                                         <td>
                                             <%=data.val().Name%>
@@ -272,6 +272,26 @@
             </div>
         </div>
     </div>
+
+      <script>
+  var preloader = document.getElementById("loading");
+    function myFunction(){
+      preloader.style.display = 'none';
+    };
+  </script>
+  <style type="text/css">
+  #loading{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #fff
+  url('https://flevix.com/wp-content/uploads/2019/07/Comp-2.gif')
+   no-repeat center center; 
+  z-index: 99999;
+}
+
+</style>
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -302,7 +322,7 @@
                                 <tbody >
                                     </tr>
                                     <% data.forEach(function(data){%>
-                                    <%if(data.val().Role== 'Incubiator'){%>
+                                    <%if(data.val().Role== 'Incubatee'){%>
                                     <tr>
                                         <td>
                                             <%=data.val().Name%>
@@ -357,6 +377,36 @@
             <th>
                 <%=IpForm.val().country%>
             </th>
+        </tr>
+        <% })  %>
+    </tbody>
+</table>
+<table id="upload" hidden>
+    <thead>
+        <tr>
+            <th>CompanyRegID</th>
+            <th>PancardNo</th>
+            <th>PancardNo</th>
+            <th>companyGSTIN</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <% upload.forEach(function(upload){%>
+        <tr>
+            <td>
+                <%=upload.val().CompanyRegID%>
+            </td>
+            <th>
+                <%=upload.val().PancardNo%>
+            </th>
+            <th>
+                <%=upload.val().PancardNo%>
+            </th>
+            <th>
+                <%=upload.val().companyGSTIN%>
+            </th>
+           
         </tr>
         <% })  %>
     </tbody>

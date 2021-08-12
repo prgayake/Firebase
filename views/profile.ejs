@@ -7,7 +7,7 @@
 
      <!-- Favicons -->
   <link rel="icon" type="image/png" href="images/logo.jpg"/>
-<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+
 
     <title><%=Name%>'s Profile </title>
     <!-- CSS only -->
@@ -193,7 +193,9 @@
     text-decoration: none;
 }
 </style>
-<body>
+
+<body onload="myFunction()">
+<div id="loading"></div>
     
 <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
@@ -207,6 +209,7 @@
 
 </form>
 <button  class="btn btn-success float mar" id="bback"><strong><a href="/profile2" style="color:white" id="dec">EDIT</a></strong></button>
+
 
 <div class="container emp-profile">
     <p hidden="">
@@ -339,7 +342,24 @@
             </form>   
 
         </div>
+  <script>
+  var preloader = document.getElementById("loading");
+    function myFunction(){
+      preloader.style.display = 'none';
+    };
+  </script>
+  <style type="text/css">
+  #loading{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #fff
+  url('https://flevix.com/wp-content/uploads/2019/07/Comp-2.gif')
+   no-repeat center center; 
+  z-index: 99999;
+}
 
+</style>
 
         <HTML>
 <HEAD>

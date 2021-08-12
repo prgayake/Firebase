@@ -12,6 +12,8 @@ const multer = require('multer');
 const fs = require('fs-extra')
 
 
+
+
 //Required Packages  End here !!!!
 
 
@@ -90,6 +92,7 @@ function preparezipforall(req, res, next) {
 
 
 
+
 function Preparezipforeach(req, res, next) {
     var output1 = fs.createWriteStream('./uploads/upload_forms/' + req.session.username + '.zip');
     var archive1 = archiver('zip');
@@ -139,11 +142,13 @@ app.get('/download', preparezipforall, (req, res) => {
 
 });
 
+//
 
 app.get('/cancelapplication',ifNotLoggedin,(req,res)=>{
     fs.remove('./uploads/upload_forms/'+req.session.username);
-    res.redirect('/')
+    res.redirect('/logout')
 })
+
 
 
 
@@ -161,4 +166,4 @@ app.get('/logout', (req, res) => {
 });
 
 const port = process.env.PORT || 3020
-app.listen(port, () => console.log("Server is Running...3020"));
+app.listen(port ,() =>, console.log("Server is Running...3000"));
