@@ -165,5 +165,5 @@ app.get('/logout', (req, res) => {
     res.redirect('index');
 });
 
-const port = process.env.PORT || 3020
-app.listen(port ,() =>, console.log("Server is Running...3000"));
+const port = process.env.PORT || 4000
+app.listen(port, () => console.log("Server is Running...",port));

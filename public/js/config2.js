@@ -1,4 +1,5 @@
  var  username = document.getElementById('username').textContent;
+ console.log(username)
 
                    var firebaseConfig = {
                 projectId: "ecellweb-5bc04",
@@ -22,7 +23,8 @@
                               document.getElementById('viewform').disabled = true;
 
                             }
-          
+
+
                  
                         })
                       })

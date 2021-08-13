@@ -214,12 +214,37 @@
         <div class="col-md-5"></div>
         <div class="col-md-7">
 
-         <button type="submit" id="btn1" class="btn btn-primary">Submit</button>
+         <button onclick="alert('Application Form Submitted Succesfully !')" type="submit" id="btn1" class="btn btn-primary">Submit</button>
+         
          
 
        
 
         </div>
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+      <script src="/js/config3.js"></script>
+        
+        <script>
+  
+          var username = '<%= Username%>';
+
+  
+          console.log(username);
+  
+          firebase.initializeApp(firebaseConfig);
+  
+          var db = firebase.database().ref();
+          db.child('UploadDocDeatils').child(username).on('value', snap2 => {
+  
+            if (snap2.val() != null) {
+              //document.getElementById("btn1").disabled = true;
+  
+            }
+  
+          })
+        </script>
       </div>
       <script type="text/javascript">
       
