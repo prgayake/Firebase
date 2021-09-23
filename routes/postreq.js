@@ -193,6 +193,7 @@ router.post('/register', ifLoggedin, (req, res, next) => {
 
 });
 
+/*
 router.post('/joinIncubatee',ifNotLoggedin,(req,res)=>{
     
     const db = firebase.database().ref();
@@ -218,7 +219,7 @@ router.post('/joinIncubatee',ifNotLoggedin,(req,res)=>{
 
 
  });
-})
+})*/
 
 // Team Page Post Request
 router.post('/team', function(req, res) {
